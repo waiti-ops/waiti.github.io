@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="CentOS系统 root 123456 qyz 123456虚拟机=电脑快照=备份创建克隆-创建完整克隆linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费 1.系统路径    /表示根目录    ~表示/root    etc 存放系统配置目录    home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹        (新建一个用户就会在home">
+<meta name="description" content="linux系统的简单使用 CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root etc 存放系统配置目录 home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹(新建一个用户就会在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux系统的简单使用">
 <meta property="og:url" content="http://www.ytalyq.top/2019/06/02/linux基础/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
-<meta property="og:description" content="CentOS系统 root 123456 qyz 123456虚拟机=电脑快照=备份创建克隆-创建完整克隆linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费 1.系统路径    /表示根目录    ~表示/root    etc 存放系统配置目录    home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹        (新建一个用户就会在home">
+<meta property="og:description" content="linux系统的简单使用 CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root etc 存放系统配置目录 home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹(新建一个用户就会在">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-02T03:25:32.000Z">
+<meta property="og:updated_time" content="2020-04-18T07:18:06.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux系统的简单使用">
-<meta name="twitter:description" content="CentOS系统 root 123456 qyz 123456虚拟机=电脑快照=备份创建克隆-创建完整克隆linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费 1.系统路径    /表示根目录    ~表示/root    etc 存放系统配置目录    home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹        (新建一个用户就会在home">
+<meta name="twitter:description" content="linux系统的简单使用 CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root etc 存放系统配置目录 home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹(新建一个用户就会在">
 
 
 
@@ -299,18 +299,74 @@
       
 
       
-        <p>CentOS系统 root 123456 qyz 123456<br>虚拟机=电脑<br>快照=备份<br>创建克隆-创建完整克隆<br>linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费</p>
-<p>1.系统路径<br>    /表示根目录<br>    ~表示/root<br>    etc 存放系统配置目录<br>    home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹<br>        (新建一个用户就会在home下新建一个文件夹)<br>        用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限<br>    root 用户的单独文件夹<br>    usr所有用户安装的软件都放在这个文件夹<br>        在/usr/local下新建tmp文件夹，所有压缩包上传到这个文件夹</p>
-<p>2.常用命令<br>    pwd 打印工作目录，当前所有文件夹的的全路径<br>    cd .. 向上跳一级文件夹<br>    cd 路径 进入指定文件夹<br>    mkdir 新建空文件夹<br>    ls 平铺<br>    ll 详细列表<br>    vi 编辑文件，vi————&gt;insert/i————&gt;编辑内容————&gt;esc————&gt;:wq(保存并退出)//:q!强制退出<br>    vim 编辑文件(如果文件不存在带有创建文件功能)带有颜色的编辑<br>    touch 创建空文件<br>    cat 查看文件全部内容<br>    head [-n] 文件名 查看文件的前n行，默认前10行<br>    tail [-n] 文件名 查看文件的后n行，默认后10行<br>    tailf 动态显示文件后n行内容 常用在显示tomcat日志文件功能<br>    echo ‘内容’ &gt;&gt; 文件名  向文件中添加一些内容<br>    ifconfig 打印网卡信息<br>    reboot 重启<br>    tar zxvf 文件名<br>    cp [-r]原文件 新文件路径    :复制文件<br>        -r 复制文件夹<br>    ctrl+c  中断<br>    mv 原文件  新文件     :剪切(具备重命名的功能)<br>    rm [-rf] 文件名       :删除<br>        -r 删除目录<br>        -f 强制删除，不需要确认<br>    clear 清屏</p>
-<p>3.linux所有需要写路径的地方都支持两种写法<br>    全路径 以/开头<br>    相对路径 从当前资源一步一步寻找其他资源</p>
-<p>4.Xshell<br>    linux的客户端工具<br>    CentOS默认只开启22端口，其他端口都被防火墙拦截</p>
-<p>5.Filezilla工具使用<br>    FTP协议<br>        file transfer protocol<br>        作用：互联网中，计算机之间直接传输文件需要遵循的协议<br>    filezilla<br>        基于FTP协议的客户端工具<br>        使用filezilla可以快速完成文件的传输功能</p>
-<p>6.安装jdk<br>    把压缩包上传到服务器/usr/local/tmp<br>    解压压缩包</p>
-<pre><code>    #tar zxvf 文件名
-把解压后的文件复制到/usr/local/jdk7
-    #cp -r 文件名 /usr/local/jdk7
-配置环境变量，执行命令
-    #vim /etc/profile
+        <h1 id="linux系统的简单使用"><a href="#linux系统的简单使用" class="headerlink" title="linux系统的简单使用"></a>linux系统的简单使用</h1><ul>
+<li>CentOS系统 root yt158851yt   qyz 123456</li>
+<li>虚拟机=电脑</li>
+<li>快照=备份</li>
+<li>创建克隆-创建完整克隆</li>
+<li>linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费</li>
+</ul>
+<h2 id="1-系统路径"><a href="#1-系统路径" class="headerlink" title="1.系统路径"></a>1.系统路径</h2><ul>
+<li>/表示根目录</li>
+<li>~表示/root</li>
+<li>etc 存放系统配置目录</li>
+<li>home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹<pre><code>(新建一个用户就会在home下新建一个文件夹)
+用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限
+</code></pre></li>
+<li>root 用户的单独文件夹</li>
+<li>usr所有用户安装的软件都放在这个文件夹<pre><code>在/usr/local下新建tmp文件夹，所有压缩包上传到这个文件夹
+</code></pre></li>
+</ul>
+<h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2.常用命令"></a>2.常用命令</h2><ol>
+<li>pwd 打印工作目录，当前所有文件夹的的全路径</li>
+<li>cd .. 向上跳一级文件夹</li>
+<li>cd 路径 进入指定文件夹    </li>
+<li>mkdir 新建空文件夹</li>
+<li>ls 平铺</li>
+<li>ll 详细列表</li>
+<li>vi 编辑文件，vi————&gt;insert/i————&gt;编辑内容————&gt;esc————&gt;:wq(保存并退出)//:q!强制退出</li>
+<li>vim 编辑文件(如果文件不存在带有创建文件功能)带有颜色的编辑</li>
+<li>touch 创建空文件</li>
+<li>cat 查看文件全部内容</li>
+<li>head [-n] 文件名 查看文件的前n行，默认前10行</li>
+<li>tail [-n] 文件名 查看文件的后n行，默认后10行</li>
+<li>tailf 动态显示文件后n行内容 常用在显示tomcat日志文件功能</li>
+<li>echo ‘内容’ &gt;&gt; 文件名  向文件中添加一些内容</li>
+<li>ifconfig 打印网卡信息</li>
+<li>reboot 重启</li>
+<li>tar zxvf 文件名</li>
+<li>cp [-r]原文件 新文件路径    :复制文件<pre><code>-r 复制文件夹
+ctrl+c  中断
+mv 原文件  新文件     :剪切(具备重命名的功能)
+rm [-rf] 文件名       :删除
+    -r 删除目录
+    -f 强制删除，不需要确认
+</code></pre></li>
+<li>clear 清屏</li>
+</ol>
+<h2 id="3-linux所有需要写路径的地方都支持两种写法"><a href="#3-linux所有需要写路径的地方都支持两种写法" class="headerlink" title="3.linux所有需要写路径的地方都支持两种写法"></a>3.linux所有需要写路径的地方都支持两种写法</h2><ul>
+<li>全路径 以/开头</li>
+<li>相对路径 从当前资源一步一步寻找其他资源</li>
+</ul>
+<h2 id="4-Xshell"><a href="#4-Xshell" class="headerlink" title="4.Xshell"></a>4.Xshell</h2><ul>
+<li>linux的客户端工具</li>
+<li>CentOS默认只开启22端口，其他端口都被防火墙拦截</li>
+</ul>
+<h2 id="5-Filezilla工具使用"><a href="#5-Filezilla工具使用" class="headerlink" title="5.Filezilla工具使用"></a>5.Filezilla工具使用</h2><ul>
+<li>FTP协议<pre><code>file transfer protocol
+作用：互联网中，计算机之间直接传输文件需要遵循的协议
+</code></pre></li>
+<li>filezilla<pre><code>基于FTP协议的客户端工具
+使用filezilla可以快速完成文件的传输功能
+</code></pre></li>
+</ul>
+<h2 id="6-安装jdk"><a href="#6-安装jdk" class="headerlink" title="6.安装jdk"></a>6.安装jdk</h2><ul>
+<li>把压缩包上传到服务器/usr/local/tmp</li>
+<li>解压压缩包<pre><code>#tar zxvf 文件名
+</code></pre></li>
+<li>把解压后的文件复制到/usr/local/jdk7<pre><code>#cp -r 文件名 /usr/local/jdk7
+</code></pre></li>
+<li>配置环境变量，执行命令<pre><code>    #vim /etc/profile
     修改文件中内容
     (分割使用的是:)
     ($变量名是引用的意思)
@@ -321,86 +377,99 @@
  export PATH=$JAVA_HOME/bin:$PATH
  export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
  }
-解析文件或重启系统
-    #source /etc/profile
-验证配置是否成功
-    #java -version
-</code></pre><p>7.Tomcat配置(linux中绿色表示可执行文件)<br>    把tomcat压缩包上传到服务器<br>    解压tomcat </p>
-<pre><code>    #tar zxvf
-解压后的文件夹复制到/usr/local/tomcat7
-    #cp -r apache-tomcat-7.0.94 /usr/local/tomcat7
-配置环境变量，执行命令
-    #vim /etc/profile
-    修改文件中内容
-    {
-    #export TOMCAT_HOME=/usr/local/tomcat7
-    export CATALINA_HOME=/usr/local/tomcat7
-    }
-放行8080端口
-    #vim /etc/sysconfig/iptables
-    把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)
-    重启服务
-    #service iptables restart (start restart stop)
-启动tomcat,进入tomcat7/bin文件夹
-    直接启动
-        #./startup.sh
-    启动并动态打印启动信息
-        #./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
-</code></pre><p>7.mysql安装<br>    上传解压<br>    复制到/usr/local/mysql</p>
-<pre><code>    #cp -r mysql-5.6.31 /usr/local/mysql
-进入mysql文件夹
-    #cd /usr/local/mysql
-添加用户组，命名为mysql
-    #groupadd mysql
-创建用户mysql，并指定所属群组mysql
-    #useradd -r -g mysql mysql
-变更mysql用户组有操作当前文件夹的权限(必须保证在/usr/local/mysql目录下)
-    #chgrp -R mysql .
-变更mysql用户有操作当前文件夹的权限
-    #chown -R mysql .
-初始化
-判断/etc/my.cnf是否存在，存在就删除
+</code></pre></li>
+<li>解析文件或重启系统<pre><code>#source /etc/profile
+</code></pre></li>
+<li>验证配置是否成功<pre><code>#java -version
+</code></pre></li>
+</ul>
+<h2 id="7-Tomcat配置-linux中绿色表示可执行文件"><a href="#7-Tomcat配置-linux中绿色表示可执行文件" class="headerlink" title="7.Tomcat配置(linux中绿色表示可执行文件)"></a>7.Tomcat配置(linux中绿色表示可执行文件)</h2><ul>
+<li>把tomcat压缩包上传到服务器<pre><code>解压tomcat 
+    #tar zxvf
+</code></pre></li>
+<li>解压后的文件夹复制到/usr/local/tomcat7<pre><code>#cp -r apache-tomcat-7.0.94 /usr/local/tomcat7
+</code></pre></li>
+<li>配置环境变量，执行命令<pre><code>#vim /etc/profile
+修改文件中内容
+{
+#export TOMCAT_HOME=/usr/local/tomcat7
+export CATALINA_HOME=/usr/local/tomcat7
+}
+</code></pre></li>
+<li>放行8080端口<pre><code>#vim /etc/sysconfig/iptables
+把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)
+重启服务
+#service iptables restart (start restart stop)
+</code></pre></li>
+<li>启动tomcat,进入tomcat7/bin文件夹<pre><code>直接启动
+    #./startup.sh
+启动并动态打印启动信息
+    #./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
+</code></pre></li>
+</ul>
+<h2 id="8-mysql安装"><a href="#8-mysql安装" class="headerlink" title="8.mysql安装"></a>8.mysql安装</h2><ul>
+<li>上传解压</li>
+<li>复制到/usr/local/mysql<pre><code>#cp -r mysql-5.6.31 /usr/local/mysql
+</code></pre></li>
+<li>进入mysql文件夹<pre><code>#cd /usr/local/mysql
+</code></pre></li>
+<li>添加用户组，命名为mysql<pre><code>#groupadd mysql
+</code></pre></li>
+<li>创建用户mysql，并指定所属群组mysql<pre><code>#useradd -r -g mysql mysql
+</code></pre></li>
+<li>变更mysql用户组有操作当前文件夹的权限(必须保证在/usr/local/mysql目录下)<pre><code>#chgrp -R mysql .
+</code></pre></li>
+<li>变更mysql用户有操作当前文件夹的权限<pre><code>#chown -R mysql .
+</code></pre></li>
+<li>初始化<pre><code>判断/etc/my.cnf是否存在，存在就删除
     #ls /etc/my.cnf
     #rm /etc/my.cnf    
 初始化数据库
     #./scripts/mysql_install_db --user=mysql 
-修改配置文件
-    复制my.cnf
-    #cp support-files/my-default.cnf /etc/my.cnf 
-    复制启动文件
-    #cp support-files/mysql.server /etc/rc.d/init.d/mysql 
-如果提示没有mysql命令，需要添加软连接
-    #ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql 
-启动数据库
-    #service mysql start 
-操作数据库
-    #mysql -u root -p 
-</code></pre><p>8.忘记mysql root密码的修改方式和修改访问host<br>    进入/etc/my.cnf在[mysql]下添加skip-grant-tables启动安全模式</p>
-<pre><code>    #vi /etc/my.cnf
-重启服务
-    service mysql restart
-登录mysql，输入密码时直接回车
-    #mysql -u root -p
-进入mysql后，使用mysql数据库
-    #use mysql
-修改密码
-    #update user set password= password(&quot;123456&quot;) where user=&apos;root&apos;;
-刷新权限
-    #flush privileges;
-退出mysql编辑模式
-    #exit
-修改访问host
-    #use mysql
-    #grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos; with grant option;
-    #flush privileges;
-    #exit 
-    #vim /etc/sysconfig/iptables
-    复制22端口为3306
-    #service iptables restart
-</code></pre><p>9.导入外部数据库表<br>    进入mysql，使用目标数据库</p>
-<pre><code>#use demo
-#source /usr/local/tmp/demo.sql
-</code></pre>
+</code></pre></li>
+<li>修改配置文件<pre><code>复制my.cnf
+#cp support-files/my-default.cnf /etc/my.cnf 
+复制启动文件
+#cp support-files/mysql.server /etc/rc.d/init.d/mysql 
+</code></pre></li>
+<li>如果提示没有mysql命令，需要添加软连接<pre><code>#ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql 
+</code></pre></li>
+<li>启动数据库<pre><code>#service mysql start 
+</code></pre></li>
+<li>操作数据库<pre><code>#mysql -u root -p 
+</code></pre></li>
+</ul>
+<h2 id="9-忘记mysql-root密码的修改方式和修改访问host"><a href="#9-忘记mysql-root密码的修改方式和修改访问host" class="headerlink" title="9.忘记mysql root密码的修改方式和修改访问host"></a>9.忘记mysql root密码的修改方式和修改访问host</h2><ul>
+<li>进入/etc/my.cnf在[mysql]下添加skip-grant-tables启动安全模式<pre><code>#vi /etc/my.cnf
+</code></pre></li>
+<li>重启服务<pre><code>service mysql restart
+</code></pre></li>
+<li>登录mysql，输入密码时直接回车<pre><code>#mysql -u root -p
+</code></pre></li>
+<li>进入mysql后，使用mysql数据库<pre><code>#use mysql
+</code></pre></li>
+<li>修改密码<pre><code>#update user set password= password(&quot;123456&quot;) where user=&apos;root&apos;;
+</code></pre></li>
+<li>刷新权限<pre><code>#flush privileges;
+</code></pre></li>
+<li>退出mysql编辑模式<pre><code>#exit
+</code></pre></li>
+<li>修改访问host<pre><code>#use mysql
+#grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos; with grant option;
+#flush privileges;
+#exit 
+#vim /etc/sysconfig/iptables
+复制22端口为3306
+#service iptables restart
+</code></pre></li>
+</ul>
+<h2 id="10-导入外部数据库表"><a href="#10-导入外部数据库表" class="headerlink" title="10.导入外部数据库表"></a>10.导入外部数据库表</h2><ul>
+<li><p>进入mysql，使用目标数据库</p>
+<p>​        #use demo</p>
+<p>​        #source /usr/local/tmp/demo.sql<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​            </p>
+</li>
+</ul>
+
       
     </div>
     
@@ -488,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,7 +584,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -533,6 +611,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux系统的简单使用"><span class="nav-number">1.</span> <span class="nav-text">linux系统的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-系统路径"><span class="nav-number">1.1.</span> <span class="nav-text">1.系统路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-常用命令"><span class="nav-number">1.2.</span> <span class="nav-text">2.常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-linux所有需要写路径的地方都支持两种写法"><span class="nav-number">1.3.</span> <span class="nav-text">3.linux所有需要写路径的地方都支持两种写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Xshell"><span class="nav-number">1.4.</span> <span class="nav-text">4.Xshell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Filezilla工具使用"><span class="nav-number">1.5.</span> <span class="nav-text">5.Filezilla工具使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-安装jdk"><span class="nav-number">1.6.</span> <span class="nav-text">6.安装jdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Tomcat配置-linux中绿色表示可执行文件"><span class="nav-number">1.7.</span> <span class="nav-text">7.Tomcat配置(linux中绿色表示可执行文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-mysql安装"><span class="nav-number">1.8.</span> <span class="nav-text">8.mysql安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-忘记mysql-root密码的修改方式和修改访问host"><span class="nav-number">1.9.</span> <span class="nav-text">9.忘记mysql root密码的修改方式和修改访问host</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-导入外部数据库表"><span class="nav-number">1.10.</span> <span class="nav-text">10.导入外部数据库表</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
