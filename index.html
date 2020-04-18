@@ -362,26 +362,17 @@
 <li>网络层：负责信息寻址和将逻辑地址和名字转换为物理地址</li>
 <li>数据链路层：负责从网络层向物理层发送数据帧</li>
 <li>物理层：建立在通信介质基础上的，实现设备之间的物理接口</li>
-<li>总结：<br>应用层：—&gt;为应用程序提供网络服务(用户接口)<pre><code>表示层：---&gt;数据表示
-会话层：---&gt;互联主机通信维持不同应用程序的数据分割
-传输层：---&gt;端到端连接，提供可靠或者不可靠数据传输
-网络层：---&gt;确定地址和最佳路径(逻辑寻址)
-数据链路层：---&gt;介质访问(将数据包组合为字节)
-物理层：---&gt;二进制传输
-</code></pre></li>
+<li>总结：<br>应用层：—&gt;为应用程序提供网络服务(用户接口)<br>表示层：—&gt;数据表示<br>会话层：—&gt;互联主机通信维持不同应用程序的数据分割<br>传输层：—&gt;端到端连接，提供可靠或者不可靠数据传输<br>网络层：—&gt;确定地址和最佳路径(逻辑寻址)<br>数据链路层：—&gt;介质访问(将数据包组合为字节)<br>物理层：—&gt;二进制传输</li>
 </ul>
 <h2 id="OSI七层模型的使用"><a href="#OSI七层模型的使用" class="headerlink" title="OSI七层模型的使用"></a>OSI七层模型的使用</h2><ul>
-<li>计算机1向计算机2发送数据<br>765–[应用层 表示层 会话层]应用进程数据先传送到应用层–加上应用层首部，成为应用层PDU(协议数据单元)  应用层PDU再传输到运输层<pre><code>4--[传输层] 加上运输层首部，成为运输层报文  传送到网路层
-3--[网络层] 加上网络层首部，成为IP数据报(或分组)  传输到数据链路层
-2--[数据链路层]  加上数据链路层首部和尾部，成为数据链路层帧  传送到物理层
-1--[物理层]  把比特流传送到物理媒体   电信号(或光信号) 在物理媒体中传播从发送端物理层传送到接受端物理层
-</code></pre></li>
+<li>计算机1向计算机2发送数据<br>765–[应用层 表示层 会话层]应用进程数据先传送到应用层–加上应用层首部，成为应用层PDU(协议数据单元)  应用层PDU再传输到运输层<br> 4–[传输层] 加上运输层首部，成为运输层报文  传送到网路层<br> 3–[网络层] 加上网络层首部，成为IP数据报(或分组)  传输到数据链路层<br> 2–[数据链路层]  加上数据链路层首部和尾部，成为数据链路层帧  传送到物理层<br> 1–[物理层]  把比特流传送到物理媒体   电信号(或光信号) 在物理媒体中传播从发送端物理层传送到接受端物理层</li>
 <li>反之向上一层层剥离数据首部</li>
 </ul>
 <h2 id="TCP-IP模型各层的主要协议及其功能-4层"><a href="#TCP-IP模型各层的主要协议及其功能-4层" class="headerlink" title="TCP/IP模型各层的主要协议及其功能  4层"></a>TCP/IP模型各层的主要协议及其功能  4层</h2><ul>
-<li>PDU : 对等层之间传递的数据单位<br>APDU–PPDU–SPDU–Segment–Packet–Frame–Bit  [application  presentation session ]<pre><code>TCP/IP :应用层  传输层  网络层  网络接口层
-    目的：解决异种计算机网络通信的问题
-</code></pre></li>
+<li>PDU : 对等层之间传递的数据单位</li>
+<li>APDU–PPDU–SPDU–Segment–Packet–Frame–Bit  [application  presentation session ]</li>
+<li>TCP/IP :应用层  传输层  网络层  网络接口层</li>
+<li>目的：解决异种计算机网络通信的问题</li>
 <li>TCP/IP（Transmission Control Protocol/Internet Protocol，传输控制协议/网际协议）是指能够在多个不同网络间实现信息传输的协议簇。</li>
 <li>TCP/IP协议能够迅速发展起来并成为事实上的标准，是它恰好适应了世界范围内数据通信的需要。它有以下特点：<ol>
 <li>协议标准是完全开放的，可以供用户免费使用，并且独立于特定的计算机硬件与操作系统。</li>
@@ -390,39 +381,48 @@
 <li>高层协议标准化，可以提供多种多样可靠网络服务。</li>
 </ol>
 </li>
-<li>应用层：FTP     文件传输协议<pre><code>TELNET  终端仿真    远程
-DNS     域名--&gt;互联网地址
-</code></pre></li>
-<li>传输层：TCP   Transmission Control Protocol         传输控制协议　　             [可靠流服务 面向连接]<pre><code>UDP   User Datagram Protocol                用户数据报协议
-</code></pre></li>
-<li>网络层: <pre><code>IP:   Internet Protocol                     互联网报文协议                 [数据报服务]
-ICMP: Internet Control Message Protocol     互联网控制报文协议             [差错和控制]
-ARP:  Address Resolution Protocol           地址解析协议                [互联网地址--&gt;物理地址]
-RARP: Reverse Address Resolution Protocol   反向地址解析协议         [物理地址--&gt;互联网地址]
-</code></pre></li>
+<li>应用层：<ul>
+<li>FTP     文件传输协议</li>
+<li>TELNET  终端仿真    远程</li>
+<li>DNS     域名–&gt;互联网地址</li>
+</ul>
+</li>
+<li>传输层：<ul>
+<li>TCP   Transmission Control Protocol         传输控制协议　　             [可靠流服务 面向连接]</li>
+<li>UDP   User Datagram Protocol                用户数据报协议</li>
+</ul>
+</li>
+<li>网络层: <ul>
+<li>IP:   Internet Protocol                     互联网报文协议                 [数据报服务]</li>
+<li>ICMP: Internet Control Message Protocol     互联网控制报文协议             [差错和控制]</li>
+<li>ARP:  Address Resolution Protocol           地址解析协议                [互联网地址–&gt;物理地址]</li>
+<li>RARP: Reverse Address Resolution Protocol   反向地址解析协议         [物理地址–&gt;互联网地址]</li>
+</ul>
+</li>
 <li>网络接口层:</li>
 </ul>
 <h2 id="TCP-IP的基本工作原理"><a href="#TCP-IP的基本工作原理" class="headerlink" title="TCP/IP的基本工作原理"></a>TCP/IP的基本工作原理</h2><ul>
-<li>TCP/IP的文件传输(FTP)封装<br>以太帧头   目的地址   源地址   包类型    包数据      CRC<br>以太帧头    IP头      TCP头         FTP头     IP数据报         </li>
+<li>TCP/IP的文件传输(FTP)封装<br>—-以太帧头   目的地址   源地址   包类型    包数据      CRC<br>—-以太帧头    IP头      TCP头         FTP头     IP数据报         </li>
 </ul>
 <h2 id="网络接口层详解"><a href="#网络接口层详解" class="headerlink" title="网络接口层详解"></a>网络接口层详解</h2><ul>
 <li>IEEE:      Institute of Electrical and Electronics Engineers</li>
-<li><p>IEEE802标准：涉及对象为OSI七层模型中的数据链路层和物理层<br>上述思想把OSI数据链路层分为两个部分</p>
-<ol>
+<li>IEEE802标准：涉及对象为OSI七层模型中的数据链路层和物理层<br>上述思想把OSI数据链路层分为两个部分<ol>
 <li>LLC：逻辑链路控制        功能–连接管理(建立和释放链接)，与高层的接口，帧的可靠，按序传输及流量控制<br>四种数据操作类型：<pre><code>a.不确定的无连接服务        [发送广播数据包]
 b.面向连接的服务            [传输数据文件  需要确认]
 c.带确认的无连接服务        [控制信号   报警信息]
 d.高速传送的服务
 </code></pre></li>
-<li><p>MAC：介质访问控制层    功能–帧的封装和拆分，物理介质传输差错的检测，寻址，实现介质访问控制协议</p>
+<li>MAC：介质访问控制层    功能–帧的封装和拆分，物理介质传输差错的检测，寻址，实现介质访问控制协议</li>
+</ol>
 </li>
-<li><p>MAC决定对传输介质的访问控制分为3种方式</p>
-<pre><code>循环式：每个站点轮流得到发送数据的机会
+</ul>
+<ol start="3">
+<li>MAC决定对传输介质的访问控制分为3种方式<pre><code>循环式：每个站点轮流得到发送数据的机会
 预约式：在传输数据时需要预约资源
 竞争式：按照先到先得的原则发送数据，抢占网络传输资源
 </code></pre></li>
 </ol>
-</li>
+<ul>
 <li>//802.3:  CSMA/CD–载波侦听多路访问/冲突检测<br>//802.4    TOKEN BUS–令牌总线协议<br>//802.5： ToKEN RING–令牌环线协议</li>
 <li><p>局域网使用网络接口层协议代表</p>
 <ul>
@@ -474,18 +474,35 @@ d.高速传送的服务
 <li>数据部分</li>
 </ul>
 <h2 id="IP地址和MAC地址特征分析"><a href="#IP地址和MAC地址特征分析" class="headerlink" title="IP地址和MAC地址特征分析"></a>IP地址和MAC地址特征分析</h2><ul>
-<li>ARP        地址解析协议<ul>
-<li>逻辑地址：工作在网络层<pre><code>全局唯一性        公网IP地址不能冲突
-        用软件实现的网络地址管理
-        二进制为32位  正常以十进制显示
-</code></pre></li>
-<li>物理地址：(硬件地址 MAC地址  链路地址)  工作在网络接口层<pre><code>    本地范围生效 唯一
-            用硬件实现
-            二进制为48位   正常以十六进制表示
-            MAC地址固化在网卡的ROM中
-32位IP地址 -------ARP------&gt;48位以太网地址
-32位IP地址&lt;-------RARP------48位以太网地址
-</code></pre></li>
+<li><p>ARP        地址解析协议</p>
+<ul>
+<li><p>逻辑地址：</p>
+<ul>
+<li>工作在网络层</li>
+<li><p>全局唯一性        公网IP地址不能冲突</p>
+</li>
+<li><p>用软件实现的网络地址管理</p>
+</li>
+<li><p>二进制为32位  正常以十进制显示</p>
+</li>
+</ul>
+</li>
+<li><p>物理地址：</p>
+<ul>
+<li>(硬件地址 MAC地址  链路地址)  工作在网络接口层</li>
+<li><p>本地范围生效 唯一</p>
+</li>
+<li><p>用硬件实现</p>
+</li>
+<li><p>二进制为48位   正常以十六进制表示</p>
+</li>
+<li><p>MAC地址固化在网卡的ROM中</p>
+</li>
+<li><p>32位IP地址 ——-ARP——&gt;48位以太网地址</p>
+</li>
+<li>32位IP地址&lt;——-RARP——48位以太网地址</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>有IP地址为什么还使用MAC地址？<ol>
@@ -502,24 +519,44 @@ d.高速传送的服务
 <li>当想要发送IP数据报时，先在缓存查看　有就加载没有重新写入</li>
 </ul>
 <h2 id="ARP分组封装格式及RARP解析"><a href="#ARP分组封装格式及RARP解析" class="headerlink" title="ARP分组封装格式及RARP解析"></a>ARP分组封装格式及RARP解析</h2><ul>
-<li>ARP数据包<pre><code>硬件类型    16位
-   协议类型    16位
-   硬件长度    8位
-   协议长度    8位
-   操作  请求1  回答2    16位
-   发送方硬件地址        6字节
-   发送方IP地址        4字节
-   目标方硬件地址        6字节
-   目标方IP地址        4字节
-</code></pre></li>
-<li>RARP<br>RARP使只知道自己硬件地址的主机能够知道其IP地址        RARP很少用到</li>
+<li><p>ARP数据包</p>
+<ul>
+<li><p>硬件类型    16位</p>
+</li>
+<li><p>协议类型    16位</p>
+</li>
+<li><p>硬件长度    8位</p>
+</li>
+<li><p>协议长度    8位</p>
+</li>
+<li><p>操作  请求1  回答2    16位</p>
+</li>
+<li><p>发送方硬件地址        6字节</p>
+</li>
+<li><p>发送方IP地址        4字节</p>
+</li>
+<li><p>目标方硬件地址        6字节</p>
+</li>
+<li>目标方IP地址        4字节</li>
+</ul>
+</li>
+<li>RARP<ul>
+<li>RARP使只知道自己硬件地址的主机能够知道其IP地址        RARP很少用到</li>
+</ul>
+</li>
 </ul>
 <h2 id="ICMP基础知识解析-互联网控制消息协议"><a href="#ICMP基础知识解析-互联网控制消息协议" class="headerlink" title="ICMP基础知识解析 (互联网控制消息协议)"></a>ICMP基础知识解析 (互联网控制消息协议)</h2><ul>
-<li>IP缺点:<pre><code>     无差错报告和差错纠正机制
-缺少一种为主机和管理查询的机制
-</code></pre></li>
+<li><p>IP缺点:</p>
+<ul>
+<li><p>无差错报告和差错纠正机制</p>
+</li>
+<li><p>缺少一种为主机和管理查询的机制</p>
+</li>
+</ul>
+</li>
 <li>TTL：每经过一个路由就会减少一个跳数  跳数为0 会丢弃数据包</li>
-<li>ICMP报文首先封装成IP数据报然后传给下一层<br>IP数据报中的协议字段是1 表示IP数据是ICMP报文</li>
+<li>ICMP报文首先封装成IP数据报然后传给下一层</li>
+<li>IP数据报中的协议字段是1 表示IP数据是ICMP报文</li>
 </ul>
 <h2 id="ICMP报文分类和报文结构解析"><a href="#ICMP报文分类和报文结构解析" class="headerlink" title="ICMP报文分类和报文结构解析"></a>ICMP报文分类和报文结构解析</h2><ul>
 <li>ICMP报文种类        <a href="https://blog.csdn.net/qq_35733751/article/details/80043941" target="_blank" rel="noopener">https://blog.csdn.net/qq_35733751/article/details/80043941</a><ol>
@@ -627,22 +664,27 @@ d.高速传送的服务
 </ul>
 </li>
 <li>tracert：路由跟踪        (Linux用 traceroute)<ul>
-<li>源主机从ttl值为1开始发送icmp报文，每次三回合，ttl值每次重新发送都加1 直到能发送到目标主机<br>发送给目标主机也是三回合</li>
+<li>源主机从ttl值为1开始发送icmp报文，每次三回合，ttl值每次重新发送都加1 直到能发送到目标主机  发送给目标主机也是三回合</li>
 </ul>
 </li>
 </ul>
 <h2 id="传输层-TCP协议详解"><a href="#传输层-TCP协议详解" class="headerlink" title="传输层-TCP协议详解"></a>传输层-TCP协议详解</h2><ul>
 <li>分段及封装应用层传来的数据</li>
-<li>分段：每个从应用层到传输层的字节都有一个编号    字节号    <pre><code>字节在传输层组成段后 有一个序号        序号为首个字节的
-                每个西瓜编号    西瓜放一车    车有序号
-          封装：封装传输层的首部数据    端口号(门牌号)
-</code></pre></li>
+<li><p>分段：</p>
+<ul>
+<li>每个从应用层到传输层的字节都有一个编号    字节号    </li>
+<li><p>字节在传输层组成段后 有一个序号        序号为首个字节的</p>
+</li>
+<li><p>每个西瓜编号    西瓜放一车    车有序号</p>
+</li>
+<li><p>封装：封装传输层的首部数据    端口号(门牌号)</p>
+</li>
+</ul>
+</li>
 <li>提供端到端的传输服务</li>
 <li>宏观上端到端(端口到端口)    微观上通过一系列IP层传输</li>
 <li>在发送主机和接受主机之间构建逻辑通信<ul>
-<li>包括两个协议<pre><code>   TCP
-UDP 
-</code></pre></li>
+<li>包括两个协议<br>TCP<br> UDP </li>
 </ul>
 </li>
 <li><p>两台主机进程通信条件</p>
@@ -748,9 +790,8 @@ UDP
 <li>窗口（2字节）：用来告知发送端，接收端的缓存大小，以此控制发送方发送数据的速率，从而达到流量控制，窗口最大为65536</li>
 <li>校验和：用CRC来校验整个TCP报文段，包括tcp头，tcp数据，由发送端进行计算和存储，接收端进行校验，如果接收方发现校验和有差错，则TCP段会被直接丢弃，在计算校验和时，要再TCP报文段的前面加上12字节的伪首部</li>
 <li>紧急指针（2字节）：紧急指针指出在本报文段中的紧急数据的最后一个字节的序号    </li>
-<li>选项部分：长度可变 TCP只规定一种选项，即最大报文段长度MMS(Maxium Segment Size)，MSS告诉对方TCP我的缓存所能接收的报文段的数据字段的最大长度时MSS个字节<pre><code>只出现在SYN=1的报文段
-          MTU:最大传输单元（maximum transmission unit） 1500Byte
-          MSS = MTU-20Byte(IP首部)-20Byte(TCP首部)  一般情况下
+<li>选项部分：长度可变 TCP只规定一种选项，即最大报文段长度MMS(Maxium Segment Size)，MSS告诉对方TCP我的缓存所能接收的报文段的数据字段的最大长度时MSS个字节,只出现在SYN=1的报文段<pre><code>MTU:最大传输单元（maximum transmission unit） 1500Byte
+    MSS = MTU-20Byte(IP首部)-20Byte(TCP首部)  一般情况下
 </code></pre></li>
 <li>填充：使整个首部的长度是4字节的整数倍</li>
 </ul>
@@ -1824,12 +1865,11 @@ A不再发送报文
 <li>/表示根目录</li>
 <li>~表示/root</li>
 <li>etc 存放系统配置目录</li>
-<li>home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹<pre><code>(新建一个用户就会在home下新建一个文件夹)
-  用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限
-</code></pre></li>
+<li>home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹,(新建一个用户就会在home下新建一个文件夹)</li>
+<li>用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限</li>
 <li>root 用户的单独文件夹</li>
-<li>usr所有用户安装的软件都放在这个文件夹<pre><code>在/usr/local下新建tmp文件夹，所有压缩包上传到这个文件夹
-</code></pre></li>
+<li>usr所有用户安装的软件都放在这个文件夹</li>
+<li>在/usr/local下新建tmp文件夹，所有压缩包上传到这个文件夹</li>
 </ul>
 <h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2.常用命令"></a>2.常用命令</h2><ol>
 <li>pwd 打印工作目录，当前所有文件夹的的全路径</li>
@@ -1849,13 +1889,16 @@ A不再发送报文
 <li>ifconfig 打印网卡信息</li>
 <li>reboot 重启</li>
 <li>tar zxvf 文件名</li>
-<li>cp [-r]原文件 新文件路径    :复制文件<pre><code>-r 复制文件夹
-ctrl+c  中断
-mv 原文件  新文件     :剪切(具备重命名的功能)
-rm [-rf] 文件名       :删除
-    -r 删除目录
-    -f 强制删除，不需要确认
-</code></pre></li>
+<li>cp <ul>
+<li>[-r]原文件 新文件路径    :复制文件</li>
+<li>-r 复制文件夹</li>
+<li>ctrl+c  中断</li>
+<li>mv 原文件  新文件     :剪切(具备重命名的功能)</li>
+<li>rm [-rf] 文件名       :删除</li>
+<li>-r 删除目录</li>
+<li>-f 强制删除，不需要确认</li>
+</ul>
+</li>
 <li>clear 清屏</li>
 </ol>
 <h2 id="3-linux所有需要写路径的地方都支持两种写法"><a href="#3-linux所有需要写路径的地方都支持两种写法" class="headerlink" title="3.linux所有需要写路径的地方都支持两种写法"></a>3.linux所有需要写路径的地方都支持两种写法</h2><ul>
@@ -1868,11 +1911,9 @@ rm [-rf] 文件名       :删除
 </ul>
 <h2 id="5-Filezilla工具使用"><a href="#5-Filezilla工具使用" class="headerlink" title="5.Filezilla工具使用"></a>5.Filezilla工具使用</h2><ul>
 <li>FTP协议<pre><code>file transfer protocol
-  作用：互联网中，计算机之间直接传输文件需要遵循的协议
-</code></pre></li>
+</code></pre>  作用：互联网中，计算机之间直接传输文件需要遵循的协议</li>
 <li>filezilla<pre><code>基于FTP协议的客户端工具
-  使用filezilla可以快速完成文件的传输功能
-</code></pre></li>
+</code></pre>  使用filezilla可以快速完成文件的传输功能</li>
 </ul>
 <h2 id="6-安装jdk"><a href="#6-安装jdk" class="headerlink" title="6.安装jdk"></a>6.安装jdk</h2><ul>
 <li>把压缩包上传到服务器/usr/local/tmp</li>
@@ -1880,45 +1921,33 @@ rm [-rf] 文件名       :删除
 </code></pre></li>
 <li>把解压后的文件复制到/usr/local/jdk7<pre><code>#cp -r 文件名 /usr/local/jdk7
 </code></pre></li>
-<li>配置环境变量，执行命令<pre><code>  #vim /etc/profile
-    修改文件中内容
-    (分割使用的是:)
-    ($变量名是引用的意思)
-    (export 添加或者修改系统变量)
-{
-#export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
- export JAVA_HOME=/usr/local/jdk7
- export PATH=$JAVA_HOME/bin:$PATH
- export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
- }
-</code></pre></li>
+<li>配置环境变量，执行命令<pre><code>#vim /etc/profile
+  修改文件中内容
+  (分割使用的是:)
+  ($变量名是引用的意思)
+  (export 添加或者修改系统变量)
+</code></pre>  {<br>  #export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL<pre><code>export JAVA_HOME=/usr/local/jdk7
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+</code></pre>  }</li>
 <li>解析文件或重启系统<pre><code>#source /etc/profile
 </code></pre></li>
 <li>验证配置是否成功<pre><code>#java -version
 </code></pre></li>
 </ul>
 <h2 id="7-Tomcat配置-linux中绿色表示可执行文件"><a href="#7-Tomcat配置-linux中绿色表示可执行文件" class="headerlink" title="7.Tomcat配置(linux中绿色表示可执行文件)"></a>7.Tomcat配置(linux中绿色表示可执行文件)</h2><ul>
-<li>把tomcat压缩包上传到服务器<pre><code>解压tomcat 
-      #tar zxvf
+<li>把tomcat压缩包上传到服务器</li>
+<li>解压tomcat <pre><code>#tar zxvf
 </code></pre></li>
 <li>解压后的文件夹复制到/usr/local/tomcat7<pre><code>#cp -r apache-tomcat-7.0.94 /usr/local/tomcat7
 </code></pre></li>
 <li>配置环境变量，执行命令<pre><code>#vim /etc/profile
-  修改文件中内容
-  {
-  #export TOMCAT_HOME=/usr/local/tomcat7
-  export CATALINA_HOME=/usr/local/tomcat7
-  }
-</code></pre></li>
+</code></pre>  修改文件中内容<br>  {<br>  #export TOMCAT_HOME=/usr/local/tomcat7<br>  export CATALINA_HOME=/usr/local/tomcat7<br>  }</li>
 <li>放行8080端口<pre><code>#vim /etc/sysconfig/iptables
-  把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)
-  重启服务
-  #service iptables restart (start restart stop)
-</code></pre></li>
+</code></pre>  把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)<br>  重启服务<br>  #service iptables restart (start restart stop)</li>
 <li>启动tomcat,进入tomcat7/bin文件夹<pre><code>直接启动
-      #./startup.sh
-  启动并动态打印启动信息
-      #./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
+</code></pre>  #./startup.sh</li>
+<li>启动并动态打印启动信息<pre><code>#./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
 </code></pre></li>
 </ul>
 <h2 id="8-mysql安装"><a href="#8-mysql安装" class="headerlink" title="8.mysql安装"></a>8.mysql安装</h2><ul>
@@ -1938,14 +1967,15 @@ rm [-rf] 文件名       :删除
 <li>初始化<pre><code>判断/etc/my.cnf是否存在，存在就删除
       #ls /etc/my.cnf
       #rm /etc/my.cnf    
-  初始化数据库
-      #./scripts/mysql_install_db --user=mysql 
+</code></pre>  初始化数据库<pre><code>#./scripts/mysql_install_db --user=mysql 
 </code></pre></li>
-<li>修改配置文件<pre><code>复制my.cnf
-  #cp support-files/my-default.cnf /etc/my.cnf 
-  复制启动文件
-  #cp support-files/mysql.server /etc/rc.d/init.d/mysql 
+<li>修改配置文件<pre><code>- 复制my.cnf
+    #cp support-files/my-default.cnf /etc/my.cnf 
+</code></pre><ul>
+<li>复制启动文件<pre><code>#cp support-files/mysql.server /etc/rc.d/init.d/mysql 
 </code></pre></li>
+</ul>
+</li>
 <li>如果提示没有mysql命令，需要添加软连接<pre><code>#ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql 
 </code></pre></li>
 <li>启动数据库<pre><code>#service mysql start 
@@ -1969,18 +1999,14 @@ rm [-rf] 文件名       :删除
 <li>退出mysql编辑模式<pre><code>#exit
 </code></pre></li>
 <li>修改访问host<pre><code>#use mysql
-  #grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos; with grant option;
-  #flush privileges;
-  #exit 
-  #vim /etc/sysconfig/iptables
-  复制22端口为3306
-  #service iptables restart
+</code></pre>  #grant all privileges on <em>.</em> to root@’%’ identified by ‘123456’ with grant option;<br>  #flush privileges;<br>  #exit<br>  #vim /etc/sysconfig/iptables</li>
+<li>复制22端口为3306<pre><code>#service iptables restart
 </code></pre></li>
 </ul>
 <h2 id="10-导入外部数据库表"><a href="#10-导入外部数据库表" class="headerlink" title="10.导入外部数据库表"></a>10.导入外部数据库表</h2><ul>
 <li><p>进入mysql，使用目标数据库</p>
-<p>​        #use demo</p>
-<p>​        #source /usr/local/tmp/demo.sql<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​            </p>
+<p>#use demo</p>
+<p>#source /usr/local/tmp/demo.sql<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​            </p>
 </li>
 </ul>
 
@@ -2137,8 +2163,7 @@ mybatis的动态sql ！
 <ol>
 <li>可以通过主配置文件配置连接池频繁创建、释放数据库连接造成的性能影响</li>
 <li>动态sql解决JDBC中硬编码问题<pre><code>a.Where条件改变
-   b.占位符位置变化
-</code></pre></li>
+</code></pre>   b.占位符位置变化</li>
 <li>可以通过包装类方便的获取数据库查询结果集对象</li>
 <li>使dao层业务逻辑和数据库访问分离更易维护和测试</li>
 </ol>
