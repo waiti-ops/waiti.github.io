@@ -1123,7 +1123,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ytalyq.top/2019/06/02/linux基础/">
+    <link itemprop="mainEntityOfPage" href="http://www.ytalyq.top/2019/06/02/Linux基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="清衍之">
@@ -1142,7 +1142,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/02/linux基础/" itemprop="url">linux系统的简单使用</a></h1>
+                <a class="post-title-link" href="/2019/06/02/Linux基础/" itemprop="url">Linux系统的简单使用</a></h1>
         
 
         <div class="post-meta">
@@ -1194,7 +1194,7 @@
       
         
           
-            <h1 id="linux系统的简单使用"><a href="#linux系统的简单使用" class="headerlink" title="linux系统的简单使用"></a>linux系统的简单使用</h1><ul>
+            <h1 id="Linux系统的简单使用"><a href="#Linux系统的简单使用" class="headerlink" title="Linux系统的简单使用"></a>Linux系统的简单使用</h1><ul>
 <li>CentOS系统 root yt158851yt   qyz 123456</li>
 <li>虚拟机=电脑</li>
 <li>快照=备份</li>
@@ -1206,7 +1206,7 @@
 <li>~表示/root</li>
 <li>etc 存放系统配置目录</li>
 <li>home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹<pre><code>(新建一个用户就会在home下新建一个文件夹)
-用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限
+  用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限
 </code></pre></li>
 <li>root 用户的单独文件夹</li>
 <li>usr所有用户安装的软件都放在这个文件夹<pre><code>在/usr/local下新建tmp文件夹，所有压缩包上传到这个文件夹
@@ -1249,10 +1249,10 @@ rm [-rf] 文件名       :删除
 </ul>
 <h2 id="5-Filezilla工具使用"><a href="#5-Filezilla工具使用" class="headerlink" title="5.Filezilla工具使用"></a>5.Filezilla工具使用</h2><ul>
 <li>FTP协议<pre><code>file transfer protocol
-作用：互联网中，计算机之间直接传输文件需要遵循的协议
+  作用：互联网中，计算机之间直接传输文件需要遵循的协议
 </code></pre></li>
 <li>filezilla<pre><code>基于FTP协议的客户端工具
-使用filezilla可以快速完成文件的传输功能
+  使用filezilla可以快速完成文件的传输功能
 </code></pre></li>
 </ul>
 <h2 id="6-安装jdk"><a href="#6-安装jdk" class="headerlink" title="6.安装jdk"></a>6.安装jdk</h2><ul>
@@ -1261,7 +1261,7 @@ rm [-rf] 文件名       :删除
 </code></pre></li>
 <li>把解压后的文件复制到/usr/local/jdk7<pre><code>#cp -r 文件名 /usr/local/jdk7
 </code></pre></li>
-<li>配置环境变量，执行命令<pre><code>    #vim /etc/profile
+<li>配置环境变量，执行命令<pre><code>  #vim /etc/profile
     修改文件中内容
     (分割使用的是:)
     ($变量名是引用的意思)
@@ -1280,26 +1280,26 @@ rm [-rf] 文件名       :删除
 </ul>
 <h2 id="7-Tomcat配置-linux中绿色表示可执行文件"><a href="#7-Tomcat配置-linux中绿色表示可执行文件" class="headerlink" title="7.Tomcat配置(linux中绿色表示可执行文件)"></a>7.Tomcat配置(linux中绿色表示可执行文件)</h2><ul>
 <li>把tomcat压缩包上传到服务器<pre><code>解压tomcat 
-    #tar zxvf
+      #tar zxvf
 </code></pre></li>
 <li>解压后的文件夹复制到/usr/local/tomcat7<pre><code>#cp -r apache-tomcat-7.0.94 /usr/local/tomcat7
 </code></pre></li>
 <li>配置环境变量，执行命令<pre><code>#vim /etc/profile
-修改文件中内容
-{
-#export TOMCAT_HOME=/usr/local/tomcat7
-export CATALINA_HOME=/usr/local/tomcat7
-}
+  修改文件中内容
+  {
+  #export TOMCAT_HOME=/usr/local/tomcat7
+  export CATALINA_HOME=/usr/local/tomcat7
+  }
 </code></pre></li>
 <li>放行8080端口<pre><code>#vim /etc/sysconfig/iptables
-把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)
-重启服务
-#service iptables restart (start restart stop)
+  把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)
+  重启服务
+  #service iptables restart (start restart stop)
 </code></pre></li>
 <li>启动tomcat,进入tomcat7/bin文件夹<pre><code>直接启动
-    #./startup.sh
-启动并动态打印启动信息
-    #./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
+      #./startup.sh
+  启动并动态打印启动信息
+      #./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
 </code></pre></li>
 </ul>
 <h2 id="8-mysql安装"><a href="#8-mysql安装" class="headerlink" title="8.mysql安装"></a>8.mysql安装</h2><ul>
@@ -1317,15 +1317,15 @@ export CATALINA_HOME=/usr/local/tomcat7
 <li>变更mysql用户有操作当前文件夹的权限<pre><code>#chown -R mysql .
 </code></pre></li>
 <li>初始化<pre><code>判断/etc/my.cnf是否存在，存在就删除
-    #ls /etc/my.cnf
-    #rm /etc/my.cnf    
-初始化数据库
-    #./scripts/mysql_install_db --user=mysql 
+      #ls /etc/my.cnf
+      #rm /etc/my.cnf    
+  初始化数据库
+      #./scripts/mysql_install_db --user=mysql 
 </code></pre></li>
 <li>修改配置文件<pre><code>复制my.cnf
-#cp support-files/my-default.cnf /etc/my.cnf 
-复制启动文件
-#cp support-files/mysql.server /etc/rc.d/init.d/mysql 
+  #cp support-files/my-default.cnf /etc/my.cnf 
+  复制启动文件
+  #cp support-files/mysql.server /etc/rc.d/init.d/mysql 
 </code></pre></li>
 <li>如果提示没有mysql命令，需要添加软连接<pre><code>#ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql 
 </code></pre></li>
@@ -1350,12 +1350,12 @@ export CATALINA_HOME=/usr/local/tomcat7
 <li>退出mysql编辑模式<pre><code>#exit
 </code></pre></li>
 <li>修改访问host<pre><code>#use mysql
-#grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos; with grant option;
-#flush privileges;
-#exit 
-#vim /etc/sysconfig/iptables
-复制22端口为3306
-#service iptables restart
+  #grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos; with grant option;
+  #flush privileges;
+  #exit 
+  #vim /etc/sysconfig/iptables
+  复制22端口为3306
+  #service iptables restart
 </code></pre></li>
 </ul>
 <h2 id="10-导入外部数据库表"><a href="#10-导入外部数据库表" class="headerlink" title="10.导入外部数据库表"></a>10.导入外部数据库表</h2><ul>
