@@ -424,12 +424,11 @@ d.高速传送的服务
 </ol>
 <ul>
 <li>//802.3:  CSMA/CD–载波侦听多路访问/冲突检测<br>//802.4    TOKEN BUS–令牌总线协议<br>//802.5： ToKEN RING–令牌环线协议</li>
-<li><p>局域网使用网络接口层协议代表</p>
-<ul>
-<li><p>以太网</p>
+<li>局域网使用网络接口层协议代表<ul>
+<li>以太网</li>
+</ul>
 </li>
-<li><p>令牌环线协议</p>
-</li>
+<li>令牌环线协议<ul>
 <li>FDDI</li>
 </ul>
 </li>
@@ -790,8 +789,8 @@ d.高速传送的服务
 <li>窗口（2字节）：用来告知发送端，接收端的缓存大小，以此控制发送方发送数据的速率，从而达到流量控制，窗口最大为65536</li>
 <li>校验和：用CRC来校验整个TCP报文段，包括tcp头，tcp数据，由发送端进行计算和存储，接收端进行校验，如果接收方发现校验和有差错，则TCP段会被直接丢弃，在计算校验和时，要再TCP报文段的前面加上12字节的伪首部</li>
 <li>紧急指针（2字节）：紧急指针指出在本报文段中的紧急数据的最后一个字节的序号    </li>
-<li>选项部分：长度可变 TCP只规定一种选项，即最大报文段长度MMS(Maxium Segment Size)，MSS告诉对方TCP我的缓存所能接收的报文段的数据字段的最大长度时MSS个字节,只出现在SYN=1的报文段<pre><code>MTU:最大传输单元（maximum transmission unit） 1500Byte
-    MSS = MTU-20Byte(IP首部)-20Byte(TCP首部)  一般情况下
+<li>选项部分：长度可变 TCP只规定一种选项，即最大报文段长度MMS(Maxium Segment Size)，MSS告诉对方TCP我的缓存所能接收的报文段的数据字段的最大长度时MSS个字节,只出现在SYN=1的报文段<pre><code>      MTU:最大传输单元（maximum transmission unit） 1500Byte
+MSS = MTU-20Byte(IP首部)-20Byte(TCP首部)  一般情况下
 </code></pre></li>
 <li>填充：使整个首部的长度是4字节的整数倍</li>
 </ul>
@@ -1945,8 +1944,9 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 </code></pre>  修改文件中内容<br>  {<br>  #export TOMCAT_HOME=/usr/local/tomcat7<br>  export CATALINA_HOME=/usr/local/tomcat7<br>  }</li>
 <li>放行8080端口<pre><code>#vim /etc/sysconfig/iptables
 </code></pre>  把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)<br>  重启服务<br>  #service iptables restart (start restart stop)</li>
-<li>启动tomcat,进入tomcat7/bin文件夹<pre><code>直接启动
-</code></pre>  #./startup.sh</li>
+<li>启动tomcat,进入tomcat7/bin文件夹</li>
+<li>直接启动<pre><code>#./startup.sh
+</code></pre></li>
 <li>启动并动态打印启动信息<pre><code>#./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
 </code></pre></li>
 </ul>

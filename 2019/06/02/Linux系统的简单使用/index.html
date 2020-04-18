@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="Linux系统的简单使用 CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root etc 存放系统配置目录 home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹,(新建一个用户就会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-18T10:03:49.422Z">
+<meta property="og:updated_time" content="2020-04-18T10:12:42.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux系统的简单使用">
 <meta name="twitter:description" content="Linux系统的简单使用 CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root etc 存放系统配置目录 home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹,(新建一个用户就会">
@@ -390,8 +390,9 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 </code></pre>  修改文件中内容<br>  {<br>  #export TOMCAT_HOME=/usr/local/tomcat7<br>  export CATALINA_HOME=/usr/local/tomcat7<br>  }</li>
 <li>放行8080端口<pre><code>#vim /etc/sysconfig/iptables
 </code></pre>  把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)<br>  重启服务<br>  #service iptables restart (start restart stop)</li>
-<li>启动tomcat,进入tomcat7/bin文件夹<pre><code>直接启动
-</code></pre>  #./startup.sh</li>
+<li>启动tomcat,进入tomcat7/bin文件夹</li>
+<li>直接启动<pre><code>#./startup.sh
+</code></pre></li>
 <li>启动并动态打印启动信息<pre><code>#./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
 </code></pre></li>
 </ul>
