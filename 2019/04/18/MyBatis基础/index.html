@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="MyBatis基础一：基础知识 对原生态jdbc程序问题总结 mybatis框架原理 mybatis 入门程序 用户的增 删 改 查 mybatis开发dao层的两种方法 原始dao开发方法（程序需要编写dao接口和dao实现类）！mybatis的mapper(相当于dao接口)代理开发方法！ mybatis配置文件SqlMapConfig.xml mybatis 核心： mybatis输入映射">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-18T09:46:44.832Z">
+<meta property="og:updated_time" content="2020-05-29T09:14:36.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis基础">
 <meta name="twitter:description" content="MyBatis基础一：基础知识 对原生态jdbc程序问题总结 mybatis框架原理 mybatis 入门程序 用户的增 删 改 查 mybatis开发dao层的两种方法 原始dao开发方法（程序需要编写dao接口和dao实现类）！mybatis的mapper(相当于dao接口)代理开发方法！ mybatis配置文件SqlMapConfig.xml mybatis 核心： mybatis输入映射">
@@ -385,13 +385,13 @@ mybatis的动态sql ！
 </ul>
 </li>
 </ul>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br></pre></td></tr></table></figure>
 
 ​    (4)创建Mapper.xml映射文件
 
 ​        a.导入Mapper文件头
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br><span class="line">	&lt;!DOCTYPE mapper</span><br><span class="line">	PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">	<span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line">	<span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
 
 ​    (5)导入约束
 
