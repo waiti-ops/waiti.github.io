@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.ytalyq.top">
   <title>Java经典问题 | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java经典问题一、运行程序之前​    1.Path 与classpath​    Path顺序：在任意目录下执行Java工具文件–&amp;gt;找到直接执行Java工具文件​                没找到的话–&amp;gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不">
+  <meta name="description" content="一、运行程序之前​    1.Path 与classpath​    Path顺序：在任意目录下执行Java工具文件–&amp;gt;找到直接执行Java工具文件​                没找到的话–&amp;gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不到报错 二、基础">
 <meta name="keywords" content="-Java -问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java经典问题">
 <meta property="og:url" content="http://www.ytalyq.top/2019/08/02/Java面试基础/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
-<meta property="og:description" content="Java经典问题一、运行程序之前​    1.Path 与classpath​    Path顺序：在任意目录下执行Java工具文件–&amp;gt;找到直接执行Java工具文件​                没找到的话–&amp;gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不">
+<meta property="og:description" content="一、运行程序之前​    1.Path 与classpath​    Path顺序：在任意目录下执行Java工具文件–&amp;gt;找到直接执行Java工具文件​                没找到的话–&amp;gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不到报错 二、基础">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-29T13:26:51.155Z">
+<meta property="og:updated_time" content="2020-05-29T14:24:51.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java经典问题">
-<meta name="twitter:description" content="Java经典问题一、运行程序之前​    1.Path 与classpath​    Path顺序：在任意目录下执行Java工具文件–&amp;gt;找到直接执行Java工具文件​                没找到的话–&amp;gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不">
+<meta name="twitter:description" content="一、运行程序之前​    1.Path 与classpath​    Path顺序：在任意目录下执行Java工具文件–&amp;gt;找到直接执行Java工具文件​                没找到的话–&amp;gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不到报错 二、基础">
   
     <link rel="alternative" href="/atom.xml" title="呼啸山庄的哑舍" type="application/atom+xml">
   
@@ -198,7 +198,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java经典问题"><a href="#Java经典问题" class="headerlink" title="Java经典问题"></a>Java经典问题</h1><h2 id="一、运行程序之前"><a href="#一、运行程序之前" class="headerlink" title="一、运行程序之前"></a>一、运行程序之前</h2><p>​    1.Path 与classpath<br>​    Path顺序：在任意目录下执行Java工具文件–&gt;找到直接执行Java工具文件<br>​                没找到的话–&gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中<br>​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不到报错</p>
+        <h2 id="一、运行程序之前"><a href="#一、运行程序之前" class="headerlink" title="一、运行程序之前"></a>一、运行程序之前</h2><p>​    1.Path 与classpath<br>​    Path顺序：在任意目录下执行Java工具文件–&gt;找到直接执行Java工具文件<br>​                没找到的话–&gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中<br>​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不到报错</p>
 <h2 id="二、基础知识"><a href="#二、基础知识" class="headerlink" title="二、基础知识"></a>二、基础知识</h2><h3 id="1-主方法里面的args是什么意思？"><a href="#1-主方法里面的args是什么意思？" class="headerlink" title="1.主方法里面的args是什么意思？"></a>1.主方法里面的args是什么意思？</h3><ul>
 <li>String[] args:是保存运行main函数时输入的参数的字符串数组</li>
 </ul>
@@ -207,6 +207,7 @@ ga('send', 'pageview');
 <li>不同的是&amp;&amp;具有短路功能，当第一个表达式的结果为false则不执行第二个表达式</li>
 </ul>
 <h3 id="3-Java的数据类型"><a href="#3-Java的数据类型" class="headerlink" title="3.Java的数据类型"></a>3.Java的数据类型</h3><p>​    基本数据类型：                                                 引用数据类型：<br>​    整数类型：byte 1字节 -128-127                       类  接口  数组 字符串<br>​                       short 2字节 int 4字节<br>​                       long  8字节<br>​    浮点类型：float 4字节  double  8字节<br>​    字符类型：char 2字节<br>​    Boolean类型：占一位 值只有true false</p>
+<a id="more"></a>
 <h3 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4.==运算符"></a>4.==运算符</h3><p>​        比较运算符，返回值boolean类型，如果比较基本数据类型，比较的是==两边的值是否相等；<br>​        如果比较的引用类型，则比较的是引用的地址，也就是引用变量指向的地址<br>​        比较字符串的内容用equals()方法</p>
 <h3 id="5-什么是实例变量？什么是类变量"><a href="#5-什么是实例变量？什么是类变量" class="headerlink" title="5.什么是实例变量？什么是类变量"></a>5.什么是实例变量？什么是类变量</h3><p>​        1）类变量又叫静态变量，也就是在变量前面加了static，静态变量在创建对象时就已经存在于内存中，随类的创建而创建<br>​        </p>
 <pre><code>2）
@@ -442,11 +443,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
+                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
               </li>
              
               <li class="article-tag-list-item">
