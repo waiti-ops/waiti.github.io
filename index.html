@@ -55,7 +55,7 @@ ga('send', 'pageview');
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #33a3dc"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -73,9 +73,9 @@ ga('send', 'pageview');
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
 				<li><a href="/categories/">分类</a></li>
+	        
+				<li><a href="/tags/">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -114,7 +114,7 @@ ga('send', 'pageview');
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #33a3dc"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -159,9 +159,9 @@ ga('send', 'pageview');
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
-		        
 					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/">标签</a></li>
 		        
 				</ul>
 			</nav>
@@ -210,14 +210,14 @@ ga('send', 'pageview');
 <h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析:"></a>代码解析:</h3><ul>
 <li>第一行包含了 XML 声明      standalone 属性    规定此 SVG 文件是否是“独立的”，或含有对外部文件的引用      standalone=”no” 意味着 SVG 文档会引用一个外部文件 - 在这里，是 DTD 文件 </li>
 <li>第二和第三行引用了这个外部的 SVG DTD。该 DTD 位于 “<a href="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd”。该" target="_blank" rel="noopener">http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd”。该</a> DTD 位于 W3C，含有所有允许的 SVG 元素。 </li>
-<li>SVG 代码以 <raw><svg> 元素开始    开始<code><svg/></code>  结束<code/></svg></raw></li>
+<li>SVG 代码以 ‘<svg>‘ 元素开始    开始<code><svg/></code> 结束’</svg>‘</li>
 <li>width 和 height 属性可设置此 SVG 文档的宽度和高度。version 属性可定义所使用的 SVG 版本，xmlns 属性可定义 SVG 命名空间。 </li>
-<li>SVG 的<code><circle> </circle></code>用来创建一个圆。cx 和 cy 属性定义圆中心的 x 和 y 坐标。如果忽略这两个属性，那么圆点会被设置为 (0, 0)。r 属性定义圆的半径。 </li>
+<li>SVG 的’<circle> ‘用来创建一个圆。cx 和 cy 属性定义圆中心的 x 和 y 坐标。如果忽略这两个属性，那么圆点会被设置为 (0, 0)。r 属性定义圆的半径。 </circle></li>
 <li>stroke 和 stroke-width 属性控制如何显示形状的轮廓。我们把圆的轮廓设置为 2px 宽，黑边框。</li>
 <li>fill 属性设置形状内的颜色。我们把填充颜色设置为红色。</li>
 </ul>
 <h2 id="SVG-文件嵌入-HTML-页面"><a href="#SVG-文件嵌入-HTML-页面" class="headerlink" title="SVG 文件嵌入 HTML 页面"></a>SVG 文件嵌入 HTML 页面</h2><ol>
-<li><p>使用 <code><embed> </code>标签</p>
+<li><p>使用 ‘<embed> ‘标签</p>
 <ul>
 <li><p>合法的XHTML不推荐这个标签           基本语法如下:</p>
 </li>
@@ -225,7 +225,7 @@ ga('send', 'pageview');
 </li>
 </ul>
 </li>
-<li><p>使用 <code><object></object></code> 标签</p>
+<li><p>使用 ‘<object>‘标签</object></p>
 <ul>
 <li><p>HTML4标准       被所有较新的浏览器支持。它的缺点是不允许使用脚本。 </p>
 </li>
@@ -233,7 +233,7 @@ ga('send', 'pageview');
 </li>
 </ul>
 </li>
-<li><p>使用 <code><iframe></iframe></code> 标签</p>
+<li><p>使用 ‘<iframe>‘标签</iframe></p>
 <ul>
 <li><p>标签可工作在大部分的浏览器中。</p>
 </li>
@@ -242,9 +242,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ol>
-<h2 id="SVG-形状"><a href="#SVG-形状" class="headerlink" title="SVG 形状"></a>SVG 形状</h2><h3 id="SVG矩形"><a href="#SVG矩形" class="headerlink" title="SVG矩形"></a>SVG矩形</h3><ol>
-<li><code><rect></rect></code> 标签可用来创建矩形，以及矩形的变种 </li>
-</ol>
+<h2 id="SVG-形状"><a href="#SVG-形状" class="headerlink" title="SVG 形状"></a>SVG 形状</h2><h3 id="SVG矩形"><a href="#SVG矩形" class="headerlink" title="SVG矩形"></a>SVG矩形</h3><p>​    ‘<rect>‘标签可用来创建矩形，以及矩形的变种 </rect></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:rgb(0,0,255);stroke-width:1;</span></span></span><br><span class="line"><span class="tag"><span class="string">stroke:rgb(0,0,0)"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -274,7 +272,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h3 id="SVG圆形"><a href="#SVG圆形" class="headerlink" title="SVG圆形"></a>SVG圆形</h3><p><code><circle> </circle></code> 标签可用来创建一个圆</p>
+<h3 id="SVG圆形"><a href="#SVG圆形" class="headerlink" title="SVG圆形"></a>SVG圆形</h3><p>​    ‘<circle>‘标签可用来创建一个圆</circle></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"100"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"40"</span> <span class="attr">stroke</span>=<span class="string">"black"</span></span></span><br><span class="line"><span class="tag"><span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"red"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -283,7 +281,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h3 id="SVG椭圆"><a href="#SVG椭圆" class="headerlink" title="SVG椭圆"></a>SVG椭圆</h3><p><code><ellipse></ellipse></code> 标签可用来创建椭圆</p>
+<h3 id="SVG椭圆"><a href="#SVG椭圆" class="headerlink" title="SVG椭圆"></a>SVG椭圆</h3><p>​        ‘<ellipse>‘标签可用来创建椭圆</ellipse></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"300"</span> <span class="attr">cy</span>=<span class="string">"150"</span> <span class="attr">rx</span>=<span class="string">"200"</span> <span class="attr">ry</span>=<span class="string">"80"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:rgb(200,100,50);</span></span></span><br><span class="line"><span class="tag"><span class="string">stroke:rgb(0,0,100);stroke-width:2"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -302,7 +300,7 @@ ga('send', 'pageview');
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"240"</span> <span class="attr">cy</span>=<span class="string">"100"</span> <span class="attr">rx</span>=<span class="string">"220"</span> <span class="attr">ry</span>=<span class="string">"30"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:yellow"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"220"</span> <span class="attr">cy</span>=<span class="string">"100"</span> <span class="attr">rx</span>=<span class="string">"190"</span> <span class="attr">ry</span>=<span class="string">"20"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:white"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="SVG线条"><a href="#SVG线条" class="headerlink" title="SVG线条"></a>SVG线条</h3><p><code><line></line></code> 标签用来创建线条</p>
+<h3 id="SVG线条"><a href="#SVG线条" class="headerlink" title="SVG线条"></a>SVG线条</h3><p>​    ‘<line>‘ 标签用来创建线条</line></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">"0"</span> <span class="attr">y1</span>=<span class="string">"0"</span> <span class="attr">x2</span>=<span class="string">"300"</span> <span class="attr">y2</span>=<span class="string">"300"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"stroke:rgb(99,99,99);stroke-width:2"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -313,7 +311,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h3 id="SVG多边形"><a href="#SVG多边形" class="headerlink" title="SVG多边形"></a>SVG多边形</h3><p><code><polygon></polygon></code> 标签用来创建含有不少于三个边的图形</p>
+<h3 id="SVG多边形"><a href="#SVG多边形" class="headerlink" title="SVG多边形"></a>SVG多边形</h3><p>​    ‘<polygon>‘ 标签用来创建含有不少于三个边的图形</polygon></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">"220,100 300,210 170,250"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:#cccccc;</span></span></span><br><span class="line"><span class="tag"><span class="string">stroke:#000000;stroke-width:1"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -321,12 +319,12 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h3 id="SVG折线"><a href="#SVG折线" class="headerlink" title="SVG折线"></a>SVG折线</h3><p><code><polyline> </polyline></code>标签用来创建仅包含直线的形状</p>
+<h3 id="SVG折线"><a href="#SVG折线" class="headerlink" title="SVG折线"></a>SVG折线</h3><p>​    ‘<polyline> ‘标签用来创建仅包含直线的形状</polyline></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">"0,0 0,20 20,20 20,40 40,40 40,60"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:white;stroke:red;stroke-width:2"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="SVG-路径"><a href="#SVG-路径" class="headerlink" title="SVG 路径"></a>SVG 路径</h3><p><code><path></path></code> 标签用来定义路径</p>
+<h3 id="SVG-路径"><a href="#SVG-路径" class="headerlink" title="SVG 路径"></a>SVG 路径</h3><p>​    ‘<path>‘ 标签用来定义路径</path></p>
 <ul>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M250 150 L150 350 L350 350 Z"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -354,16 +352,16 @@ ga('send', 'pageview');
 <li>每个SVG元素可以使用多个滤镜</li>
 </ul>
 <h3 id="SVG-高斯模糊"><a href="#SVG-高斯模糊" class="headerlink" title="SVG 高斯模糊"></a>SVG 高斯模糊</h3><ul>
-<li><p><code><filter></filter></code> 标签用来定义 SVG 滤镜。<code><filter></filter></code> 标签使用必需的 id 属性来定义向图形应用哪个滤镜？</p>
+<li><p>‘<filter>‘标签用来定义 SVG 滤镜。’<filter>‘标签使用必需的 id 属性来定义向图形应用哪个滤镜？</filter></filter></p>
 </li>
-<li><p><code><filter></filter></code> 标签必须嵌套在<code> <defs></defs></code> 标签内。<code><defs> </defs></code>标签是 definitions 的缩写，它允许对诸如滤镜等特殊元素进行定义。</p>
+<li><p>‘<filter>‘ 标签必须嵌套在’ <defs>‘标签内。’<defs> ‘标签是 definitions 的缩写，它允许对诸如滤镜等特殊元素进行定义。</defs></defs></filter></p>
 </li>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span> <span class="attr">id</span>=<span class="string">"Gaussian_Blur"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">feGaussianBlur</span> <span class="attr">in</span>=<span class="string">"SourceGraphic"</span> <span class="attr">stdDeviation</span>=<span class="string">"3"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"200"</span> <span class="attr">cy</span>=<span class="string">"150"</span> <span class="attr">rx</span>=<span class="string">"70"</span> <span class="attr">ry</span>=<span class="string">"40"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:#ff0000;stroke:#000000;</span></span></span><br><span class="line"><span class="tag"><span class="string">stroke-width:2;filter:url(#Gaussian_Blur)"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><code><filter> </filter></code>标签的 id 属性可为滤镜定义一个唯一的名称（同一滤镜可被文档中的多个元素使用）</li>
+<li>‘<filter> ‘标签的 id 属性可为滤镜定义一个唯一的名称（同一滤镜可被文档中的多个元素使用）</filter></li>
 <li>filter:url 属性用来把元素链接到滤镜。当链接滤镜 id 时，必须使用 # 字符</li>
-<li>滤镜效果是通过 <code><fegaussianblur> </fegaussianblur></code>标签进行定义的。fe 后缀可用于所有的滤镜</li>
-<li><code><fegaussianblur> </fegaussianblur></code>标签的 stdDeviation 属性可定义模糊的程度</li>
+<li>滤镜效果是通过 ‘<fegaussianblur> ‘标签进行定义的。fe 后缀可用于所有的滤镜</fegaussianblur></li>
+<li>‘<fegaussianblur> ‘标签的 stdDeviation 属性可定义模糊的程度</fegaussianblur></li>
 <li>in=”SourceGraphic” 这个部分定义了由整个图像创建效果</li>
 </ul>
 </li>
@@ -374,9 +372,9 @@ ga('send', 'pageview');
 </ul>
 <h2 id="SVG-渐变"><a href="#SVG-渐变" class="headerlink" title="SVG 渐变"></a>SVG 渐变</h2><p> 渐变是一种从一种颜色到另一种颜色的平滑过渡。另外，可以把多个颜色的过渡应用到同一个元素上。 </p>
 <h3 id="SVG线性渐变"><a href="#SVG线性渐变" class="headerlink" title="SVG线性渐变"></a>SVG线性渐变</h3><ul>
-<li><p><code><lineargradient> </lineargradient></code>可用来定义 SVG 的线性渐变。</p>
+<li><p>‘<lineargradient> ‘可用来定义 SVG 的线性渐变。</lineargradient></p>
 </li>
-<li><p><code><lineargradient> </lineargradient></code>标签必须嵌套在 <code><defs> </defs></code>的内部。<code><defs> </defs></code>标签是 definitions 的缩写，它可对诸如渐变之类的特殊元素进行定义。</p>
+<li><p>‘<lineargradient>‘标签必须嵌套在’<defs> ‘的内部。’<defs> ‘标签是 definitions 的缩写，它可对诸如渐变之类的特殊元素进行定义。</defs></defs></lineargradient></p>
 </li>
 <li><p>线性渐变可被定义为水平、垂直或角形的渐变：</p>
 <ul>
@@ -387,10 +385,10 @@ ga('send', 'pageview');
 </li>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">linearGradient</span> <span class="attr">id</span>=<span class="string">"orange_red"</span> <span class="attr">x1</span>=<span class="string">"0%"</span> <span class="attr">y1</span>=<span class="string">"0%"</span> <span class="attr">x2</span>=<span class="string">"100%"</span> <span class="attr">y2</span>=<span class="string">"0%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"0%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(255,255,0);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"100%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(255,0,0);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">linearGradient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"200"</span> <span class="attr">cy</span>=<span class="string">"190"</span> <span class="attr">rx</span>=<span class="string">"85"</span> <span class="attr">ry</span>=<span class="string">"55"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:url(#orange_red)"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><code><lineargradient></lineargradient></code> 标签的 id 属性可为渐变定义一个唯一的名称</li>
+<li>‘<lineargradient>‘ 标签的 id 属性可为渐变定义一个唯一的名称</lineargradient></li>
 <li>fill:url(#orange_red) 属性把 ellipse 元素链接到此渐变</li>
-<li><code><lineargradient></lineargradient></code> 标签的 x1、x2、y1、y2 属性可定义渐变的开始和结束位置</li>
-<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个 <code><stop> </stop></code>标签来规定。offset 属性用来定义渐变的开始和结束位置。</li>
+<li>‘<lineargradient>‘ 标签的 x1、x2、y1、y2 属性可定义渐变的开始和结束位置</lineargradient></li>
+<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个 ‘<stop> ‘标签来规定。offset 属性用来定义渐变的开始和结束位置。</stop></li>
 </ul>
 </li>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">linearGradient</span> <span class="attr">id</span>=<span class="string">"orange_red"</span> <span class="attr">x1</span>=<span class="string">"0%"</span> <span class="attr">y1</span>=<span class="string">"0%"</span> <span class="attr">x2</span>=<span class="string">"0%"</span> <span class="attr">y2</span>=<span class="string">"100%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"0%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(255,255,0);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"100%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(255,0,0);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">linearGradient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"200"</span> <span class="attr">cy</span>=<span class="string">"190"</span> <span class="attr">rx</span>=<span class="string">"85"</span> <span class="attr">ry</span>=<span class="string">"55"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:url(#orange_red)"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -400,16 +398,16 @@ ga('send', 'pageview');
 </li>
 </ul>
 <h3 id="SVG-放射性渐变"><a href="#SVG-放射性渐变" class="headerlink" title="SVG 放射性渐变"></a>SVG 放射性渐变</h3><ul>
-<li><p><code><radialgradient> </radialgradient></code>用来定义放射性渐变。</p>
+<li><p>‘<radialgradient> ‘用来定义放射性渐变。</radialgradient></p>
 </li>
-<li><p><code><radialgradient> </radialgradient></code>标签必须嵌套在<code> <defs></defs></code> 中。<code><defs></defs></code> 标签是 definitions 的缩写，它允许对诸如渐变等特殊元素进行定义。</p>
+<li><p>‘<radialgradient> ‘标签必须嵌套在’ <defs>‘ 中。’<defs>‘ 标签是 definitions 的缩写，它允许对诸如渐变等特殊元素进行定义。</defs></defs></radialgradient></p>
 </li>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">radialGradient</span> <span class="attr">id</span>=<span class="string">"grey_blue"</span> <span class="attr">cx</span>=<span class="string">"50%"</span> <span class="attr">cy</span>=<span class="string">"50%"</span> <span class="attr">r</span>=<span class="string">"50%"</span></span></span><br><span class="line"><span class="tag"><span class="attr">fx</span>=<span class="string">"50%"</span> <span class="attr">fy</span>=<span class="string">"50%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"0%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(200,200,200);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:0"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"100%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(0,0,255);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">radialGradient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"230"</span> <span class="attr">cy</span>=<span class="string">"200"</span> <span class="attr">rx</span>=<span class="string">"110"</span> <span class="attr">ry</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:url(#grey_blue)"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><code><radialgradient> </radialgradient></code>标签的 id 属性可为渐变定义一个唯一的名称，</li>
+<li>‘<radialgradient>‘标签的 id 属性可为渐变定义一个唯一的名称，</radialgradient></li>
 <li>fill:url(#grey_blue) 属性把 ellipse 元素链接到此渐变，</li>
 <li>cx、cy 和 r 属性定义外圈，而 fx 和 fy 定义内圈 </li>
-<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个<code> <stop> </stop></code>标签来规定。offset 属性用来定义渐变的开始和结束位置。 </li>
+<li>渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个’ <stop> ‘标签来规定。offset 属性用来定义渐变的开始和结束位置。 </stop></li>
 </ul>
 </li>
 <li><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" standalone="no"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" </span></span><br><span class="line"><span class="meta">"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">version</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">radialGradient</span> <span class="attr">id</span>=<span class="string">"grey_blue"</span> <span class="attr">cx</span>=<span class="string">"20%"</span> <span class="attr">cy</span>=<span class="string">"40%"</span> <span class="attr">r</span>=<span class="string">"50%"</span></span></span><br><span class="line"><span class="tag"><span class="attr">fx</span>=<span class="string">"50%"</span> <span class="attr">fy</span>=<span class="string">"50%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"0%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(200,200,200);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:0"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stop</span> <span class="attr">offset</span>=<span class="string">"100%"</span> <span class="attr">style</span>=<span class="string">"stop-color:rgb(0,0,255);</span></span></span><br><span class="line"><span class="tag"><span class="string">stop-opacity:1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">radialGradient</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">"230"</span> <span class="attr">cy</span>=<span class="string">"200"</span> <span class="attr">rx</span>=<span class="string">"110"</span> <span class="attr">ry</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"fill:url(#grey_blue)"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -423,7 +421,29 @@ ga('send', 'pageview');
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-xml -svg</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -1017,8 +1037,7 @@ A不再发送报文
 <li>网络管理：SNMP</li>
 <li>域名服务：DNS </li>
 </ul>
-<p><a href="#top">返回目录</a></p>
-
+<h2 id="返回目录"><a href="#返回目录" class="headerlink" title="返回目录"></a><a href="#top">返回目录</a></h2>
       
 
       
@@ -1026,13 +1045,24 @@ A不再发送报文
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-tcp/ip -网络通信</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/通信协议//" class="article-tag-list-link color5">通信协议</a>
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -1138,13 +1168,24 @@ A不再发送报文
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-快捷键 -vscode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/软件快捷键//" class="article-tag-list-link color1">软件快捷键</a>
+        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
         		</li>
       		
 		</ul>
@@ -1290,13 +1331,24 @@ A不再发送报文
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-快捷键 -typora</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/软件快捷键//" class="article-tag-list-link color1">软件快捷键</a>
+        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
         		</li>
       		
 		</ul>
@@ -1306,6 +1358,103 @@ A不再发送报文
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/18/Typora快捷键/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java面试基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/02/Java面试基础/">Java经典问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/02/Java面试基础/" class="archive-article-date">
+  	<time datetime="2019-08-02T02:40:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java经典问题"><a href="#Java经典问题" class="headerlink" title="Java经典问题"></a>Java经典问题</h1><h2 id="一、运行程序之前"><a href="#一、运行程序之前" class="headerlink" title="一、运行程序之前"></a>一、运行程序之前</h2><p>​    1.Path 与classpath<br>​    Path顺序：在任意目录下执行Java工具文件–&gt;找到直接执行Java工具文件<br>​                没找到的话–&gt;把Java工具路径（JDK路径）的位置添加到系统的环境变量Path中<br>​    classPath:当我们需要一个class的执行文件时，系统就会在classpath中查找，找不到报错</p>
+<h2 id="二、基础知识"><a href="#二、基础知识" class="headerlink" title="二、基础知识"></a>二、基础知识</h2><h3 id="1-主方法里面的args是什么意思？"><a href="#1-主方法里面的args是什么意思？" class="headerlink" title="1.主方法里面的args是什么意思？"></a>1.主方法里面的args是什么意思？</h3><ul>
+<li>String[] args:是保存运行main函数时输入的参数的字符串数组</li>
+</ul>
+<h3 id="2-amp-和-amp-amp-的区别"><a href="#2-amp-和-amp-amp-的区别" class="headerlink" title="2.&amp; 和&amp;&amp;的区别"></a>2.&amp; 和&amp;&amp;的区别</h3><ul>
+<li>他们都可以进行逻辑与的运算，表达的逻辑是当运算符两边的表达式结果都为true时，运算结果为true，否则为false;</li>
+<li>不同的是&amp;&amp;具有短路功能，当第一个表达式的结果为false则不执行第二个表达式</li>
+</ul>
+<h3 id="3-Java的数据类型"><a href="#3-Java的数据类型" class="headerlink" title="3.Java的数据类型"></a>3.Java的数据类型</h3><p>​    基本数据类型：                                                 引用数据类型：<br>​    整数类型：byte 1字节 -128-127                       类  接口  数组 字符串<br>​                       short 2字节 int 4字节<br>​                       long  8字节<br>​    浮点类型：float 4字节  double  8字节<br>​    字符类型：char 2字节<br>​    Boolean类型：占一位 值只有true false</p>
+<h3 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4.==运算符"></a>4.==运算符</h3><p>​        比较运算符，返回值boolean类型，如果比较基本数据类型，比较的是==两边的值是否相等；<br>​        如果比较的引用类型，则比较的是引用的地址，也就是引用变量指向的地址<br>​        比较字符串的内容用equals()方法</p>
+<h3 id="5-什么是实例变量？什么是类变量"><a href="#5-什么是实例变量？什么是类变量" class="headerlink" title="5.什么是实例变量？什么是类变量"></a>5.什么是实例变量？什么是类变量</h3><p>​        1）类变量又叫静态变量，也就是在变量前面加了static，静态变量在创建对象时就已经存在于内存中，随类的创建而创建<br>​        </p>
+<pre><code>2）
+</code></pre><p>​    </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-Java -问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/02/Java面试基础/">展开全文 >></a>
         </p>
       
 
@@ -1779,11 +1928,273 @@ A不再发送报文
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-Java -基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/02/Java开发实习生面试问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux系统的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/02/Linux系统的简单使用/">Linux系统的简单使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/02/Linux系统的简单使用/" class="archive-article-date">
+  	<time datetime="2019-06-02T03:24:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux系统的简单使用"><a href="#Linux系统的简单使用" class="headerlink" title="Linux系统的简单使用"></a>Linux系统的简单使用</h1><ul>
+<li>CentOS系统 root yt158851yt   qyz 123456</li>
+<li>虚拟机=电脑</li>
+<li>快照=备份</li>
+<li>创建克隆-创建完整克隆</li>
+<li>linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费</li>
+</ul>
+<h2 id="1-系统路径"><a href="#1-系统路径" class="headerlink" title="1.系统路径"></a>1.系统路径</h2><ul>
+<li>/表示根目录</li>
+<li>~表示/root</li>
+<li>etc 存放系统配置目录</li>
+<li>home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹,(新建一个用户就会在home下新建一个文件夹)</li>
+<li>用户xxx对/home/xxx具有完全操作权限，对其他系统文件夹没有操作权限</li>
+<li>root 用户的单独文件夹</li>
+<li>usr所有用户安装的软件都放在这个文件夹</li>
+<li>在/usr/local下新建tmp文件夹，所有压缩包上传到这个文件夹</li>
+</ul>
+<h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2.常用命令"></a>2.常用命令</h2><ol>
+<li>pwd 打印工作目录，当前所有文件夹的的全路径</li>
+<li>cd .. 向上跳一级文件夹</li>
+<li>cd 路径 进入指定文件夹    </li>
+<li>mkdir 新建空文件夹</li>
+<li>ls 平铺</li>
+<li>ll 详细列表</li>
+<li>vi 编辑文件，vi————&gt;insert/i————&gt;编辑内容————&gt;esc————&gt;:wq(保存并退出)//:q!强制退出</li>
+<li>vim 编辑文件(如果文件不存在带有创建文件功能)带有颜色的编辑</li>
+<li>touch 创建空文件</li>
+<li>cat 查看文件全部内容</li>
+<li>head [-n] 文件名 查看文件的前n行，默认前10行</li>
+<li>tail [-n] 文件名 查看文件的后n行，默认后10行</li>
+<li>tailf 动态显示文件后n行内容 常用在显示tomcat日志文件功能</li>
+<li>echo ‘内容’ &gt;&gt; 文件名  向文件中添加一些内容</li>
+<li>ifconfig 打印网卡信息</li>
+<li>reboot 重启</li>
+<li>tar zxvf 文件名</li>
+<li>cp <ul>
+<li>[-r]原文件 新文件路径    :复制文件</li>
+<li>-r 复制文件夹</li>
+<li>ctrl+c  中断</li>
+<li>mv 原文件  新文件     :剪切(具备重命名的功能)</li>
+<li>rm [-rf] 文件名       :删除</li>
+<li>-r 删除目录</li>
+<li>-f 强制删除，不需要确认</li>
+</ul>
+</li>
+<li>clear 清屏</li>
+</ol>
+<h2 id="3-linux所有需要写路径的地方都支持两种写法"><a href="#3-linux所有需要写路径的地方都支持两种写法" class="headerlink" title="3.linux所有需要写路径的地方都支持两种写法"></a>3.linux所有需要写路径的地方都支持两种写法</h2><ul>
+<li>全路径 以/开头</li>
+<li>相对路径 从当前资源一步一步寻找其他资源</li>
+</ul>
+<h2 id="4-Xshell"><a href="#4-Xshell" class="headerlink" title="4.Xshell"></a>4.Xshell</h2><ul>
+<li>linux的客户端工具</li>
+<li>CentOS默认只开启22端口，其他端口都被防火墙拦截</li>
+</ul>
+<h2 id="5-Filezilla工具使用"><a href="#5-Filezilla工具使用" class="headerlink" title="5.Filezilla工具使用"></a>5.Filezilla工具使用</h2><ul>
+<li>FTP协议<pre><code>file transfer protocol
+</code></pre>  作用：互联网中，计算机之间直接传输文件需要遵循的协议</li>
+<li>filezilla<pre><code>基于FTP协议的客户端工具
+</code></pre>  使用filezilla可以快速完成文件的传输功能</li>
+</ul>
+<h2 id="6-安装jdk"><a href="#6-安装jdk" class="headerlink" title="6.安装jdk"></a>6.安装jdk</h2><ul>
+<li>把压缩包上传到服务器/usr/local/tmp</li>
+<li>解压压缩包<pre><code>#tar zxvf 文件名
+</code></pre></li>
+<li>把解压后的文件复制到/usr/local/jdk7<pre><code>#cp -r 文件名 /usr/local/jdk7
+</code></pre></li>
+<li>配置环境变量，执行命令<pre><code>#vim /etc/profile
+  修改文件中内容
+  (分割使用的是:)
+  ($变量名是引用的意思)
+  (export 添加或者修改系统变量)
+</code></pre>  {<br>  #export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL<pre><code>export JAVA_HOME=/usr/local/jdk7
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+</code></pre>  }</li>
+<li>解析文件或重启系统<pre><code>#source /etc/profile
+</code></pre></li>
+<li>验证配置是否成功<pre><code>#java -version
+</code></pre></li>
+</ul>
+<h2 id="7-Tomcat配置-linux中绿色表示可执行文件"><a href="#7-Tomcat配置-linux中绿色表示可执行文件" class="headerlink" title="7.Tomcat配置(linux中绿色表示可执行文件)"></a>7.Tomcat配置(linux中绿色表示可执行文件)</h2><ul>
+<li>把tomcat压缩包上传到服务器</li>
+<li>解压tomcat <pre><code>#tar zxvf
+</code></pre></li>
+<li>解压后的文件夹复制到/usr/local/tomcat7<pre><code>#cp -r apache-tomcat-7.0.94 /usr/local/tomcat7
+</code></pre></li>
+<li>配置环境变量，执行命令<pre><code>#vim /etc/profile
+</code></pre>  修改文件中内容<br>  {<br>  #export TOMCAT_HOME=/usr/local/tomcat7<br>  export CATALINA_HOME=/usr/local/tomcat7<br>  }</li>
+<li>放行8080端口<pre><code>#vim /etc/sysconfig/iptables
+</code></pre>  把包含22行的内容复制一份改端口为8080(8080:9000 从8080到9000全放行)<br>  重启服务<br>  #service iptables restart (start restart stop)</li>
+<li>启动tomcat,进入tomcat7/bin文件夹</li>
+<li>直接启动<pre><code>#./startup.sh
+</code></pre></li>
+<li>启动并动态打印启动信息<pre><code>#./startup.sh &amp; tailf /usr/local/tomcat7/logs/catalina.out
+</code></pre></li>
+</ul>
+<h2 id="8-mysql安装"><a href="#8-mysql安装" class="headerlink" title="8.mysql安装"></a>8.mysql安装</h2><ul>
+<li>上传解压</li>
+<li>复制到/usr/local/mysql<pre><code>#cp -r mysql-5.6.31 /usr/local/mysql
+</code></pre></li>
+<li>进入mysql文件夹<pre><code>#cd /usr/local/mysql
+</code></pre></li>
+<li>添加用户组，命名为mysql<pre><code>#groupadd mysql
+</code></pre></li>
+<li>创建用户mysql，并指定所属群组mysql<pre><code>#useradd -r -g mysql mysql
+</code></pre></li>
+<li>变更mysql用户组有操作当前文件夹的权限(必须保证在/usr/local/mysql目录下)<pre><code>#chgrp -R mysql .
+</code></pre></li>
+<li>变更mysql用户有操作当前文件夹的权限<pre><code>#chown -R mysql .
+</code></pre></li>
+<li>初始化<pre><code>判断/etc/my.cnf是否存在，存在就删除
+      #ls /etc/my.cnf
+      #rm /etc/my.cnf    
+</code></pre>  初始化数据库<pre><code>#./scripts/mysql_install_db --user=mysql 
+</code></pre></li>
+<li>修改配置文件<pre><code>- 复制my.cnf
+    #cp support-files/my-default.cnf /etc/my.cnf 
+</code></pre><ul>
+<li>复制启动文件<pre><code>#cp support-files/mysql.server /etc/rc.d/init.d/mysql 
+</code></pre></li>
+</ul>
+</li>
+<li>如果提示没有mysql命令，需要添加软连接<pre><code>#ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql 
+</code></pre></li>
+<li>启动数据库<pre><code>#service mysql start 
+</code></pre></li>
+<li>操作数据库<pre><code>#mysql -u root -p 
+</code></pre></li>
+</ul>
+<h2 id="9-忘记mysql-root密码的修改方式和修改访问host"><a href="#9-忘记mysql-root密码的修改方式和修改访问host" class="headerlink" title="9.忘记mysql root密码的修改方式和修改访问host"></a>9.忘记mysql root密码的修改方式和修改访问host</h2><ul>
+<li>进入/etc/my.cnf在[mysql]下添加skip-grant-tables启动安全模式<pre><code>#vi /etc/my.cnf
+</code></pre></li>
+<li>重启服务<pre><code>service mysql restart
+</code></pre></li>
+<li>登录mysql，输入密码时直接回车<pre><code>#mysql -u root -p
+</code></pre></li>
+<li>进入mysql后，使用mysql数据库<pre><code>#use mysql
+</code></pre></li>
+<li>修改密码<pre><code>#update user set password= password(&quot;123456&quot;) where user=&apos;root&apos;;
+</code></pre></li>
+<li>刷新权限<pre><code>#flush privileges;
+</code></pre></li>
+<li>退出mysql编辑模式<pre><code>#exit
+</code></pre></li>
+<li>修改访问host<pre><code>#use mysql
+</code></pre>  #grant all privileges on <em>.</em> to root@’%’ identified by ‘123456’ with grant option;<br>  #flush privileges;<br>  #exit<br>  #vim /etc/sysconfig/iptables</li>
+<li>复制22端口为3306<pre><code>#service iptables restart
+</code></pre></li>
+</ul>
+<h2 id="10-导入外部数据库表"><a href="#10-导入外部数据库表" class="headerlink" title="10.导入外部数据库表"></a>10.导入外部数据库表</h2><ul>
+<li><p>进入mysql，使用目标数据库</p>
+<p>#use demo</p>
+<p>#source /usr/local/tmp/demo.sql<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​            </p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Linux -操作系统</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/02/Linux系统的简单使用/">展开全文 >></a>
         </p>
       
 
@@ -1975,7 +2386,29 @@ mybatis的动态sql ！
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-java -Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -2100,6 +2533,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-xml -svg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

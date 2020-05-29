@@ -9,13 +9,14 @@
   <title>MyBatis基础 | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="MyBatis基础一：基础知识 对原生态jdbc程序问题总结 mybatis框架原理 mybatis 入门程序 用户的增 删 改 查 mybatis开发dao层的两种方法 原始dao开发方法（程序需要编写dao接口和dao实现类）！mybatis的mapper(相当于dao接口)代理开发方法！ mybatis配置文件SqlMapConfig.xml mybatis 核心： mybatis输入映射">
+<meta name="keywords" content="-java -Mybatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis基础">
 <meta property="og:url" content="http://www.ytalyq.top/2019/04/18/MyBatis基础/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="MyBatis基础一：基础知识 对原生态jdbc程序问题总结 mybatis框架原理 mybatis 入门程序 用户的增 删 改 查 mybatis开发dao层的两种方法 原始dao开发方法（程序需要编写dao接口和dao实现类）！mybatis的mapper(相当于dao接口)代理开发方法！ mybatis配置文件SqlMapConfig.xml mybatis 核心： mybatis输入映射">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-29T09:14:36.678Z">
+<meta property="og:updated_time" content="2020-05-29T13:26:04.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis基础">
 <meta name="twitter:description" content="MyBatis基础一：基础知识 对原生态jdbc程序问题总结 mybatis框架原理 mybatis 入门程序 用户的增 删 改 查 mybatis开发dao层的两种方法 原始dao开发方法（程序需要编写dao接口和dao实现类）！mybatis的mapper(相当于dao接口)代理开发方法！ mybatis配置文件SqlMapConfig.xml mybatis 核心： mybatis输入映射">
@@ -56,7 +57,7 @@ ga('send', 'pageview');
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #33a3dc"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -74,9 +75,9 @@ ga('send', 'pageview');
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
 				<li><a href="/categories/">分类</a></li>
+	        
+				<li><a href="/tags/">标签</a></li>
 	        
 			</ul>
 		</nav>
@@ -115,7 +116,7 @@ ga('send', 'pageview');
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #33a3dc"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -160,9 +161,9 @@ ga('send', 'pageview');
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
-		        
 					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/">标签</a></li>
 		        
 				</ul>
 			</nav>
@@ -339,7 +340,29 @@ mybatis的动态sql ！
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">-java -Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -403,11 +426,11 @@ mybatis的动态sql ！
   
 <nav id="article-nav">
   
-    <a href="/2019/08/02/Java开发实习生面试问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/02/Linux系统的简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Java开发实习生面试题
+          Linux系统的简单使用
         
       </div>
     </a>
@@ -533,6 +556,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-xml -svg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
