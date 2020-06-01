@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="目录了解网络协议的概念 网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合  SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口   了解网络体系结构： 指通信系统整体设计方法，是计算机之间相互通信的层次、以及各层中的协议和层次之间接口的集合，它为网络硬件、软件、协议、存取控制和网络拓扑提供标准">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-01T07:54:53.788Z">
+<meta property="og:updated_time" content="2020-06-01T09:29:41.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络通信协议_TCP、IP协议">
 <meta name="twitter:description" content="目录了解网络协议的概念 网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合  SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口   了解网络体系结构： 指通信系统整体设计方法，是计算机之间相互通信的层次、以及各层中的协议和层次之间接口的集合，它为网络硬件、软件、协议、存取控制和网络拓扑提供标准">
@@ -245,15 +245,23 @@ ga('send', 'pageview');
 </code></pre></li>
 </ul>
 <h2 id="OSI七层模型工作过程"><a href="#OSI七层模型工作过程" class="headerlink" title="OSI七层模型工作过程"></a>OSI七层模型工作过程</h2><ul>
-<li>应用层：是应用程序访问网络服务的窗口</li>
-<li>表示层：确定计算机之间交换数据的格式(格式转换 压缩  加密 解密 ..)</li>
-<li>会话层：允许不同计算机上的两个应用程序建立、使用和结束会话连接</li>
-<li>传输层：确保报文无差错、有序、不丢失、无重复的传输<pre><code>基本功能  分割数据与重组数据、按端口号寻址、连接管理、差错控制和流量控制
-</code></pre></li>
-<li>网络层：负责信息寻址和将逻辑地址和名字转换为物理地址</li>
-<li>数据链路层：负责从网络层向物理层发送数据帧</li>
-<li>物理层：建立在通信介质基础上的，实现设备之间的物理接口</li>
-<li>总结：<br>应用层：—&gt;为应用程序提供网络服务(用户接口)<br>表示层：—&gt;数据表示<br>会话层：—&gt;互联主机通信维持不同应用程序的数据分割<br>传输层：—&gt;端到端连接，提供可靠或者不可靠数据传输<br>网络层：—&gt;确定地址和最佳路径(逻辑寻址)<br>数据链路层：—&gt;介质访问(将数据包组合为字节)<br>物理层：—&gt;二进制传输</li>
+<li><p>应用层：是应用程序访问网络服务的窗口</p>
+</li>
+<li><p>表示层：确定计算机之间交换数据的格式(格式转换 压缩  加密 解密 ..)</p>
+</li>
+<li><p>会话层：允许不同计算机上的两个应用程序建立、使用和结束会话连接</p>
+</li>
+<li><p>传输层：确保报文无差错、有序、不丢失、无重复的传输</p>
+<p>​                基本功能  分割数据与重组数据、按端口号寻址、连接管理、差错控制和流量控制</p>
+</li>
+<li><p>网络层：负责信息寻址和将逻辑地址和名字转换为物理地址</p>
+</li>
+<li><p>数据链路层：负责从网络层向物理层发送数据帧</p>
+</li>
+<li><p>物理层：建立在通信介质基础上的，实现设备之间的物理接口</p>
+</li>
+<li><p>总结：<br>应用层：—&gt;为应用程序提供网络服务(用户接口)<br>表示层：—&gt;数据表示<br>会话层：—&gt;互联主机通信维持不同应用程序的数据分割<br>传输层：—&gt;端到端连接，提供可靠或者不可靠数据传输<br>网络层：—&gt;确定地址和最佳路径(逻辑寻址)<br>数据链路层：—&gt;介质访问(将数据包组合为字节)<br>物理层：—&gt;二进制传输</p>
+</li>
 </ul>
 <h2 id="OSI七层模型的使用"><a href="#OSI七层模型的使用" class="headerlink" title="OSI七层模型的使用"></a>OSI七层模型的使用</h2><ul>
 <li>计算机1向计算机2发送数据<br>765–[应用层 表示层 会话层]应用进程数据先传送到应用层–加上应用层首部，成为应用层PDU(协议数据单元)  应用层PDU再传输到运输层<br> 4–[传输层] 加上运输层首部，成为运输层报文  传送到网路层<br> 3–[网络层] 加上网络层首部，成为IP数据报(或分组)  传输到数据链路层<br> 2–[数据链路层]  加上数据链路层首部和尾部，成为数据链路层帧  传送到物理层<br> 1–[物理层]  把比特流传送到物理媒体   电信号(或光信号) 在物理媒体中传播从发送端物理层传送到接受端物理层</li>
@@ -961,10 +969,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
               </li>
              
@@ -973,7 +977,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,15 +985,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-快捷键 -typora</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
               </li>
             
             <div class="clearfix"></div>
