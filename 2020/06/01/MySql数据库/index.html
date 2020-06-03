@@ -9,14 +9,13 @@
   <title>MySql数据库 | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
-<meta name="keywords" content="-MySQL -数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql数据库">
 <meta property="og:url" content="http://www.ytalyq.top/2020/06/01/MySql数据库/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-01T09:25:09.668Z">
+<meta property="og:updated_time" content="2020-06-03T09:29:26.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -57,7 +56,7 @@ ga('send', 'pageview');
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #33a3dc"></div>
+<div class="overlay" style="background: #AEEEEE"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -112,7 +111,7 @@ ga('send', 'pageview');
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #33a3dc"></div>
+  	<div class="overlay js-overlay" style="background: #AEEEEE"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -183,7 +182,7 @@ ga('send', 'pageview');
 
         
         <a href="/2020/06/01/MySql数据库/" class="archive-article-date">
-  	<time datetime="2020-06-01T06:13:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+  	<time datetime="2020-06-01T06:13:25.042Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
 </a>
         
       </header>
@@ -205,6 +204,202 @@ ga('send', 'pageview');
 </li>
 </ul>
 <a id="more"></a>
+<h2 id="关系型数据库术语"><a href="#关系型数据库术语" class="headerlink" title="关系型数据库术语"></a>关系型数据库术语</h2><ul>
+<li>数据库: 数据库是关联表的集合</li>
+<li>数据表: 数据表相当于一个excel表格,存储数据</li>
+<li>列: 包含一类数据</li>
+<li>行: 包含一组数据,相当于一个人身高,体重 ,性格 ,生肖等是属性</li>
+<li>冗余: 存储两倍数据，冗余降低了性能，但提高了数据的安全性。</li>
+<li>主键: 主键是唯一的。一个数据表中只能包含一个主键。 唯一标识一条记录，不能有重复的，不允许为空 ,用来保证数据完整性</li>
+<li>外键: 表的外键是另一表的主键, 外键可以有重复的, 可以是空值 ,用来和其他表建立联系用的 .一个表可以有多个外键</li>
+<li>复合键: 复合键（组合键）将多个列作为一个索引键，一般用于复合索引。(学号,课程号,作为主键,决定成绩)</li>
+<li>索引: 使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。</li>
+<li>参照完整性: 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。</li>
+</ul>
+<h2 id="数据表组成"><a href="#数据表组成" class="headerlink" title="数据表组成"></a>数据表组成</h2><ul>
+<li>表头(header): 每一列的名称;</li>
+<li>列(col): 具有相同数据类型的数据的集合;</li>
+<li>行(row): 每一行用来描述某条记录的具体信息;</li>
+<li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同;</li>
+<li>键(key): 键的值在当前列中具有唯一性。</li>
+</ul>
+<h2 id="MySql安装"><a href="#MySql安装" class="headerlink" title="MySql安装"></a><a href="https://www.cnblogs.com/xiaxiaoxu/p/8977418.html" target="_blank" rel="noopener">MySql安装</a></h2><h2 id="MySQL常用命令"><a href="#MySQL常用命令" class="headerlink" title="MySQL常用命令"></a>MySQL常用命令</h2><ul>
+<li>USE 数据库名 :</li>
+<li>SHOW DATABASES:</li>
+<li>SHOW TABLES: 使用该命令前需要使用 use 命令来选择要操作的数据库 </li>
+<li>SHOW COLUMNS FROM 数据表:显示数据表的属性，属性类型，主键信息 ，是否为 NULL，默认值等其他信息。</li>
+<li>SHOW INDEX FROM 数据表:显示数据表的详细索引信息，包括PRIMARY KEY（主键）。</li>
+<li>SHOW TABLE STATUS LIKE [FROM db_name] [LIKE ‘pattern’] \G: 该命令将输出Mysql数据库管理系统的性能及统计信息。 </li>
+</ul>
+<h2 id="创建-amp-删除-amp-选择数据库"><a href="#创建-amp-删除-amp-选择数据库" class="headerlink" title="创建&amp;删除&amp;选择数据库"></a>创建&amp;删除&amp;选择数据库</h2><h3 id="创建数据库-两种方法"><a href="#创建数据库-两种方法" class="headerlink" title="创建数据库(两种方法)"></a>创建数据库(两种方法)</h3><ul>
+<li>CREATE DATABASE 数据库名;</li>
+<li>进入数据库之前通过root最高权限创建–mysqladmin -u root -p create RUNOOB</li>
+</ul>
+<h3 id="删除数据库-两种方法"><a href="#删除数据库-两种方法" class="headerlink" title="删除数据库(两种方法)"></a>删除数据库(两种方法)</h3><ul>
+<li>DROP  DATEBAE   数据库名;</li>
+<li>进入数据库之前通过root最高权限创建–mysqladmin -u root -p drop   RUNOOB</li>
+</ul>
+<h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><ul>
+<li>USE   数据库名</li>
+</ul>
+<h2 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tinyint</td>
+<td style="text-align:left">1字节，范围（-128~127）</td>
+<td style="text-align:center">小整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">smallint</td>
+<td style="text-align:left">2字节，范围（-32768~32767）</td>
+<td style="text-align:center">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">mediumint</td>
+<td style="text-align:left">3字节，范围（-8388608~8388607）</td>
+<td style="text-align:center">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>int/integer</strong></td>
+<td style="text-align:left"><strong>4字节，范围（-2147483648~2147483647）</strong></td>
+<td style="text-align:center"><strong>大整数值</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>bigint</strong></td>
+<td style="text-align:left"><strong>8字节，范围（+-9.22*10的18次方）</strong></td>
+<td style="text-align:center"><strong>极大整数值</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>float(m, d)</strong></td>
+<td><strong>4字节，单精度浮点型，m总个数，d小数位</strong></td>
+<td><strong>单精度浮点数值</strong></td>
+</tr>
+<tr>
+<td><strong>double(m, d)</strong></td>
+<td><strong>8字节，双精度浮点型，m总个数，d小数位</strong></td>
+<td><strong>双精度浮点数值</strong></td>
+</tr>
+<tr>
+<td>decimal(m, d)</td>
+<td>decimal是存储为字符串的浮点数</td>
+<td>小数值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>date</strong></td>
+<td style="text-align:left"><strong>3字节，日期，格式：2020-09-18</strong></td>
+<td style="text-align:center"><strong>日期值</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>time</strong></td>
+<td style="text-align:left"><strong>3字节，时间，格式：08:42:30</strong></td>
+<td style="text-align:center"><strong>时间值或持续时间</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>datetime</strong></td>
+<td style="text-align:left"><strong>8字节，日期时间，格式：2020-09-18 08:42:30</strong></td>
+<td style="text-align:center"><strong>混合日期和时间值</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">timestamp</td>
+<td style="text-align:left">8字节，日期时间，格式：2020-09-18 08:42:30</td>
+<td style="text-align:center">混合日期和时间值</td>
+</tr>
+<tr>
+<td style="text-align:center">year</td>
+<td style="text-align:left">1字节，年份</td>
+<td style="text-align:center">年份值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th>含义</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>char(n)</strong></td>
+<td><strong>固定长度，最多255个字符</strong></td>
+<td><strong>定长字符串</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>varchar(n)</strong></td>
+<td><strong>可变长度，最多65535个字符</strong></td>
+<td><strong>变长字符串</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">tinytext</td>
+<td>可变长度，最多255个字符</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>text</strong></td>
+<td><strong>可变长度，最多65535个字符</strong></td>
+<td><strong>长文本数据</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">mediumtext</td>
+<td>可变长度，最多2的24次方-1个字符</td>
+<td>中等长度文本数据</td>
+</tr>
+<tr>
+<td style="text-align:center">longtext</td>
+<td>可变长度，最多2的32次方-1个字符</td>
+<td>极大文本数据</td>
+</tr>
+</tbody>
+</table>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h3><ul>
+<li>1.char（n）和varchar（n）中括号中n代表字符的个数，并不代表字节个数，所以当使用了中文的时候(UTF8)意味着可以插入m个中文，但是实际会占用m*3个字节。</li>
+<li>2.同时char和varchar最大的区别就在于char不管实际value都会占用n个字符的空间，而varchar只会占用实际字符应该占用的空间+1，并且实际空间+1&lt;=n。</li>
+</ul>
+<h2 id="MySQL创建-amp-删除表"><a href="#MySQL创建-amp-删除表" class="headerlink" title="MySQL创建&amp;删除表"></a>MySQL创建&amp;删除表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><ul>
+<li><p>CREATE TABLE table_name (column_name column_type);</p>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">`runoob_tbl`</span>(</span><br><span class="line">   <span class="string">`runoob_id`</span> <span class="built_in">INT</span> <span class="keyword">UNSIGNED</span> AUTO_INCREMENT,<span class="comment">--列自增属性,用于主键,数值自动加1</span></span><br><span class="line">   <span class="string">`runoob_title`</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   <span class="string">`runoob_author`</span> <span class="built_in">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   <span class="string">`submission_date`</span> <span class="built_in">DATE</span>,</span><br><span class="line">   PRIMARY <span class="keyword">KEY</span> ( <span class="string">`runoob_id`</span> )  <span class="comment">--主键</span></span><br><span class="line">)<span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;<span class="comment">--engine设置存储引擎  charset设置编码</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可视化工具(Navicat   workbench)</p>
+</li>
+</ul>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><ul>
+<li>DROP TABLE table_name ;</li>
+</ul>
+<h2 id="MySQL插入-amp-删除-amp-修改-amp-查询"><a href="#MySQL插入-amp-删除-amp-修改-amp-查询" class="headerlink" title="MySQL插入&amp;删除&amp;修改&amp;查询"></a>MySQL插入&amp;删除&amp;修改&amp;查询</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1=<span class="keyword">new</span>-value1, field2=<span class="keyword">new</span>-value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]<span class="comment">--LIMIT 属性来设定返回的记录数</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -213,29 +408,7 @@ ga('send', 'pageview');
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-MySQL -数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -423,11 +596,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-MySQL -数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -435,15 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-快捷键 -typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
               </li>
              
               <li class="article-tag-list-item">
