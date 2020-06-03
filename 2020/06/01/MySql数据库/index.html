@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-03T09:45:27.216Z">
+<meta property="og:updated_time" content="2020-06-03T09:55:54.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -281,25 +281,25 @@ ga('send', 'pageview');
 <h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><table>
 <thead>
 <tr>
-<th>类型</th>
-<th>含义</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:left">含义</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>float(m, d)</strong></td>
-<td><strong>4字节，单精度浮点型，m总个数，d小数位</strong></td>
+<td style="text-align:center"><strong>float(m, d)</strong></td>
+<td style="text-align:left"><strong>4字节，单精度浮点型，m总个数，d小数位</strong></td>
 <td><strong>单精度浮点数值</strong></td>
 </tr>
 <tr>
-<td><strong>double(m, d)</strong></td>
-<td><strong>8字节，双精度浮点型，m总个数，d小数位</strong></td>
+<td style="text-align:center"><strong>double(m, d)</strong></td>
+<td style="text-align:left"><strong>8字节，双精度浮点型，m总个数，d小数位</strong></td>
 <td><strong>双精度浮点数值</strong></td>
 </tr>
 <tr>
-<td>decimal(m, d)</td>
-<td>decimal是存储为字符串的浮点数</td>
+<td style="text-align:center">decimal(m, d)</td>
+<td style="text-align:left">decimal是存储为字符串的浮点数</td>
 <td>小数值</td>
 </tr>
 </tbody>
@@ -344,40 +344,40 @@ ga('send', 'pageview');
 <thead>
 <tr>
 <th style="text-align:center">类型</th>
-<th>含义</th>
-<th>用途</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:center">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center"><strong>char(n)</strong></td>
-<td><strong>固定长度，最多255个字符</strong></td>
-<td><strong>定长字符串</strong></td>
+<td style="text-align:left"><strong>固定长度，最多255个字符</strong></td>
+<td style="text-align:center"><strong>定长字符串</strong></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>varchar(n)</strong></td>
-<td><strong>可变长度，最多65535个字符</strong></td>
-<td><strong>变长字符串</strong></td>
+<td style="text-align:left"><strong>可变长度，最多65535个字符</strong></td>
+<td style="text-align:center"><strong>变长字符串</strong></td>
 </tr>
 <tr>
 <td style="text-align:center">tinytext</td>
-<td>可变长度，最多255个字符</td>
-<td>短文本字符串</td>
+<td style="text-align:left">可变长度，最多255个字符</td>
+<td style="text-align:center">短文本字符串</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>text</strong></td>
-<td><strong>可变长度，最多65535个字符</strong></td>
-<td><strong>长文本数据</strong></td>
+<td style="text-align:left"><strong>可变长度，最多65535个字符</strong></td>
+<td style="text-align:center"><strong>长文本数据</strong></td>
 </tr>
 <tr>
 <td style="text-align:center">mediumtext</td>
-<td>可变长度，最多2的24次方-1个字符</td>
-<td>中等长度文本数据</td>
+<td style="text-align:left">可变长度，最多2的24次方-1个字符</td>
+<td style="text-align:center">中等长度文本数据</td>
 </tr>
 <tr>
 <td style="text-align:center">longtext</td>
-<td>可变长度，最多2的32次方-1个字符</td>
-<td>极大文本数据</td>
+<td style="text-align:left">可变长度，最多2的32次方-1个字符</td>
+<td style="text-align:center">极大文本数据</td>
 </tr>
 </tbody>
 </table>
@@ -600,11 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
