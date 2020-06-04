@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="目录了解网络协议的概念 网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合 SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口  了解网络体系结构： 指通信系统整体设计方法，是计算机之间相互通信的层次、以及各层中的协议和层次之间接口的集合，它为网络硬件、软件、协议、存取控制和网络拓扑提供标准 SN">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-04T03:50:34.138Z">
+<meta property="og:updated_time" content="2020-06-04T16:01:32.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络通信协议_TCP、IP协议">
 <meta name="twitter:description" content="目录了解网络协议的概念 网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合 SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口  了解网络体系结构： 指通信系统整体设计方法，是计算机之间相互通信的层次、以及各层中的协议和层次之间接口的集合，它为网络硬件、软件、协议、存取控制和网络拓扑提供标准 SN">
@@ -199,8 +199,7 @@ ga('send', 'pageview');
 <li>SNA：IBM公司开发适合自己公司的网络体系结构(System Network Architecture)</li>
 <li>DNA: DEC公司开  发适合自己公司的网络体系结构(Date Network Architecture)</li>
 <li>OSI/RM:由ISO(国际标准化组织)统一规定的互联网参考模型(Open Standard Interconnection/Reference Model)开放系统互连参考模型</li>
-<li><p>计算机网络协议</p>
-<ul>
+<li>计算机网络协议<ul>
 <li>负责在网络上建立通信通道和控制通过通道的信息流的规则。</li>
 <li>协议依赖于网络体系结构，由硬件软件协同实现。</li>
 </ul>
@@ -216,29 +215,27 @@ ga('send', 'pageview');
 </li>
 </ul>
 <h2 id="熟悉ISO-OSI参考模型各层主要协议及其功能"><a href="#熟悉ISO-OSI参考模型各层主要协议及其功能" class="headerlink" title="熟悉ISO/OSI参考模型各层主要协议及其功能"></a>熟悉ISO/OSI参考模型各层主要协议及其功能</h2><ul>
-<li><p>应用层：(DNS)</p>
-<pre><code>提供应用程序运行的环境、负责管理和执行应用程序
-</code></pre></li>
-<li><p>表示层：</p>
-<pre><code>为数据在传输之前对加密、解密、压缩、解压缩及终端数据格式转换提供一套规则和约定
-</code></pre></li>
-<li>会话层：<pre><code>对对话的双方进行资格审查和验证的规则，同时规定发送时的双工模式(电话就是双工)。
-</code></pre></li>
+<li>应用层：(DNS)</li>
+<li>提供应用程序运行的环境、负责管理和执行应用程序</li>
+<li>表示层：</li>
+<li>为数据在传输之前对加密、解密、压缩、解压缩及终端数据格式转换提供一套规则和约定</li>
+<li>会话层：</li>
+<li>对对话的双方进行资格审查和验证的规则，同时规定发送时的双工模式(电话就是双工)。</li>
 </ul>
 <hr>
 <ul>
-<li>网络层： (IP  路由器 交换机)<pre><code>负责建立、保持和终止通过中间设备的连接，同时负责通信子网内路径选择和拥挤控制  
-</code></pre></li>
-<li>数据链路层：(Frame   以太网   )<pre><code>主要功能有如何将数据组装成帧，帧是本层的传输单位，如何处理数据在传输过程中出现的差错，
-  如何调节发送速率使之与接受方匹配，在两个网络实体之间提供数据链路的建立、维持和释放管理
-</code></pre></li>
-<li>物理层： (网卡接口  )<pre><code>包括设备之间物理连接的接口和用户设备与网络终端设备之间的传输规则
-  物理层有四个重要特性：
-  机械特性:  规定了物理连接时对插头和插座的几何尺寸、插针或插孔芯数及排列方式
-  电气特性： 规定了信号状态的电压、电流的识别，最大传输速率等
-  功能特性： 规定接口信号的来源、作用及其他信号之间的关系
-  过程特性： 规定了使用交换电路进行数据交换控制步骤，这些控制步骤应用便于比特流传输得以顺利完成
-</code></pre></li>
+<li>网络层： (IP  路由器 交换机)</li>
+<li>负责建立、保持和终止通过中间设备的连接，同时负责通信子网内路径选择和拥挤控制  </li>
+<li>数据链路层：(Frame   以太网   )</li>
+<li>主要功能有如何将数据组装成帧，帧是本层的传输单位，如何处理数据在传输过程中出现的差错，</li>
+<li>如何调节发送速率使之与接受方匹配，在两个网络实体之间提供数据链路的建立、维持和释放管理</li>
+<li>物理层： (网卡接口  )</li>
+<li>包括设备之间物理连接的接口和用户设备与网络终端设备之间的传输规则</li>
+<li>物理层有四个重要特性：</li>
+<li>机械特性:  规定了物理连接时对插头和插座的几何尺寸、插针或插孔芯数及排列方式</li>
+<li>电气特性： 规定了信号状态的电压、电流的识别，最大传输速率等</li>
+<li>功能特性： 规定接口信号的来源、作用及其他信号之间的关系</li>
+<li>过程特性： 规定了使用交换电路进行数据交换控制步骤，这些控制步骤应用便于比特流传输得以顺利完成</li>
 </ul>
 <h2 id="OSI七层模型工作过程"><a href="#OSI七层模型工作过程" class="headerlink" title="OSI七层模型工作过程"></a>OSI七层模型工作过程</h2><ul>
 <li>应用层：是应用程序访问网络服务的窗口</li>
@@ -615,8 +612,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 <li>用四次挥手释放连接             <ul>
-<li>主机A<br> 应用进程释放连接————————FIN,SEQ =x——————-&gt;通知主机应用进程<br>A不再发送报文<br>&lt;——————–ACK,SEQ = y,ACK =x+1————————–确认<br>(从A到B的连接就释放了，连接处于半关闭状态。相当于A对B说，但你如果还发送数据，我仍接收)<br>   &lt;——————FIN,ACK,SEQ = y,ACK = x+1———————–应用进程释放连接<pre><code>B不在发送报文
-</code></pre>确认———————–ACK,SEQ = x+1,ACk =y+1——————-&gt;</li>
+<li>主机A<br> 应用进程释放连接————————FIN,SEQ =x——————-&gt;通知主机应用进程<br>A不再发送报文<br>&lt;——————–ACK,SEQ = y,ACK =x+1————————–确认<br>(从A到B的连接就释放了，连接处于半关闭状态。相当于A对B说，但你如果还发送数据，我仍接收)<br>   &lt;——————FIN,ACK,SEQ = y,ACK = x+1———————–应用进程释放连接<br>B不在发送报文<br>确认———————–ACK,SEQ = x+1,ACk =y+1——————-&gt;</li>
 <li>SYN 洪泛攻击  拒绝式服务攻击    <a href="https://cloud.tencent.com/developer/article/1489622" target="_blank" rel="noopener">洪泛攻击</a></li>
 </ul>
 </li>
@@ -877,11 +873,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">-操作系统 -Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-操作系统 -Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,11 +897,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1030,5 +1026,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":800},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":800},"mobile":{"show":true},"log":false});</script></body>
 </html>

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root  etc 存放系统配置目录  home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹,(新建一个用户就会在home下新建一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-04T08:43:18.592Z">
+<meta property="og:updated_time" content="2020-06-04T16:09:57.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux系统的简单使用">
 <meta name="twitter:description" content="CentOS系统 root yt158851yt   qyz 123456 虚拟机=电脑 快照=备份 创建克隆-创建完整克隆 linux操作系统，适合服务器，不适合办公 稳定 安全性高 免费  1.系统路径 /表示根目录 ~表示/root  etc 存放系统配置目录  home 除了root以外所有用户默认在home下新建一个以用户名作为文件夹名称的文件夹,(新建一个用户就会在home下新建一个">
@@ -291,8 +291,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 <li>创建用户mysql，并指定所属群组mysql<br><code>#useradd -r -g mysql mysql</code></li>
 <li>变更mysql用户组有操作当前文件夹的权限(必须保证在/usr/local/mysql目录下)<br><code>#chgrp -R mysql .</code></li>
 <li>变更mysql用户有操作当前文件夹的权限<br><code>#chown -R mysql .</code></li>
-<li>初始化<pre><code>判断/etc/my.cnf是否存在，存在就删除
-</code></pre> <code>#ls /etc/my.cnf</code><br> <code>#rm /etc/my.cnf</code><br>  初始化数据库<br> <code>#./scripts/mysql_install_db --user=mysql</code></li>
+<li>初始化<br>判断/etc/my.cnf是否存在，存在就删除<br> <code>#ls /etc/my.cnf</code><br> <code>#rm /etc/my.cnf</code><br>  初始化数据库<br> <code>#./scripts/mysql_install_db --user=mysql</code></li>
 <li>修改配置文件<ul>
 <li>复制my.cnf<br><code>#cp support-files/my-default.cnf /etc/my.cnf</code></li>
 <li>复制启动文件<br><code>#cp support-files/mysql.server /etc/rc.d/init.d/mysql</code></li>
@@ -310,16 +309,14 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 <li>修改密码<br><code>#update user set password= password(&quot;123456&quot;) where user=&#39;root&#39;;</code></li>
 <li>刷新权限<br><code>#flush privileges;</code></li>
 <li>退出mysql编辑模式<br><code>#exit</code></li>
-<li>修改访问host<br><code>#use mysql
-  #grant all privileges on *.* to root@&#39;%&#39; identified by &#39;123456&#39; with grant option;
-  #flush privileges;
-  #exit 
-  #vim /etc/sysconfig/iptables</code></li>
-<li>复制22端口为3306<pre><code>`#service iptables restart`
-</code></pre></li>
+<li><p>修改访问host</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos; with grant option;</span><br><span class="line">#flush privileges;</span><br><span class="line">#exit </span><br><span class="line">#vim /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制22端口为3306<br>  <code>#service iptables restart</code></p>
+</li>
 </ul>
 <h2 id="10-导入外部数据库表"><a href="#10-导入外部数据库表" class="headerlink" title="10.导入外部数据库表"></a>10.导入外部数据库表</h2><ul>
-<li>进入mysql，使用目标数据库<br><code>#use demo</code><br><code>#source /usr/local/tmp/demo.sql</code><br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​            </li>
+<li>进入mysql，使用目标数据库<br><code>#use demo</code><br><code>#source /usr/local/tmp/demo.sql</code></li>
 </ul>
 
       
@@ -552,11 +549,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">-操作系统 -Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-操作系统 -Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,11 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-tcp/ip -网络通信</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
               </li>
             
             <div class="clearfix"></div>
@@ -705,5 +702,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":800},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-shizuku"},"display":{"position":"right","width":200,"height":800},"mobile":{"show":true},"log":false});</script></body>
 </html>
