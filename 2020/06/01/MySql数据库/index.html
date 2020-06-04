@@ -9,13 +9,14 @@
   <title>MySql数据库 | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
+<meta name="keywords" content="-数据库 -MySql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql数据库">
 <meta property="og:url" content="http://www.ytalyq.top/2020/06/01/MySql数据库/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-03T09:55:54.719Z">
+<meta property="og:updated_time" content="2020-06-04T03:22:51.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -182,7 +183,7 @@ ga('send', 'pageview');
 
         
         <a href="/2020/06/01/MySql数据库/" class="archive-article-date">
-  	<time datetime="2020-06-01T06:13:25.042Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+  	<time datetime="2020-06-01T03:24:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
 </a>
         
       </header>
@@ -223,7 +224,8 @@ ga('send', 'pageview');
 <li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同;</li>
 <li>键(key): 键的值在当前列中具有唯一性。</li>
 </ul>
-<h2 id="MySql安装"><a href="#MySql安装" class="headerlink" title="MySql安装"></a><a href="https://www.cnblogs.com/xiaxiaoxu/p/8977418.html" target="_blank" rel="noopener">MySql安装</a></h2><h2 id="MySQL常用命令"><a href="#MySQL常用命令" class="headerlink" title="MySQL常用命令"></a>MySQL常用命令</h2><ul>
+<h2 id="MySql安装"><a href="#MySql安装" class="headerlink" title="MySql安装"></a><a href="https://www.cnblogs.com/xiaxiaoxu/p/8977418.html" target="_blank" rel="noopener">MySql安装</a></h2><h2 id="MySQL-常用命令"><a href="#MySQL-常用命令" class="headerlink" title="MySQL 常用命令"></a>MySQL 常用命令</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; INSERT INTO user </span><br><span class="line">          (host, user, password, </span><br><span class="line">           select_priv, insert_priv, update_priv) </span><br><span class="line">           <span class="keyword">VALUES</span> (<span class="string">'localhost'</span>, <span class="string">'guest'</span>, </span><br><span class="line">           <span class="keyword">PASSWORD</span>(<span class="string">'guest123'</span>), <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>);</span><br><span class="line">Query OK, 1 row affected (0.20 sec)</span><br></pre></td></tr></table></figure>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><ul>
 <li>USE 数据库名 :</li>
 <li>SHOW DATABASES:</li>
 <li>SHOW TABLES: 使用该命令前需要使用 use 命令来选择要操作的数据库 </li>
@@ -242,7 +244,7 @@ ga('send', 'pageview');
 <h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><ul>
 <li>USE   数据库名</li>
 </ul>
-<h2 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><table>
+<h2 id="MySQL-数据类型"><a href="#MySQL-数据类型" class="headerlink" title="MySQL 数据类型"></a>MySQL 数据类型</h2><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><table>
 <thead>
 <tr>
 <th style="text-align:center">类型</th>
@@ -283,24 +285,24 @@ ga('send', 'pageview');
 <tr>
 <th style="text-align:center">类型</th>
 <th style="text-align:left">含义</th>
-<th>用途</th>
+<th style="text-align:center">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center"><strong>float(m, d)</strong></td>
 <td style="text-align:left"><strong>4字节，单精度浮点型，m总个数，d小数位</strong></td>
-<td><strong>单精度浮点数值</strong></td>
+<td style="text-align:center"><strong>单精度浮点数值</strong></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>double(m, d)</strong></td>
 <td style="text-align:left"><strong>8字节，双精度浮点型，m总个数，d小数位</strong></td>
-<td><strong>双精度浮点数值</strong></td>
+<td style="text-align:center"><strong>双精度浮点数值</strong></td>
 </tr>
 <tr>
 <td style="text-align:center">decimal(m, d)</td>
 <td style="text-align:left">decimal是存储为字符串的浮点数</td>
-<td>小数值</td>
+<td style="text-align:center">小数值</td>
 </tr>
 </tbody>
 </table>
@@ -385,7 +387,7 @@ ga('send', 'pageview');
 <li>1.char（n）和varchar（n）中括号中n代表字符的个数，并不代表字节个数，所以当使用了中文的时候(UTF8)意味着可以插入m个中文，但是实际会占用m*3个字节。</li>
 <li>2.同时char和varchar最大的区别就在于char不管实际value都会占用n个字符的空间，而varchar只会占用实际字符应该占用的空间+1，并且实际空间+1&lt;=n。</li>
 </ul>
-<h2 id="MySQL创建-amp-删除表"><a href="#MySQL创建-amp-删除表" class="headerlink" title="MySQL创建&amp;删除表"></a>MySQL创建&amp;删除表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><ul>
+<h2 id="MySQL-创建-amp-删除表"><a href="#MySQL-创建-amp-删除表" class="headerlink" title="MySQL 创建&amp;删除表"></a>MySQL 创建&amp;删除表</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><ul>
 <li><p>CREATE TABLE table_name (column_name column_type);</p>
 </li>
 <li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="string">`runoob_tbl`</span>(</span><br><span class="line">   <span class="string">`runoob_id`</span> <span class="built_in">INT</span> <span class="keyword">UNSIGNED</span> AUTO_INCREMENT,<span class="comment">--列自增属性,用于主键,数值自动加1</span></span><br><span class="line">   <span class="string">`runoob_title`</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   <span class="string">`runoob_author`</span> <span class="built_in">VARCHAR</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">   <span class="string">`submission_date`</span> <span class="built_in">DATE</span>,</span><br><span class="line">   PRIMARY <span class="keyword">KEY</span> ( <span class="string">`runoob_id`</span> )  <span class="comment">--主键</span></span><br><span class="line">)<span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;<span class="comment">--engine设置存储引擎  charset设置编码</span></span><br></pre></td></tr></table></figure>
@@ -396,11 +398,11 @@ ga('send', 'pageview');
 <h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><ul>
 <li>DROP TABLE table_name ;</li>
 </ul>
-<h2 id="MySQL插入-amp-删除-amp-修改-amp-查询"><a href="#MySQL插入-amp-删除-amp-修改-amp-查询" class="headerlink" title="MySQL插入&amp;删除&amp;修改&amp;查询"></a>MySQL插入&amp;删除&amp;修改&amp;查询</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL-插入-amp-删除-amp-修改-amp-查询"><a href="#MySQL-插入-amp-删除-amp-修改-amp-查询" class="headerlink" title="MySQL 插入&amp;删除&amp;修改&amp;查询"></a>MySQL 插入&amp;删除&amp;修改&amp;查询</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                       <span class="keyword">VALUES</span></span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
 <h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1=<span class="keyword">new</span>-value1, field2=<span class="keyword">new</span>-value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
 <h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]<span class="comment">--LIMIT 属性来设定返回的记录数</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="MySQL-WHERE-子句"><a href="#MySQL-WHERE-子句" class="headerlink" title="MySQL WHERE 子句"></a>MySQL WHERE 子句</h2>
       
 
       
@@ -408,7 +410,29 @@ ga('send', 'pageview');
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">-数据库 -MySql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -613,6 +637,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">-快捷键 -vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">-数据库 -MySql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-svg -图形</a>
               </li>
              
               <li class="article-tag-list-item">
