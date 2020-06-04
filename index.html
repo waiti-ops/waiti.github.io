@@ -394,10 +394,8 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="目录"><a href="#目录" class="headerlink" title=" 目录"></a><a id="top"> 目录</a></h2><h2 id="了解网络协议的概念"><a href="#了解网络协议的概念" class="headerlink" title="了解网络协议的概念"></a>了解网络协议的概念</h2><ul>
-<li><p>网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合</p>
-</li>
-<li><p>SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口</p>
-</li>
+<li>网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合</li>
+<li>SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口</li>
 </ul>
 <h2 id="了解网络体系结构："><a href="#了解网络体系结构：" class="headerlink" title="了解网络体系结构："></a>了解网络体系结构：</h2><ul>
 <li>指通信系统整体设计方法，是计算机之间相互通信的层次、以及各层中的协议和层次之间接口的集合，它为网络硬件、软件、协议、存取控制和网络拓扑提供标准</li>
@@ -412,10 +410,8 @@ ga('send', 'pageview');
 </li>
 <li><p>计算机网络协议的组成</p>
 <ul>
-<li><p>语法：(侧重怎么描述信息 类似语文英语的语法) 用于确认协议元素的格式，即数据与控制信息的结构和格式。</p>
-</li>
-<li><p>语义：(突出传输的信息是什么) 用于确认协议元素的类型，即规定了通信双方需要发出何种控制信息，完成何种动作，以及做出何种应答。</p>
-</li>
+<li>语法：(侧重怎么描述信息 类似语文英语的语法) 用于确认协议元素的格式，即数据与控制信息的结构和格式。</li>
+<li>语义：(突出传输的信息是什么) 用于确认协议元素的类型，即规定了通信双方需要发出何种控制信息，完成何种动作，以及做出何种应答。</li>
 <li><p>定时：(遵循一定的时间规则要求)用于确定通信速度的匹配和时序，即对事件实现顺序的详细说明。</p>
         
           <a class="article-more-a" href="/2020/04/18/网络通信协议/#more">more >></a>
@@ -1023,7 +1019,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-Linux -操作系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-操作系统 -Linux</a>
         		</li>
       		
 		</ul>
@@ -1109,58 +1105,65 @@ mybatis的动态sql ！
 </code></pre></li>
 </ul>
 <h2 id="二：高级知识"><a href="#二：高级知识" class="headerlink" title="二：高级知识"></a>二：高级知识</h2><ul>
-<li><p>订单商品数据模型分析</p>
-</li>
-<li><p>高级结果映射(一对一、一对多、多对多)</p>
-</li>
-<li><p>mybatis延时加载</p>
-</li>
-<li><p>mybatis查询缓存(一级缓存、二级缓存)</p>
-</li>
-<li><p>mybatis和Spring进行整合！</p>
-</li>
-<li><p>mybatis逆向工程</p>
-</li>
-<li><p>为什么使用mybatis?</p>
-<ul>
-<li><p>解决JDBC存在的问题和简化数据库操作，mybatis提供了较好的解决方案</p>
-</li>
-<li><p>例如：</p>
-<ol>
+<li>订单商品数据模型分析</li>
+<li>高级结果映射(一对一、一对多、多对多)</li>
+<li>mybatis延时加载</li>
+<li>mybatis查询缓存(一级缓存、二级缓存)</li>
+<li>mybatis和Spring进行整合！</li>
+<li>mybatis逆向工程</li>
+<li>为什么使用mybatis?<ul>
+<li>解决JDBC存在的问题和简化数据库操作，mybatis提供了较好的解决方案</li>
+<li>例如：<ol>
 <li>可以通过主配置文件配置连接池频繁创建、释放数据库连接造成的性能影响</li>
-<li>动态sql解决JDBC中硬编码问题<br>a.Where条件改变<pre><code>b.占位符位置变化
-</code></pre></li>
+<li>动态sql解决JDBC中硬编码问题<br>a.Where条件改变<br>b.占位符位置变化</li>
 <li>可以通过包装类方便的获取数据库查询结果集对象</li>
 <li>使dao层业务逻辑和数据库访问分离更易维护和测试</li>
 </ol>
 </li>
-<li><p>学习路径：</p>
-<ol>
+<li>学习路径：<ol>
 <li>了解mybatis架构</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>掌握mybatis框架搭建、配置<ol start="3">
+<li>掌握mybatis框架搭建、配置</li>
 <li>使用mybatis 完成对数据库的增、删、改、查操作</li>
-</ol>
-</li>
-<li>掌握Mapper代理开发<ol start="5">
+<li>掌握Mapper代理开发</li>
 <li>掌握动态SQL编写SQL语句</li>
-</ol>
-</li>
-<li>掌握输入与输出映射<ol start="7">
+<li>掌握输入与输出映射</li>
 <li>掌握多表关联查询    </li>
+<li>搭建MyBatis项目<h2 id="三-搭建MyBatis项目"><a href="#三-搭建MyBatis项目" class="headerlink" title="三:搭建MyBatis项目"></a>三:搭建MyBatis项目</h2></li>
 </ol>
 </li>
-<li>搭建MyBatis项目<pre><code>(1)下载mybatis 、创建项目、导包
-</code></pre>(2)创建测试用例，测试数据库，测试bean对象<pre><code>(3)创建sqlMapperconfig.xml主配置文件
-       a.导入主配置文件头
-</code></pre></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>下载mybatis 、创建项目、导包</li>
+<li>创建测试用例，测试数据库，测试bean对象</li>
+<li>创建sqlMapperconfig.xml主配置文件<br>a.导入主配置文件头</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;	</span><br><span class="line"></span><br><span class="line">(<span class="number">4</span>)创建Mapper.xml映射文件</span><br><span class="line">	a.导入Mapper文件头</span><br><span class="line">   &lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br><span class="line">   	&lt;!DOCTYPE mapper</span><br><span class="line">   	PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">   	<span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br><span class="line">(<span class="number">5</span>)导入约束</span><br><span class="line">(<span class="number">6</span>)创建MyBatis SqlSessionFactory 的几种方式</span><br><span class="line"> <span class="comment">//配置文件的名称	主配置文件</span></span><br><span class="line">String resource = <span class="string">"ssm/configuration.xml"</span>;</span><br><span class="line"><span class="comment">//通过Mybatis包中的Resources对象获取到配置文件</span></span><br><span class="line">Reader reader = Resources.getResourceAsReader(resource);</span><br><span class="line"><span class="comment">//通过SqlSessionFactoryBuilder创建</span></span><br><span class="line">SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader);</span><br><span class="line"><span class="comment">//获得session实例</span></span><br><span class="line">SqlSession session =sqlSessionFactory.openSession();</span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">user.setId(<span class="number">8</span>);</span><br><span class="line"><span class="comment">//完成数据库的插入</span></span><br><span class="line">session.insert(<span class="string">"add"</span>, user);</span><br><span class="line">session.commit();</span><br><span class="line">session.close();</span><br><span class="line">System.out.println(sqlSessionFactory);</span><br><span class="line">通过Mapper动态代理的方式	用来替代Dao层</span><br><span class="line">String resource = <span class="string">"sqlMapConfig.xml"</span>;</span><br><span class="line">Reader rd = Resources.getResourceAsReader(resource);</span><br><span class="line">SqlSessionFactory ssf = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(rd);</span><br><span class="line">SqlSession session = ssf.openSession();</span><br><span class="line">UserMapper mapper = session.getMapper(UserMapper.class);</span><br><span class="line">mapper.deleteUserById();</span><br><span class="line">mapper.selectALT+/;</span><br><span class="line">mapper.insertUser(user);</span><br><span class="line">mapper.updateUser(user);</span><br><span class="line">session.commit();</span><br><span class="line">   	 * Mapper动态代理四个原则</span><br><span class="line">   	 * <span class="number">1</span>.接口方法名需要与Mapper.xml中要调用的SQL语句ID一致 </span><br><span class="line">   	 * <span class="number">2</span>.接口的形参类型需要与Mapper.xml中的 ParameterType一致	</span><br><span class="line">   	 * <span class="number">3</span>.接口的返回值类型需要与Mapper.xml中的返回值类型一致</span><br><span class="line">   	 * <span class="number">4</span>.Mapper.xml中的NameSpace与接口的全包名一致</span><br><span class="line">   	 * <span class="number">5</span>.注意事项：Mapper动态代理开发中，select类型根据返回值类型自动选择</span><br><span class="line">         </span><br><span class="line">(<span class="number">7</span>)使用MyBatis对表进行增、删、改、查操作</span><br><span class="line"></span><br><span class="line">在mapper.xml映射文件中配置，SQL语句</span><br><span class="line">a.通过id查询一个用户		#&#123;id&#125;	占位符	传递过来的参数</span><br><span class="line">b.通过用户名模糊查找匹配的用户列表		$&#123;value&#125;字符串拼接<span class="comment">//不建议	"%"#&#123;name&#125;"%"</span></span><br><span class="line">c.完成用户添加	<span class="function">insert into table <span class="title">values</span><span class="params">($&#123;&#125;,....传递的参数)</span></span></span><br><span class="line">d.修改用户		update table set colname = $&#123;传递的参数&#125; where id = #&#123;传递的参数&#125;</span><br><span class="line">e.根据id删除用户		delete * from table where id = $&#123;id&#125;</span><br><span class="line">(<span class="number">8</span>)MyBatis主配置文件sqlMapConfig.xml说明注意事项：</span><br><span class="line">主配置文件按照以下顺序读取配置，顺序不对报错</span><br><span class="line"> <span class="number">1</span>.properties（读取配置文件） 用来连接数据库 需要建一个properties文件！</span><br><span class="line"><span class="number">2</span>.settings（全局配置参数）</span><br><span class="line"><span class="number">3</span>.typeAliases(类型别名)用来给mapper.xml文件中返回值的完整包名起一个缩写的别名！</span><br><span class="line">&lt;typeAliases&gt;</span><br><span class="line">&lt;typeAlias type=<span class="string">"com.yt.bean.User"</span> alias=<span class="string">"User"</span>/&gt;`</span><br><span class="line">&lt;/typeAliases&gt;</span><br><span class="line"> <span class="number">4</span>.typeHandlers(类型处理器)</span><br><span class="line"><span class="number">5</span>.objectFactory(对象工厂)</span><br><span class="line"><span class="number">6</span>.plugins(插件)</span><br><span class="line"><span class="number">7</span>.environments(环境集合属性对象	Spring框架整合后不需要)</span><br><span class="line"><span class="number">8</span>.mappers (配置映射器位置)推荐包的形式,mapper.xml文件应与 Mapper接口名字一样且在一个包下！</span><br><span class="line"></span><br><span class="line">(<span class="number">9</span>)MaBatis输入输出映射</span><br><span class="line"><span class="number">1</span>.输入映射parameterType</span><br><span class="line">基本类型	自定义对象	自定义包装类</span><br><span class="line"><span class="number">2</span>.输出映射resultType resultMap</span><br><span class="line">a)resultType：基本类型	自定义对象	集合</span><br><span class="line">b)resultMap: 如果bean对象字段与数据库表字段不匹配使用之手动映射</span><br><span class="line">举例：</span><br><span class="line">&lt;resultMap type=<span class="string">"Role"</span> id=<span class="string">"role"</span>&gt;</span><br><span class="line">&lt;result property=<span class="string">"id"</span> column=<span class="string">"idroles"</span>/&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br><span class="line">&lt;select id=<span class="string">"selectAll"</span> resultMap=<span class="string">"role"</span>&gt;</span><br><span class="line">   	select * from roles </span><br><span class="line">&lt;/select&gt;</span><br><span class="line">自定义包装类	关联查询</span><br><span class="line">(<span class="number">10</span>)关联查询</span><br><span class="line">   左关联：</span><br><span class="line">   	SELECT </span><br><span class="line">   	u.id,u.username,u.sex,r.idroles,r.rolename &lt;!-- 要查找的属性--!&gt;</span><br><span class="line">   	FROM users u 							   &lt;!-- 来自那个表--!&gt;</span><br><span class="line">   	LEFT JOIN roles r 						   &lt;!-- 关联那个表--!&gt;</span><br><span class="line">   	ON u.id=r.idroles						   &lt;!-- 关联的字段主键 --!&gt;</span><br><span class="line">   	一对多查询</span><br><span class="line">   	SELECT </span><br><span class="line">   	u.id,u.username,u.sex,r.idroles,r.rolename &lt;!-- 要查找的属性--!&gt;</span><br><span class="line">   	FROM users u 							   &lt;!-- 来自一的表--!&gt;</span><br><span class="line">   	LEFT JOIN roles r 						   &lt;!-- 关联多的表--!&gt;</span><br><span class="line">   	ON u.id=r.idroles						   &lt;!-- 关联的字段主键 --!&gt;</span><br><span class="line"></span><br><span class="line">(<span class="number">11</span>).MyBatis动态sql：方便拼接sq语句</span><br><span class="line"><span class="number">1</span>.<span class="keyword">if</span>标签 -多条件查询、获取用户列表</span><br><span class="line"> &lt;<span class="keyword">if</span> test=<span class="string">"sex!=null"</span>&gt;</span><br><span class="line">	sex =#&#123;sex&#125;</span><br><span class="line">&lt;/if&gt;</span><br><span class="line"><span class="number">2</span>.where标签</span><br><span class="line"><span class="number">3</span>.trim标签</span><br><span class="line"><span class="number">4</span>.set标签</span><br><span class="line"><span class="number">5</span>.foreach标签</span><br><span class="line"><span class="number">6</span>.sql标签</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>创建Mapper.xml映射文件<br>a.导入Mapper文件头</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br><span class="line">   	&lt;!DOCTYPE mapper</span><br><span class="line">   	PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">   	<span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>导入约束</li>
+<li><p>创建MyBatis SqlSessionFactory 的几种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//配置文件的名称	主配置文件</span></span><br><span class="line">String resource = <span class="string">"ssm/configuration.xml"</span>;</span><br><span class="line"><span class="comment">//通过Mybatis包中的Resources对象获取到配置文件</span></span><br><span class="line">Reader reader = Resources.getResourceAsReader(resource);</span><br><span class="line"><span class="comment">//通过SqlSessionFactoryBuilder创建</span></span><br><span class="line">SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader);</span><br><span class="line"><span class="comment">//获得session实例</span></span><br><span class="line">SqlSession session =sqlSessionFactory.openSession();</span><br><span class="line">User user = <span class="keyword">new</span> User();</span><br><span class="line">user.setId(<span class="number">8</span>);</span><br><span class="line"><span class="comment">//完成数据库的插入</span></span><br><span class="line">session.insert(<span class="string">"add"</span>, user);</span><br><span class="line">session.commit();</span><br><span class="line">session.close();</span><br><span class="line">System.out.println(sqlSessionFactory);</span><br><span class="line">通过Mapper动态代理的方式	用来替代Dao层</span><br><span class="line">String resource = <span class="string">"sqlMapConfig.xml"</span>;</span><br><span class="line">Reader rd = Resources.getResourceAsReader(resource);</span><br><span class="line">SqlSessionFactory ssf = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(rd);</span><br><span class="line">SqlSession session = ssf.openSession();</span><br><span class="line">UserMapper mapper = session.getMapper(UserMapper.class);</span><br><span class="line">mapper.deleteUserById();</span><br><span class="line">mapper.selectALT+/;</span><br><span class="line">mapper.insertUser(user);</span><br><span class="line">mapper.updateUser(user);</span><br><span class="line">session.commit();</span><br><span class="line"><span class="comment">/**Mapper动态代理四个原则</span></span><br><span class="line"><span class="comment">  1.接口方法名需要与Mapper.xml中要调用的SQL语句ID一致 </span></span><br><span class="line"><span class="comment">  2.接口的形参类型需要与Mapper.xml中的 ParameterType一致	</span></span><br><span class="line"><span class="comment">  3.接口的返回值类型需要与Mapper.xml中的返回值类型一致</span></span><br><span class="line"><span class="comment">  4.Mapper.xml中的NameSpace与接口的全包名一致</span></span><br><span class="line"><span class="comment">  5.注意事项：Mapper动态代理开发中，select类型根据返回值类型自动选择</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>使用MyBatis对表进行增、删、改、查操作<br>在mapper.xml映射文件中配置，SQL语句<br>a.通过id查询一个用户        #{id}    占位符    传递过来的参数<br>b.通过用户名模糊查找匹配的用户列表        ${value}字符串拼接//不建议    “%”#{name}”%”<br>c.完成用户添加    insert into table values(${},….传递的参数)<br>d.修改用户        update table set colname = ${传递的参数} where id = #{传递的参数}<br>e.根据id删除用户        delete * from table where id = ${id}</li>
+</ol>
+</li>
+<li>MyBatis主配置文件sqlMapConfig.xml说明注意事项：<br> 主配置文件按照以下顺序读取配置，顺序不对报错<br>1.properties（读取配置文件） 用来连接数据库 需要建一个properties文件！<br> 2.settings（全局配置参数）<br> 3.typeAliases(类型别名)用来给mapper.xml文件中返回值的完整包名起一个缩写的别名！<br> <typealiases><br> <typealias type="com.yt.bean.User" alias="User">`<br> </typealias></typealiases><br>4.typeHandlers(类型处理器)<br> 5.objectFactory(对象工厂)<br> 6.plugins(插件)<br> 7.environments(环境集合属性对象    Spring框架整合后不需要)<br> 8.mappers (配置映射器位置)推荐包的形式,mapper.xml文件应与 Mapper接口名字一样且在一个包下！</li>
+<li><p>MaBatis输入输出映射<br> 1.输入映射parameterType<br> 基本类型    自定义对象    自定义包装类<br> 2.输出映射resultType resultMap<br> a)resultType：基本类型    自定义对象    集合<br> b)resultMap: 如果bean对象字段与数据库表字段不匹配使用之手动映射<br> 举例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  &lt;resultMap type=<span class="string">"Role"</span> id=<span class="string">"role"</span>&gt;</span><br><span class="line">  &lt;result property=<span class="string">"id"</span> column=<span class="string">"idroles"</span>/&gt;</span><br><span class="line">  &lt;/resultMap&gt;</span><br><span class="line">&lt;select id=<span class="string">"selectAll"</span> resultMap=<span class="string">"role"</span>&gt;</span><br><span class="line">   	select * from roles </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关联查询<br>  左关联：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">u.id,u.username,u.sex,r.idroles,r.rolename &lt;!-- 要查找的属性--!&gt;</span><br><span class="line">FROM users u 							   &lt;!-- 来自那个表--!&gt;</span><br><span class="line">LEFT JOIN roles r 						   &lt;!-- 关联那个表--!&gt;</span><br><span class="line">ON u.id=r.idroles						   &lt;!-- 关联的字段主键 --!&gt;</span><br><span class="line">一对多查询</span><br><span class="line">SELECT </span><br><span class="line">u.id,u.username,u.sex,r.idroles,r.rolename &lt;!-- 要查找的属性--!&gt;</span><br><span class="line">FROM users u 							   &lt;!-- 来自一的表--!&gt;</span><br><span class="line">LEFT JOIN roles r 						   &lt;!-- 关联多的表--!&gt;</span><br><span class="line">ON u.id=r.idroles						   &lt;!-- 关联的字段主键 --!&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MyBatis动态sql：方便拼接sq语句<br>  1.if标签 -多条件查询、获取用户列表</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"sex!=null"</span>&gt;</span><br><span class="line">  	sex =#&#123;sex&#125;</span><br><span class="line">  &lt;/if&gt;</span><br></pre></td></tr></table></figure>
+<p>  2.where标签<br>  3.trim标签<br>  4.set标签<br>  5.foreach标签<br>  6.sql标签</p>
+</li>
+</ol>
 
       
 
@@ -1318,11 +1321,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-Linux -操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">-操作系统 -Linux</a>
               </li>
              
               <li class="article-tag-list-item">
