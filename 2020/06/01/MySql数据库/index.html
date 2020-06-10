@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-09T09:39:33.586Z">
+<meta property="og:updated_time" content="2020-06-10T02:22:55.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -430,7 +430,22 @@ ga('send', 'pageview');
 <li><strong>注意:  is not null 只会过滤为null值的列，而&lt;&gt;会同时过滤空值和null值，所以要根据实际情况选择过滤方式。另外，判断null值只能用 is null 或 is not null ，不能用 = 或 &lt;&gt;。</strong></li>
 </ul>
 <h2 id="MySQL-正则表达式"><a href="#MySQL-正则表达式" class="headerlink" title="MySQL 正则表达式"></a><a href="https://www.cnblogs.com/zhaopanpan/p/10133224.html" target="_blank" rel="noopener">MySQL 正则表达式</a></h2><h3 id="常用实例"><a href="#常用实例" class="headerlink" title="常用实例"></a>常用实例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查找name字段中以'st'为开头的所有数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'^st'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查找name字段中以'ok'为结尾的所有数据：</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'ok$'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查找name字段中包含'mar'字符串的所有数据：</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'mar'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查找name字段中以元音字符开头或以'ok'字符串结尾的所有数据：</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'^[aeiou]|ok$'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="MySQL-事务"><a href="#MySQL-事务" class="headerlink" title="MySQL 事务"></a>MySQL 事务</h2>
+<h2 id="MySQL-事务"><a href="#MySQL-事务" class="headerlink" title="MySQL 事务"></a>MySQL 事务</h2><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你既需要删除人员的基本资料，也要删除和该人员相关信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
+<ul>
+<li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</li>
+<li>事务用来管理 insert,update,delete 语句</li>
+</ul>
+<h3 id="事务的四个特性：原子性-一致性-隔离性-持久性"><a href="#事务的四个特性：原子性-一致性-隔离性-持久性" class="headerlink" title="事务的四个特性：原子性  一致性  隔离性  持久性"></a>事务的四个特性：原子性  一致性  隔离性  持久性</h3><ul>
+<li><strong>原子性：</strong>一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。(A给B转账100元–事件开始时A的账户余额会减少100–同时B的余额会增加100.如果中途出现了意外导致A扣钱了但是B没有收到钱这个事件就是有问题的.事务的原子性就是保证所有操作的全部执行,或者不执行回滚到执行之前的状态)</li>
+<li><strong>一致性：</strong>在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。</li>
+<li><strong>隔离性：</strong>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）。</li>
+<li><strong>持久性：</strong>事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</li>
+</ul>
+<blockquote>
+<p> <em>在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行 COMMIT 操作。因此要显式地开启一个事务务须使用命令 BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。</em> </p>
+</blockquote>
+
       
 
       
@@ -652,11 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
