@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-12T11:35:40.068Z">
+<meta property="og:updated_time" content="2020-06-15T08:08:47.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -485,7 +485,58 @@ ga('send', 'pageview');
 <p><em>当你使用 SHOW TABLES命令显示数据表列表时，你将无法看到 SalesSummary表。</em><br><em>如果你退出当前MySQL会话，再使用 SELECT命令来读取原先创建的临时表数据，那你会发现数据库中没有该表的存在，因为在你退出时该临时表已经被销毁了。</em></p>
 </blockquote>
 <h2 id="MySQL-复制表"><a href="#MySQL-复制表" class="headerlink" title="MySQL 复制表"></a>MySQL 复制表</h2><h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--复制表结构及数据到新表,会将表结构与数据全部复制</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">new</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">old</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">new</span> <span class="keyword">AS</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">old</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--只复制表结构到新表</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">new</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">old</span> <span class="keyword">WHERE</span> <span class="number">1</span>=<span class="number">2</span><span class="comment">#或CREATE TABLE 新表  LIKE 旧表</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--复制旧表的数据到新表(假设两个表结构一样)</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">new</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">old</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--复制旧表的数据到新表(假设两个表结构不一样)</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">new</span>(字段<span class="number">1</span>,字段<span class="number">2</span>,.......) <span class="keyword">SELECT</span> 字段<span class="number">1</span>,字段<span class="number">2</span>,...... <span class="keyword">FROM</span> <span class="keyword">old</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--将表1结构复制到表2</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">INTO</span> 表<span class="number">2</span> <span class="keyword">FROM</span> 表<span class="number">1</span> <span class="keyword">WHERE</span> <span class="number">1</span>=<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--将表1内容全部复制到表2</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">INTO</span> 表<span class="number">2</span> <span class="keyword">FROM</span> 表<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--复制旧数据库到新数据库（复制全部表结构并且复制全部表数据）</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> new_db;</span><br><span class="line"><span class="comment">--mysqldump old_db -u root -ppassword--skip-extended-insert --add-drop-table | mysql new_db -u root -ppassword</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--表不在同一数据库中（如，db1 table1,  db2 table2)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> db1.table1 <span class="keyword">select</span> * <span class="keyword">from</span> db2.table2 <span class="comment">--(完全复制)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> db1.table1 <span class="keyword">select</span> <span class="keyword">distinct</span> * <span class="keyword">from</span> db2.table2 <span class="comment">--(不复制重复纪录）</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tdb1.able1 <span class="keyword">select</span> top <span class="number">5</span> * <span class="keyword">from</span> db2.table2 <span class="comment">--(前五条纪录)</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="MySQL-元数据"><a href="#MySQL-元数据" class="headerlink" title="MySQL 元数据"></a>MySQL 元数据</h2><h3 id="一般需要获取MySQL以下三种信息"><a href="#一般需要获取MySQL以下三种信息" class="headerlink" title="一般需要获取MySQL以下三种信息"></a>一般需要获取MySQL以下三种信息</h3><ul>
+<li><strong>查询结果信息：</strong> SELECT, UPDATE 或 DELETE语句影响的记录数。</li>
+<li><strong>数据库和数据表的信息：</strong> 包含了数据库及数据表的结构信息。</li>
+<li><strong>MySQL服务器信息：</strong> 包含了数据库服务器的当前状态，版本号等。</li>
+</ul>
+<h3 id="获取服务器元数据"><a href="#获取服务器元数据" class="headerlink" title="获取服务器元数据"></a>获取服务器元数据</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT VERSION( )</td>
+<td>服务器版本信息</td>
+</tr>
+<tr>
+<td>SELECT DATABASE( )</td>
+<td>当前数据库名 (或者返回空)</td>
+</tr>
+<tr>
+<td>SELECT USER( )</td>
+<td>当前用户名</td>
+</tr>
+<tr>
+<td>SHOW STATUS</td>
+<td>服务器状态</td>
+</tr>
+<tr>
+<td>SHOW VARIABLES</td>
+<td>服务器配置变量</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MySQL-序列使用"><a href="#MySQL-序列使用" class="headerlink" title="MySQL 序列使用"></a><a href="https://www.runoob.com/mysql/mysql-using-sequences.html" target="_blank" rel="noopener">MySQL 序列使用</a></h2><h2 id="MySQL-常用函数"><a href="#MySQL-常用函数" class="headerlink" title="MySQL 常用函数"></a><a href="https://juejin.im/post/5db28dec5188252dcf2f04a3" target="_blank" rel="noopener">MySQL 常用函数</a></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 聚合函数 : sum avg max min count</span></span><br><span class="line"><span class="comment">-- COUNT()：统计指定列不为NULL的记录行数</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">FROM</span> emp;</span><br><span class="line"><span class="comment">-- MAX()：计算指定列的最大值，如果指定列是字符串类型，那么使用字符串排序运算；</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(sal) <span class="keyword">FROM</span> emp;</span><br><span class="line"><span class="comment">-- MIN()：计算指定列的最小值，如果指定列是字符串类型，那么使用字符串排序运算；</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(sal) <span class="keyword">FROM</span> emp;</span><br><span class="line"><span class="comment">-- SUM()：计算指定列的数值和，如果指定列类型不是数值类型，那么计算结果为0；</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(comm) <span class="keyword">FROM</span> emp;</span><br><span class="line"><span class="comment">-- AVG()：计算指定列的平均值，如果指定列类型不是数值类型，那么计算结果为0；</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(sal) <span class="keyword">FROM</span> emp;</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL-运算符"><a href="#MySQL-运算符" class="headerlink" title="MySQL 运算符"></a><a href="https://blog.csdn.net/qq_41573234/article/details/80069275" target="_blank" rel="noopener">MySQL 运算符</a></h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--加法</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">1</span>+<span class="number">2</span>;</span><br><span class="line"><span class="comment">--减法</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">1</span><span class="number">-2</span>;</span><br><span class="line"><span class="comment">--乘法</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span>*<span class="number">3</span>;</span><br><span class="line"><span class="comment">--除法</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span>/<span class="number">3</span>;</span><br><span class="line"><span class="comment">--商</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">10</span> <span class="keyword">DIV</span> <span class="number">4</span>;</span><br><span class="line"><span class="comment">--取余</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">10</span> <span class="keyword">MOD</span> <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><blockquote>
+<p>SELECT 语句中的条件语句经常要使用比较运算符。通过这些比较运算符，可以判断表中的哪些记录是符合条件的。比较结果为真，则返回 1，为假则返回 0，比较结果不确定则返回 NULL。</p>
+</blockquote>
+<ul>
+<li>=、!=、&lt;&gt;、&lt;、&lt;=、&gt;、&gt;=</li>
+</ul>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><blockquote>
+<p>逻辑运算符用来判断表达式的真假。如果表达式是真，结果返回 1。如果表达式是假，结果返回 0。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 逻辑与运算符 AND 成者 &amp;&amp; 表示当所有操作数均为非零值、并且不为 NULL 时，计算所得结果为1；当一个或多个操作数为0时，所得结为0；其余情况返回值为NULL。</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">0</span>; <span class="comment">--0</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span> <span class="keyword">and</span> <span class="number">1</span>; <span class="comment">--1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 逻辑或运算符  OR 和  ||  表示当两个操作数均为非NULL 值，且任意一个操作数为非零值时，结果为1，否则结果为0； 当有一个操作数为NULL，且另一个操作数为非零值时，则结果为1，否则结果为NULL；当两个操作数均为NULL时，所得结果为NULL。</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span> <span class="keyword">or</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span> <span class="keyword">or</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="number">0</span> <span class="keyword">or</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="number">1</span> || <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 逻辑非运算符 NOT 或者 ! 表示当操作数为 0 时，所得值为 1；当操作数为非零值时，所得值为0；当操作数为 NULL 时，所得的返回值为NULL。</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">not</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> !<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 逻辑异或运算符  XOR  表示当任意一个操作数为 NULL 时，返回值为 NULL； 对于非 NULL 为操作数，如果两个操作数都是非 0 值或者都是 0 值，则返回结果为0； 如果一个为0 值，另一个为非 0 值，返回结果为 1。</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">1</span> <span class="keyword">xor</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="number">0</span> <span class="keyword">xor</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="number">1</span> <span class="keyword">xor</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="literal">null</span> <span class="keyword">or</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="number">1</span> ^ <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><blockquote>
+<p>运算符是用来对二进制字节中的位进行测试、移位或者测试处理，MySQL 中提供的位运算符有按位或(|)、按位与(&amp;)、按位异或(^)、按位左移(&lt;&lt;)、按位右移(&gt;&gt;)、按位取反(~)。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按位与</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>&amp;<span class="number">5</span>;</span><br><span class="line"><span class="comment">-- 按位或</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>|<span class="number">5</span>;</span><br><span class="line"><span class="comment">-- 按位异或</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>^<span class="number">5</span>;</span><br><span class="line"><span class="comment">-- 按位取反</span></span><br><span class="line"><span class="keyword">select</span> ~<span class="number">18446744073709551612</span>;</span><br><span class="line"><span class="comment">-- 按位右移</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 按位左移</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>&lt;&lt;<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL-存储过程"><a href="#MySQL-存储过程" class="headerlink" title="MySQL 存储过程"></a><a href="https://www.cnblogs.com/jiangxiaobo/p/7448854.html" target="_blank" rel="noopener">MySQL 存储过程</a></h2>
       
 
       
@@ -711,11 +762,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -typora</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-快捷键 -typora</a>
+                <a href="javascript:void(0)" class="js-tag color5">-java -Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,11 +778,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-数据库 -MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">-数据库 -MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
