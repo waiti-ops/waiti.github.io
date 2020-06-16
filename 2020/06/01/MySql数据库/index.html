@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-15T08:08:47.413Z">
+<meta property="og:updated_time" content="2020-06-16T02:37:39.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -430,7 +430,9 @@ ga('send', 'pageview');
 <li><strong>注意:  is not null 只会过滤为null值的列，而&lt;&gt;会同时过滤空值和null值，所以要根据实际情况选择过滤方式。另外，判断null值只能用 is null 或 is not null ，不能用 = 或 &lt;&gt;。</strong></li>
 </ul>
 <h2 id="MySQL-正则表达式"><a href="#MySQL-正则表达式" class="headerlink" title="MySQL 正则表达式"></a><a href="https://www.cnblogs.com/zhaopanpan/p/10133224.html" target="_blank" rel="noopener">MySQL 正则表达式</a></h2><h3 id="常用实例"><a href="#常用实例" class="headerlink" title="常用实例"></a>常用实例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--查找name字段中以'st'为开头的所有数据</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'^st'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查找name字段中以'ok'为结尾的所有数据：</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'ok$'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查找name字段中包含'mar'字符串的所有数据：</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'mar'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查找name字段中以元音字符开头或以'ok'字符串结尾的所有数据：</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">name</span> <span class="keyword">FROM</span> person_tbl <span class="keyword">WHERE</span> <span class="keyword">name</span> REGEXP <span class="string">'^[aeiou]|ok$'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="MySQL-事务"><a href="#MySQL-事务" class="headerlink" title="MySQL 事务"></a>MySQL 事务</h2><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你既需要删除人员的基本资料，也要删除和该人员相关信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
+<h2 id="MySQL-事务"><a href="#MySQL-事务" class="headerlink" title="MySQL 事务"></a>MySQL 事务</h2><blockquote>
+<p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你既需要删除人员的基本资料，也要删除和该人员相关信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p>
+</blockquote>
 <ul>
 <li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
 <li>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</li>
@@ -778,11 +780,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">-数据库 -MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-数据库 -MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">-Java -基础</a>
               </li>
              
               <li class="article-tag-list-item">
