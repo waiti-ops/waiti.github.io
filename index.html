@@ -65,7 +65,7 @@ ga('send', 'pageview');
 		  <h1 class="header-author"><a href="/">清衍之</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">知道做不到,等于不知道</p>
+		<p class="header-subtitle">眼前重复的风景,渐渐模糊了约定</p>
 		
 
 		<nav class="header-menu">
@@ -125,7 +125,7 @@ ga('send', 'pageview');
 			  <h1 class="header-author js-header-author">清衍之</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>知道做不到,等于不知道<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>眼前重复的风景,渐渐模糊了约定<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -1181,11 +1181,11 @@ mybatis的动态sql ！
 <li>创建测试用例，测试数据库，测试bean对象</li>
 <li>创建sqlMapperconfig.xml主配置文件<br>a.导入主配置文件头</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>创建Mapper.xml映射文件<br>a.导入Mapper文件头</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> ?&gt;</span><br><span class="line">   	&lt;!DOCTYPE mapper</span><br><span class="line">   	PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">   	<span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line">   	<span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">   	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">   	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>导入约束</li>
 <li><p>创建MyBatis SqlSessionFactory 的几种方式</p>
@@ -1199,14 +1199,18 @@ mybatis的动态sql ！
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  &lt;resultMap type=<span class="string">"Role"</span> id=<span class="string">"role"</span>&gt;</span><br><span class="line">  &lt;result property=<span class="string">"id"</span> column=<span class="string">"idroles"</span>/&gt;</span><br><span class="line">  &lt;/resultMap&gt;</span><br><span class="line">&lt;select id=<span class="string">"selectAll"</span> resultMap=<span class="string">"role"</span>&gt;</span><br><span class="line">   	select * from roles </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>关联查询<br>  左关联：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">u.id,u.username,u.sex,r.idroles,r.rolename &lt;!-- 要查找的属性--!&gt;</span><br><span class="line">FROM users u 							   &lt;!-- 来自那个表--!&gt;</span><br><span class="line">LEFT JOIN roles r 						   &lt;!-- 关联那个表--!&gt;</span><br><span class="line">ON u.id=r.idroles						   &lt;!-- 关联的字段主键 --!&gt;</span><br><span class="line">一对多查询</span><br><span class="line">SELECT </span><br><span class="line">u.id,u.username,u.sex,r.idroles,r.rolename &lt;!-- 要查找的属性--!&gt;</span><br><span class="line">FROM users u 							   &lt;!-- 来自一的表--!&gt;</span><br><span class="line">LEFT JOIN roles r 						   &lt;!-- 关联多的表--!&gt;</span><br><span class="line">ON u.id=r.idroles						   &lt;!-- 关联的字段主键 --!&gt;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">u.id,u.username,u.sex,r.idroles,r.rolename &lt;!<span class="comment">-- 要查找的属性--!&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">users</span> u 							   &lt;!<span class="comment">-- 来自那个表--!&gt;</span></span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> <span class="keyword">roles</span> r 						   &lt;!<span class="comment">-- 关联那个表--!&gt;</span></span><br><span class="line"><span class="keyword">ON</span> u.id=r.idroles						   &lt;!<span class="comment">-- 关联的字段主键 --!&gt;</span></span><br><span class="line">一对多查询</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">u.id,u.username,u.sex,r.idroles,r.rolename &lt;!<span class="comment">-- 要查找的属性--!&gt;</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">users</span> u 							   &lt;!<span class="comment">-- 来自一的表--!&gt;</span></span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> <span class="keyword">roles</span> r 						   &lt;!<span class="comment">-- 关联多的表--!&gt;</span></span><br><span class="line"><span class="keyword">ON</span> u.id=r.idroles						   &lt;!<span class="comment">-- 关联的字段主键 --!&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>MyBatis动态sql：方便拼接sq语句<br>  1.if标签 -多条件查询、获取用户列表</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">if</span> test=<span class="string">"sex!=null"</span>&gt;</span><br><span class="line">  	sex =#&#123;sex&#125;</span><br><span class="line">  &lt;/if&gt;</span><br></pre></td></tr></table></figure>
-<p>  2.where标签<br>  3.trim标签<br>  4.set标签<br>  5.foreach标签<br>  6.sql标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"sex!=null"</span>&gt;</span></span><br><span class="line">  	sex =#&#123;sex&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-
+<pre><code>2.where标签
+3.trim标签
+4.set标签
+5.foreach标签
+6.sql标签
+</code></pre>
       
 
       
@@ -1391,11 +1395,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1411,15 +1415,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
