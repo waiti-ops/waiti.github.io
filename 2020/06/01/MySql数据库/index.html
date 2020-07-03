@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-30T05:33:04.770Z">
+<meta property="og:updated_time" content="2020-07-03T06:29:14.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -556,7 +556,11 @@ ga('send', 'pageview');
 <p>运算符是用来对二进制字节中的位进行测试、移位或者测试处理，MySQL 中提供的位运算符有按位或(|)、按位与(&amp;)、按位异或(^)、按位左移(&lt;&lt;)、按位右移(&gt;&gt;)、按位取反(~)。</p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按位与</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>&amp;<span class="number">5</span>;</span><br><span class="line"><span class="comment">-- 按位或</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>|<span class="number">5</span>;</span><br><span class="line"><span class="comment">-- 按位异或</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>^<span class="number">5</span>;</span><br><span class="line"><span class="comment">-- 按位取反</span></span><br><span class="line"><span class="keyword">select</span> ~<span class="number">18446744073709551612</span>;</span><br><span class="line"><span class="comment">-- 按位右移</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="comment">-- 按位左移</span></span><br><span class="line"><span class="keyword">select</span> <span class="number">3</span>&lt;&lt;<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="MySQL-存储过程"><a href="#MySQL-存储过程" class="headerlink" title="MySQL 存储过程"></a><a href="https://www.cnblogs.com/jiangxiaobo/p/7448854.html" target="_blank" rel="noopener">MySQL 存储过程</a></h2><h2 id="Java实体类的属性类型与数据库表字段类型对应表"><a href="#Java实体类的属性类型与数据库表字段类型对应表" class="headerlink" title="Java实体类的属性类型与数据库表字段类型对应表"></a><a href="https://blog.csdn.net/Stars_min/article/details/94543618" target="_blank" rel="noopener">Java实体类的属性类型与数据库表字段类型对应表</a></h2>
+<h2 id="MySQL-存储过程"><a href="#MySQL-存储过程" class="headerlink" title="MySQL 存储过程"></a><a href="https://www.cnblogs.com/jiangxiaobo/p/7448854.html" target="_blank" rel="noopener">MySQL 存储过程</a></h2><ul>
+<li>创建存储过程</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--创建 命令行创建(mysql)</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> sign_in() <span class="comment">--参数,选填</span></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tn_user; </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="comment">--NAvicat创建</span></span><br><span class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`skip-grants user`</span>@<span class="string">`skip-grants host`</span> <span class="keyword">PROCEDURE</span> <span class="string">`sign_in`</span>()</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line"><span class="keyword">UPDATE</span>  tb_user <span class="keyword">SET</span> age=<span class="number">50</span></span><br><span class="line"><span class="keyword">WHERE</span> user_name =<span class="string">'zhangsan'</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--创建  Oracle PL/SQL</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> sign_in <span class="keyword">is</span> <span class="comment">--固定格式</span></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">table</span>;</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--查看执行 mysql的</span></span><br><span class="line"><span class="keyword">call</span> sign_in();</span><br><span class="line"></span><br><span class="line"><span class="comment">--Oracle 的</span></span><br><span class="line"><span class="keyword">DECLARE</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">sign_in();</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">--删除</span></span><br><span class="line"><span class="keyword">DROP</span> PROCUDURE sign_in();</span><br></pre></td></tr></table></figure>
+<h2 id="Java实体类的属性类型与数据库表字段类型对应表"><a href="#Java实体类的属性类型与数据库表字段类型对应表" class="headerlink" title="Java实体类的属性类型与数据库表字段类型对应表"></a><a href="https://blog.csdn.net/Stars_min/article/details/94543618" target="_blank" rel="noopener">Java实体类的属性类型与数据库表字段类型对应表</a></h2>
       
 
       
@@ -810,10 +814,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -822,11 +822,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,6 +834,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
@@ -846,19 +850,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">素描</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旧事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -882,15 +886,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>
