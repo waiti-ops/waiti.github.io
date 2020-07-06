@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="http://www.ytalyq.top">
   <title>Redis数据库 | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis简介 Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(Windo">
+  <meta name="description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
 <meta name="keywords" content="数据库,Redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis数据库">
 <meta property="og:url" content="http://www.ytalyq.top/2020/06/28/Redis数据库/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
-<meta property="og:description" content="Redis简介 Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(Windo">
+<meta property="og:description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-06T03:00:27.513Z">
+<meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/数据类型.png">
+<meta property="og:updated_time" content="2020-07-06T09:26:05.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis数据库">
-<meta name="twitter:description" content="Redis简介 Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(Windo">
+<meta name="twitter:description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
+<meta name="twitter:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/数据类型.png">
   
     <link rel="alternative" href="/atom.xml" title="呼啸山庄的哑舍" type="application/atom+xml">
   
@@ -208,7 +210,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><blockquote>
+        <h2 id="Redis简介-参考"><a href="#Redis简介-参考" class="headerlink" title="Redis简介[参考]"></a>Redis简介<a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">[参考]</a></h2><blockquote>
 <p>Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) <a href="http://redisdoc.com/transaction/multi.html#multi" target="_blank" rel="noopener">MULTI</a> , <a href="http://redisdoc.com/transaction/exec.html#exec" target="_blank" rel="noopener">EXEC</a> , <a href="http://redisdoc.com/transaction/discard.html#discard" target="_blank" rel="noopener">DISCARD</a> 和 <a href="http://redisdoc.com/transaction/watch.html#watch" target="_blank" rel="noopener">WATCH</a> 是 Redis 事务的基础。 </p>
 </blockquote>
 <h2 id="Redis安装-Windows-amp-Linux"><a href="#Redis安装-Windows-amp-Linux" class="headerlink" title="Redis安装(Windows&amp;Linux)"></a><a href="https://blog.csdn.net/weixin_44911419/article/details/98881575" target="_blank" rel="noopener">Redis安装</a>(Windows&amp;Linux)</h2><ul>
@@ -224,6 +226,13 @@ ga('send', 'pageview');
 <p>Redis启动失败,先查看端口号是否被占用,cmd进入,命令<code>netstat -ano | findstr 6379</code> listen 监听的就是进程号,任务管理器可以看到.</p>
 </blockquote>
 <a id="more"></a>
+<h2 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h2><h3 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--set key value</span><br><span class="line">set name yt</span><br><span class="line">get name</span><br></pre></td></tr></table></figure>
+<h3 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash(哈希)"></a>Hash(哈希)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--键值对的集合</span><br><span class="line">--HMset key file1 value1 file2 value2</span><br><span class="line">HMset person name  yt  sex 男</span><br><span class="line">Hget person name</span><br></pre></td></tr></table></figure>
+<h3 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--Lpush key value </span><br><span class="line">Lpush name zs </span><br><span class="line">Lpush name ls </span><br><span class="line">Lpush name ww </span><br><span class="line">Lrange name 0 10</span><br></pre></td></tr></table></figure>
+<h3 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--添加一个 string 元素到 key 对应的 set 集合中，成功返回 1，如果元素已经在集合中返回 0。</span><br><span class="line">--Sadd key member</span><br><span class="line">Sadd runoob redis </span><br><span class="line">Sadd runoob rabitmq </span><br><span class="line">Sadd runoob mongodb</span><br><span class="line">Smembers runoob</span><br></pre></td></tr></table></figure>
+<h3 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--Zadd key score member </span><br><span class="line">zadd runoob 0 redis</span><br><span class="line">zadd runoob 0 mongodb</span><br><span class="line">zadd runoob 0 rabitmq</span><br><span class="line">ZRANGEBYSCORE runoob 0 1000</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/06/28/Redis数据库/数据类型.png"></p>
+<h2 id="Redis-命令"><a href="#Redis-命令" class="headerlink" title="Redis 命令"></a>Redis 命令</h2>
       
 
       
@@ -477,18 +486,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
@@ -513,11 +510,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,7 +534,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,10 +562,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -566,6 +571,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>
