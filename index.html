@@ -188,6 +188,105 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-记一次python实现自动登录网站等操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/06/记一次python实现自动登录网站等操作/">记一次python实现自动登录网站等操作</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/06/记一次python实现自动登录网站等操作/" class="archive-article-date">
+  	<time datetime="2020-07-06T02:59:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><ol>
+<li><p>Python 的编译环境  <a href="https://www.python.org/" target="_blank" rel="noopener">Python官方网站</a>下载Python安装包的, 找到适合自己电脑位数的(32bit, 64bit).</p>
+<p><img src="/2020/07/06/记一次python实现自动登录网站等操作/安装Python.png" alt></p>
+<p>安装 Python  .exe文件一路next  add-path pip 要勾选上  配置到系统环境变量的和安装第三方库. 安装完cmd窗口python查看是否安装成功 . 可以的话再安装一个IDE工具PyCharm方便写Py文件.  </p>
+</li>
+<li><p>下载自己谷歌浏览器<a href="chrome://settings/help" target="_blank" rel="noopener">对应版本</a>的驱动,<a href="http://chromedriver.storage.googleapis.com/" target="_blank" rel="noopener">下载地址</a></p>
+</li>
+<li><p>安装可以实现自动化的第三方库<code>selenium</code> win+R–&gt;cmd–&gt;pip install selenium </p>
+</li>
+</ol>
+<h2 id="实例-公司网站"><a href="#实例-公司网站" class="headerlink" title="实例(公司网站)"></a>实例(公司网站)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方便延时加载  导入相关库</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.select <span class="keyword">import</span> Select  <span class="comment">#操作下拉框</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 模拟浏览器打开网站  </span></span><br><span class="line">browser = webdriver.Chrome()</span><br><span class="line">browser.get(<span class="string">'http://portal.mochasoft.com.cn/cas/login?service=http%3A%2F%2Fportal.mochasoft.com.cn%2Fc%2Fportal%2Flogin'</span>)</span><br><span class="line"><span class="comment"># 将窗口最大化</span></span><br><span class="line">browser.maximize_window()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到登录表单的位置,待会准备模拟进行点击</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/div[2]'</span>).click()</span><br><span class="line"><span class="comment"># 延时2秒，以便网页加载所有元素，避免之后找不到对应的元素</span></span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到输入框,发送要输入的用户名和密码,模拟登陆</span></span><br><span class="line">browser.find_element_by_xpath(</span><br><span class="line">    <span class="string">"//*[@id='username']"</span>).send_keys(<span class="string">"自己的用户名"</span>)</span><br><span class="line">browser.find_element_by_xpath(</span><br><span class="line">    <span class="string">"//*[@id='password']"</span>).send_keys(<span class="string">"自己的密码"</span>)</span><br><span class="line"><span class="comment"># 在输入用户名和密码之后,点击登陆按钮</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='tijiao']"</span>).click()</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#工时管理</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='layout_17']"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#工时管理2</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"/html/body/table/tbody/tr[1]/td[1]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[2]/a/img"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#工作量填写</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/table/tbody/tr[2]/td/table/tbody/tr/td[1]/table/tbody/tr/td[1]/table/tbody/tr/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[2]/font/a'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#添加行</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td/table/tbody/tr/td/table[4]/tbody/tr/td/table/tbody[3]/tr[1]/td/table/tbody/tr/td/div/input[1]'</span>).click()</span><br><span class="line">browser.find_element_by_xpath(<span class="string">'/html/body/form/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/table/tbody/tr/td/table/tbody/tr/td/table[4]/tbody/tr/td/table/tbody[9]/tr[1]/td/table/tbody/tr/td/div/input[1]'</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#下拉框</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='projectType1']/option[2]"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#任务简介</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='taskDesc1']"</span>).send_keys(<span class="string">"*********"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#工时</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='mon1']"</span>).send_keys(<span class="string">"8"</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='tues1']"</span>).send_keys(<span class="string">"8"</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='wedn1']"</span>).send_keys(<span class="string">"8"</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='thur1']"</span>).send_keys(<span class="string">"8"</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='fri1']"</span>).send_keys(<span class="string">"8"</span>)</span><br><span class="line">time.sleep(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># 员工自评 三个下拉框</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='_project_id1']/option[2]"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='end1']/option[3]"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='xiaolv1']/option[3]"</span>).click()</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#两个备注</span></span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='beizhu1']"</span>).send_keys(<span class="string">"完成任务"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line">browser.find_element_by_xpath(<span class="string">"//*[@id='_beizhu1']"</span>).send_keys(<span class="string">"完成任务"</span>)</span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line"><span class="comment">#browser.find_element_by_xpath("//*[@id='submitform']").click()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击登陆后的页面中的签到,跳转到签到页面</span></span><br><span class="line"><span class="comment"># browser.find_element_by_xpath("签到的页面的表单xpath路径").click()</span></span><br><span class="line"><span class="comment"># time.sleep(2)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 点击签到,实现功能</span></span><br><span class="line"><span class="comment"># browser.find_element_by_xpath("//*[@id='sign']").click()</span></span><br><span class="line"><span class="comment"># time.sleep(2)</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"成功"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行成功,退出浏览器</span></span><br><span class="line"><span class="comment">#browser.quit()</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/06/记一次python实现自动登录网站等操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Excel常用函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -210,7 +309,9 @@ ga('send', 'pageview');
       
         <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="VLOOKUP（）可以多表一起"><a href="#VLOOKUP（）可以多表一起" class="headerlink" title="VLOOKUP（）可以多表一起"></a>VLOOKUP（）可以多表一起</h3><p>纵向查找: 第一个是根据哪个字段匹配(两个相同的)    第二个是匹配范围     第三个想要得到的结果在范围第几列</p>
 <h3 id="CONCATENATE（）"><a href="#CONCATENATE（）" class="headerlink" title="CONCATENATE（）"></a>CONCATENATE（）</h3><p>拼接字符串   指定单元格</p>
-
+        
+          <a class="article-more-a" href="/2020/07/01/Excel常用函数/#more">more >></a>
+        
       
 
       
@@ -487,8 +588,9 @@ ga('send', 'pageview');
 <blockquote>
 <p>Redis启动失败,先查看端口号是否被占用,cmd进入,命令<code>netstat -ano | findstr 6379</code> listen 监听的就是进程号,任务管理器可以看到.</p>
 </blockquote>
-<p>## </p>
-
+        
+          <a class="article-more-a" href="/2020/06/28/Redis数据库/#more">more >></a>
+        
       
 
       
@@ -1073,114 +1175,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Typora快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/Typora快捷键/">Typora快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/Typora快捷键/" class="archive-article-date">
-  	<time datetime="2020-04-18T06:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一：菜单栏"><a href="#一：菜单栏" class="headerlink" title="一：菜单栏"></a>一：菜单栏</h2><ul>
-<li>文件：alt+F</li>
-<li>编辑：alt+E</li>
-<li>段落：alt+P</li>
-<li>格式：alt+O</li>
-<li>视图：alt+V</li>
-<li>主题：alt+T</li>
-<li>帮助：alt+H</li>
-</ul>
-<h2 id="二：文件"><a href="#二：文件" class="headerlink" title="二：文件"></a>二：文件</h2><ul>
-<li>新建：Ctrl+N</li>
-<li>新建窗口：Ctrl+Shift+N</li>
-<li>打开：Ctrl+O</li>
-<li>快速打开：Ctrl+P</li>
-<li>保存：Ctrl+S</li>
-<li>另存为：Ctrl+Shift+S</li>
-<li>偏好：Ctrl+,</li>
-<li>关闭：Ctrl+W</li></ul>
-        
-          <a class="article-more-a" href="/2020/04/18/Typora快捷键/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快捷键</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">typora</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/Typora快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1276,14 +1270,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
@@ -1304,19 +1290,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1329,6 +1315,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,15 +1350,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>
