@@ -17,7 +17,9 @@
 <meta property="og:description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/数据类型.png">
-<meta property="og:updated_time" content="2020-07-07T03:11:43.952Z">
+<meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/key%20命令.png">
+<meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/redis.png">
+<meta property="og:updated_time" content="2020-07-08T09:30:41.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis数据库">
 <meta name="twitter:description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
@@ -232,7 +234,17 @@ ga('send', 'pageview');
 <h3 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--添加一个 string 元素到 key 对应的 set 集合中，成功返回 1，如果元素已经在集合中返回 0。</span><br><span class="line">--Sadd key member</span><br><span class="line">Sadd runoob redis </span><br><span class="line">Sadd runoob rabitmq </span><br><span class="line">Sadd runoob mongodb</span><br><span class="line">Smembers runoob</span><br></pre></td></tr></table></figure>
 <h3 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--Zadd key score member </span><br><span class="line">zadd runoob 0 redis</span><br><span class="line">zadd runoob 0 mongodb</span><br><span class="line">zadd runoob 0 rabitmq</span><br><span class="line">ZRANGEBYSCORE runoob 0 1000</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/06/28/Redis数据库/数据类型.png"></p>
-<h2 id="Redis-命令"><a href="#Redis-命令" class="headerlink" title="Redis 命令"></a>Redis 命令</h2>
+<h2 id="Redis常用-命令"><a href="#Redis常用-命令" class="headerlink" title="Redis常用 命令"></a>Redis常用 命令</h2><h3 id="C-S-端命令"><a href="#C-S-端命令" class="headerlink" title="C S 端命令"></a>C S 端命令</h3><ul>
+<li>客户端命令:    <code>redis-cli</code>    [<code>redis-cli --raw</code>]避免中文乱码</li>
+<li>连接远程服务器上命令:  <code>redis-cli -h host -p port -a password</code></li>
+</ul>
+<h3 id="Redis-keys-命令"><a href="#Redis-keys-命令" class="headerlink" title="Redis keys 命令"></a>Redis keys 命令</h3><p><img src="/2020/06/28/Redis数据库/key 命令.png" alt></p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>设置一个键的值 <code>SET key value</code><br>获取一个建的值 <code>GET key</code><br>删除键对 <code>DEL key</code><br>同时获取多个 <code>mget key1 key2</code></p>
+<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p>设置一个hash <code>HMSET key valueKey value --&lt;key,&lt;valueKey,value&gt;&gt;</code><br>获取hash所有key&amp;value HGETALL key<br>获取hash所有key <code>HKEYS key</code><br>获取hash所有keu的vslue <code>HVALS key</code><br>获取hash内键值对的长度 <code>HLEN key</code><br>给一个hash的某个键值对赋值 <code>HSET key valueKey value</code><br>当hash中valueKey不存在时赋值 <code>HSETNX key valueKey value</code></p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>给list赋值 <code>LPUSH listName value</code><br>按照索引取值 <code>LINDEX listName 1</code></p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>给set赋值 <code>SADD  key member1 [member2]</code><br>返回集合的成员数 <code>SCARD key</code></p>
+<h3 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h3><p><img src="/2020/06/28/Redis数据库/redis.png" alt></p>
+
       
 
       
@@ -506,14 +518,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
@@ -522,15 +526,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
               </li>
              
               <li class="article-tag-list-item">
