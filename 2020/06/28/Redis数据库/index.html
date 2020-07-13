@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/数据类型.png">
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/key%20命令.png">
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/redis.png">
-<meta property="og:updated_time" content="2020-07-09T09:52:44.612Z">
+<meta property="og:updated_time" content="2020-07-13T07:11:18.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis数据库">
 <meta name="twitter:description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
@@ -245,10 +245,8 @@ ga('send', 'pageview');
 <h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>给set赋值 <code>SADD  key member1 [member2]</code><br>返回集合的成员数 <code>SCARD key</code></p>
 <h3 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h3><p><img src="/2020/06/28/Redis数据库/redis.png" alt></p>
 <h2 id="Redis发布订阅"><a href="#Redis发布订阅" class="headerlink" title="Redis发布订阅"></a>Redis发布订阅</h2><ul>
-<li><p>用一个客户端A订阅一个频道 <code>SUBSCRIBE ccTV</code></p>
-</li>
-<li><p>开启另一个客户端B, 在ccTV 的频道发布两次消息</p>
-<ul>
+<li>用一个客户端A订阅一个频道 <code>SUBSCRIBE ccTV</code></li>
+<li>开启另一个客户端B, 在ccTV 的频道发布两次消息<ul>
 <li><code>PUBLISH redisChat &quot;Redis is a great caching technique&quot;</code></li>
 <li><code>PUBLISH redisChat &quot;Learn redis by runoob.com&quot;</code></li>
 </ul>
@@ -258,8 +256,7 @@ ga('send', 'pageview');
 </li>
 </ul>
 <h2 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h2><ul>
-<li><p>Redis 事务可以一次执行多个命令， 并且带有以下三个重要的保证：</p>
-<ul>
+<li>Redis 事务可以一次执行多个命令， 并且带有以下三个重要的保证：<ul>
 <li>批量操作在发送 EXEC 命令前被放入队列缓存。</li>
 <li>收到 EXEC 命令后进入事务执行，事务中任意命令执行失败，其余的命令依然被执行。</li>
 <li>在事务执行过程，其他客户端提交的命令请求不会插入到事务执行命令序列中。</li>
@@ -273,9 +270,7 @@ ga('send', 'pageview');
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">multi	--事务开始</span><br><span class="line">set name yt</span><br><span class="line">get name</span><br><span class="line">HMset person name yq sex nv</span><br><span class="line">HMget person</span><br><span class="line">Sadd tag "to be or not to be "</span><br><span class="line">Smember tag</span><br><span class="line">exec	--提交事务</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的执行并不是原子性的。</p>
-<p>事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。</p>
-<p>比如: <code>multi</code> <code>set a aaa,set b bbb,set c ccc</code>, <code>exec</code> 如果在 set b bbb 处失败，set a 已成功不会回滚，set c 还会继续执行。 </p>
+<p>单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的执行并不是原子性的。<br>事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。<br>比如: <code>multi</code> <code>set a aaa,set b bbb,set c ccc</code>, <code>exec</code> 如果在 set b bbb 处失败，set a 已成功不会回滚，set c 还会继续执行。 </p>
 </blockquote>
 </li>
 </ul>
@@ -284,7 +279,56 @@ ga('send', 'pageview');
 <li>如果需要恢复数据，只需将备份文件 (dump.rdb) 移动到 redis 安装目录并启动服务即可。获取 redis安装 目录可以使用 CONFIG 命令，如下所示：<code>CONFIG GET dir</code></li>
 <li>创建 redis 备份文件也可以使用命令 <code>BGSAVE</code>，该命令在后台执行。</li>
 </ul>
-
+<h2 id="Redis-安全"><a href="#Redis-安全" class="headerlink" title="Redis 安全"></a>Redis 安全</h2><ul>
+<li><code>CONFIG get requirepass</code>查看服务器端是否设置密码, 默认<code>requirepass</code>参数是空的.</li>
+<li><code>CONFIG set requirepass &quot;123456&quot;</code>设置密码为123456</li>
+<li>设置密码后,客户端连接需要输入密码验证,  <code>AUTH password</code> 输入密码语法.</li>
+</ul>
+<h2 id="Redis-客户端连接"><a href="#Redis-客户端连接" class="headerlink" title="Redis 客户端连接"></a>Redis 客户端连接</h2><p>Redis通过监听一个 TCP 端口或者 Unix socket 的方式来接收来自client端的连接，当一个连接建立后，Redis 内部会进行以下一些操作：</p>
+<ul>
+<li>首先，客户端 socket 会被设置为非阻塞模式，因为 Redis 在网络事件处理上采用的是非阻塞多路复用模型。</li>
+<li>然后为这个 socket 设置 TCP_NODELAY 属性，禁用 Nagle 算法。</li>
+<li>然后创建一个可读的文件事件用于监听这个客户端 socket 的数据发送。</li>
+</ul>
+<h3 id="客户端命令"><a href="#客户端命令" class="headerlink" title="客户端命令"></a>客户端命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIENT LIST</td>
+<td>返回连接到 redis 服务的客户端列表</td>
+</tr>
+<tr>
+<td>CLIENT SETNAME</td>
+<td>设置当前连接的名称</td>
+</tr>
+<tr>
+<td>CLIENT GETNAME</td>
+<td>获取通过 CLIENT SETNAME 命令设置的服务名称</td>
+</tr>
+<tr>
+<td>CLIENT PAUSE</td>
+<td>挂起客户端连接，指定挂起的时间以毫秒计</td>
+</tr>
+<tr>
+<td>CLIENT KILL</td>
+<td>关闭客户端连接</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis之I-O多路复用模型实现原理"><a href="#Redis之I-O多路复用模型实现原理" class="headerlink" title="Redis之I/O多路复用模型实现原理"></a><a href="https://blog.csdn.net/Seky_fei/article/details/106677043" target="_blank" rel="noopener">Redis之I/O多路复用模型实现原理</a></h2><h2 id="Java-使用-Redis"><a href="#Java-使用-Redis" class="headerlink" title="Java 使用 Redis"></a>Java 使用 Redis</h2><ul>
+<li>安装 redis 服务及 Java redis 驱动 </li>
+<li>首先你需要下载驱动包 下载 jedis.jar，确保下载最新驱动包。</li>
+<li>在你的 classpath 中包含该驱动包</li>
+</ul>
+<h3 id="连接到-redis-服务"><a href="#连接到-redis-服务" class="headerlink" title="连接到 redis 服务"></a>连接到 redis 服务</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisJava</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//连接本地的 Redis 服务</span></span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</span><br><span class="line">        System.out.println(<span class="string">"连接成功"</span>);</span><br><span class="line">        <span class="comment">//查看服务是否运行</span></span><br><span class="line">        System.out.println(<span class="string">"服务正在运行: "</span>+jedis.ping());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Redis-Java-String-字符串-实例"><a href="#Redis-Java-String-字符串-实例" class="headerlink" title="Redis Java String(字符串) 实例"></a>Redis Java String(字符串) 实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisStringJava</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//连接本地的 Redis 服务</span></span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</span><br><span class="line">        System.out.println(<span class="string">"连接成功"</span>);</span><br><span class="line">        <span class="comment">//设置 redis 字符串数据</span></span><br><span class="line">        jedis.set(<span class="string">"runoobkey"</span>, <span class="string">"www.runoob.com"</span>);</span><br><span class="line">        <span class="comment">// 获取存储的数据并输出</span></span><br><span class="line">        System.out.println(<span class="string">"redis 存储的字符串为: "</span>+ jedis.get(<span class="string">"runoobkey"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Redis-Java-List-列表-实例"><a href="#Redis-Java-List-列表-实例" class="headerlink" title="Redis Java List(列表) 实例"></a>Redis Java List(列表) 实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisListJava</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//连接本地的 Redis 服务</span></span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</span><br><span class="line">        System.out.println(<span class="string">"连接成功"</span>);</span><br><span class="line">        <span class="comment">//存储数据到列表中</span></span><br><span class="line">        jedis.lpush(<span class="string">"site-list"</span>, <span class="string">"Runoob"</span>);</span><br><span class="line">        jedis.lpush(<span class="string">"site-list"</span>, <span class="string">"Google"</span>);</span><br><span class="line">        jedis.lpush(<span class="string">"site-list"</span>, <span class="string">"Taobao"</span>);</span><br><span class="line">        <span class="comment">// 获取存储的数据并输出</span></span><br><span class="line">        List&lt;String&gt; list = jedis.lrange(<span class="string">"site-list"</span>, <span class="number">0</span> ,<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;list.size(); i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">"列表项为: "</span>+list.get(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Redis-Java-Keys-实例"><a href="#Redis-Java-Keys-实例" class="headerlink" title="Redis Java Keys 实例"></a>Redis Java Keys 实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisKeyJava</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//连接本地的 Redis 服务</span></span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">"localhost"</span>);</span><br><span class="line">        System.out.println(<span class="string">"连接成功"</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 获取数据并输出</span></span><br><span class="line">        Set&lt;String&gt; keys = jedis.keys(<span class="string">"*"</span>); </span><br><span class="line">        Iterator&lt;String&gt; it=keys.iterator() ;   </span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;   </span><br><span class="line">            String key = it.next();   </span><br><span class="line">            System.out.println(key);   </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -555,27 +599,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,6 +643,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svg</a>
               </li>
              
@@ -623,15 +667,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>
