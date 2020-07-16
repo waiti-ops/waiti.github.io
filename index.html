@@ -75,6 +75,8 @@ ga('send', 'pageview');
 	        
 				<li><a href="/archives/">归档</a></li>
 	        
+				<li><a href="/categories/">分类</a></li>
+	        
 				<li><a href="/categories/随感/">随感</a></li>
 	        
 				<li><a href="/categories/杂记/">杂记</a></li>
@@ -143,6 +145,8 @@ ga('send', 'pageview');
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -163,15 +167,17 @@ ga('send', 'pageview');
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/archives/">归档</a></li>
+					<li style="width: 16.666666666666668%"><a href="/archives/">归档</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/随感/">随感</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/">分类</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/杂记/">杂记</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/随感/">随感</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/一些画/">一些画</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/杂记/">杂记</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/一些画/">一些画</a></li>
 		        
 				</ul>
 			</nav>
@@ -187,6 +193,157 @@ ga('send', 'pageview');
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-监控平台Zabbix应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/监控平台Zabbix应用/">监控平台Zabbix应用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/16/监控平台Zabbix应用/" class="archive-article-date">
+  	<time datetime="2020-07-16T07:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="监控系统"><a href="#监控系统" class="headerlink" title="监控系统"></a>监控系统</h2><h3 id="监控目标"><a href="#监控目标" class="headerlink" title="监控目标"></a>监控目标</h3><ul>
+<li>对系统不间断实时监控</li>
+<li>实时反馈系统当前状态</li>
+<li>保证服务可靠性安全性</li>
+<li>保证业务持续稳定运行</li>
+</ul>
+<h3 id="监控对象"><a href="#监控对象" class="headerlink" title="监控对象"></a>监控对象</h3><ul>
+<li>了解监控对象: 监控的对象是什么?</li>
+<li>性能基准指标: 需要监控的对象的属性?</li>
+<li>报警阀值定义:怎样算故障,是否报警</li>
+<li>故障处理流程:收到故障报警,如何处理</li>
+</ul>
+<h3 id="监控核心"><a href="#监控核心" class="headerlink" title="监控核心"></a>监控核心</h3><ul>
+<li>发现问题: 系统发生故障报警, op收到故障报警的信息</li>
+<li>定位问题: 故障内容简单,需要对报警内容进行分析</li>
+<li>解决问题: 了解故障原因后, 按照优先级处理</li>
+<li>总结问题: 故障解决后的,对产生原因和如何防范进行归纳总结</li>
+</ul>
+<h3 id="监控流程"><a href="#监控流程" class="headerlink" title="监控流程"></a>监控流程</h3><ul>
+<li>数据采集: 支持<a href="https://baike.baidu.com/item/%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE/2986113?fromtitle=SNMP&amp;fromid=133378&amp;fr=aladdin" target="_blank" rel="noopener">SNMP</a>, Agent, <a href="https://baike.baidu.com/item/ICMP" target="_blank" rel="noopener">ICMP</a>, <a href="https://baike.baidu.com/item/ssh/10407" target="_blank" rel="noopener">SSH</a>, <a href="https://baike.baidu.com/item/IPMI" target="_blank" rel="noopener">IPMI</a>等采集方式</li>
+<li>数据存储: 存储在各种数据库服务</li>
+<li>数据分析: 事后需要复盘分析故障时, 能提供图形以及时间等相关信息, 方便确定故障</li>
+<li>数据展示: web 页面展示</li>
+<li>监控报警:电话报警, 邮件报警, 微信报警, 短信报警</li>
+<li>报警处理: 接到报警处, 根据故障级别进行处理</li>
+</ul>
+<h3 id="监控指标"><a href="#监控指标" class="headerlink" title="监控指标"></a>监控指标</h3><ul>
+<li>硬件监控</li>
+<li>系统监控</li>
+<li>应用监控</li>
+<li>网络监控</li>
+<li>流量分析</li>
+<li>日志监控</li>
+<li>安全监控</li>
+<li>API监控</li>
+<li>性能监控</li>
+<li>业务监控</li>
+</ul>
+<h3 id="监控工具"><a href="#监控工具" class="headerlink" title="监控工具"></a>监控工具</h3><ul>
+<li>MRTG</li>
+<li>Ganglia</li>
+<li>Cacti</li>
+<li>Zabbix</li>
+<li>open-falcon</li>
+</ul>
+<h2 id="Zabbix"><a href="#Zabbix" class="headerlink" title="Zabbix"></a>Zabbix</h2><h3 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h3><ul>
+<li>C/S</li>
+<li>通讯</li>
+</ul>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><ul>
+<li>Zabbix_server</li>
+<li>Zabbix_agent</li>
+<li>Zabbix_get</li>
+<li>Zabbix_sender</li>
+<li>Zabbix_proxy</li>
+<li>Zabbix_java_gateway</li>
+</ul>
+<h3 id="部署-Quickstart"><a href="#部署-Quickstart" class="headerlink" title="部署/Quickstart"></a>部署/Quickstart</h3><ul>
+<li><a href="https://www.zabbix.com/download" target="_blank" rel="noopener">https://www.zabbix.com/download</a></li>
+<li>安装Zabbix yum文件 <code>rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm</code> 查看下载的yum文件<code>ls /etc/yum.repos.d/</code></li>
+<li>安装server和agent  <code>yum install zabbix-server-mysql zabbix-agent</code></li>
+<li></li>
+</ul>
+<h3 id="item-key-Parameter-Trapper-mode-Graph-Screen"><a href="#item-key-Parameter-Trapper-mode-Graph-Screen" class="headerlink" title="item/key/Parameter/Trapper mode /Graph/Screen"></a>item/key/Parameter/Trapper mode /Graph/Screen</h3><h3 id="Trigger-Action-Notification"><a href="#Trigger-Action-Notification" class="headerlink" title="Trigger /Action /Notification"></a>Trigger /Action /Notification</h3><h3 id="Discovery-rules"><a href="#Discovery-rules" class="headerlink" title="Discovery rules"></a>Discovery rules</h3><h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><h3 id="Dashboard"><a href="#Dashboard" class="headerlink" title="Dashboard"></a>Dashboard</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">自动化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Zabbix</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/16/监控平台Zabbix应用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-记一次python实现自动登录网站等操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -215,7 +372,7 @@ ga('send', 'pageview');
 <p>安装 Python  .exe文件一路next  [add-path] [pip] 要勾选上  配置到系统环境变量的和安装第三方库. 安装完cmd窗口python查看是否安装成功 . 可以的话再安装一个IDE工具PyCharm方便写Py文件.  </p>
 <ul>
 <li>下载自己谷歌浏览器<a href="chrome://settings/help" target="_blank" rel="noopener">对应版本</a>的驱动,<a href="https://chromedriver.chromium.org/downloads" target="_blank" rel="noopener">下载地址</a>,将驱动放在python36安装目录下.</li>
-<li>安装可以实现自动化的第三方库<code>selenium</code> win+R–&gt;cmd–&gt;pip install selenium </li>
+<li>安装可以实现自动化的第三方库<code>selenium</code> win+R–&gt;cmd–&gt;<code>pip install selenium</code></li>
 </ul>
         
           <a class="article-more-a" href="/2020/07/06/记一次python实现自动登录网站等操作/#more">more >></a>
@@ -1061,118 +1218,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-VScode快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/VScode快捷键/">VScode快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/VScode快捷键/" class="archive-article-date">
-  	<time datetime="2020-04-18T06:43:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>注释：　　<ul>
-<li>单行注释：[ctrl+k,ctrl+c] 或 ctrl+/　</li>
-<li>取消单行注释：[ctrl+k,ctrl+u] (按下ctrl不放，再按k + u)　　</li>
-<li>多行注释：[alt+shift+A]　</li>
-<li>多行注释：<code>/**</code></li>
-</ul>
-</li>
-<li>移动行：alt+up/down</li>
-<li>显示/隐藏左侧目录栏 ctrl + b</li>
-<li>复制当前行：shift + alt +up/down</li>
-<li>删除当前行：shift + ctrl + k</li>
-<li>控制台终端显示与隐藏：ctrl + ~</li>
-<li>查找文件/安装vs code 插件地址：ctrl + p</li>
-<li>代码格式化：shift + alt +f</li>
-<li>新建一个窗口: ctrl + shift + n1</li>
-<li>行增加缩进: ctrl + [</li>
-<li>行减少缩进: ctrl + ]</li>
-<li>裁剪尾随空格(去掉一行的末尾那些没用的空格) : ctrl + shift + x</li>
-<li>字体放大/缩小: ctrl + ( + 或 - )</li>
-<li>拆分编辑器 :ctrl + 1/2/3</li>
-<li>切换窗口: ctrl + shift + left/right</li></ol>
-        
-          <a class="article-more-a" href="/2020/04/18/VScode快捷键/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快捷键</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/VScode快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1268,6 +1313,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
@@ -1280,22 +1341,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
@@ -1304,7 +1349,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1312,7 +1357,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1320,15 +1365,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图形</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1340,15 +1381,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图形</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">影评</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
