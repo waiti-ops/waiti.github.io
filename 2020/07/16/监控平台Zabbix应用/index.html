@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="监控系统监控目标 对系统不间断实时监控 实时反馈系统当前状态 保证服务可靠性安全性 保证业务持续稳定运行  监控对象 了解监控对象: 监控的对象是什么? 性能基准指标: 需要监控的对象的属性? 报警阀值定义:怎样算故障,是否报警 故障处理流程:收到故障报警,如何处理  监控核心 发现问题: 系统发生故障报警, op收到故障报警的信息 定位问题: 故障内容简单,需要对报警内容进行分析 解决问题: 了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-16T14:36:15.808Z">
+<meta property="og:image" content="http://www.ytalyq.top/2020/07/16/监控平台Zabbix应用/更换yum源.png">
+<meta property="og:updated_time" content="2020-07-25T10:38:17.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="监控平台Zabbix应用">
 <meta name="twitter:description" content="监控系统监控目标 对系统不间断实时监控 实时反馈系统当前状态 保证服务可靠性安全性 保证业务持续稳定运行  监控对象 了解监控对象: 监控的对象是什么? 性能基准指标: 需要监控的对象的属性? 报警阀值定义:怎样算故障,是否报警 故障处理流程:收到故障报警,如何处理  监控核心 发现问题: 系统发生故障报警, op收到故障报警的信息 定位问题: 故障内容简单,需要对报警内容进行分析 解决问题: 了">
+<meta name="twitter:image" content="http://www.ytalyq.top/2020/07/16/监控平台Zabbix应用/更换yum源.png">
   
     <link rel="alternative" href="/atom.xml" title="呼啸山庄的哑舍" type="application/atom+xml">
   
@@ -226,6 +228,7 @@ ga('send', 'pageview');
 <li>解决问题: 了解故障原因后, 按照优先级处理</li>
 <li>总结问题: 故障解决后的,对产生原因和如何防范进行归纳总结</li>
 </ul>
+<a id="more"></a>
 <h3 id="监控流程"><a href="#监控流程" class="headerlink" title="监控流程"></a>监控流程</h3><ul>
 <li>数据采集: 支持<a href="https://baike.baidu.com/item/%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE/2986113?fromtitle=SNMP&amp;fromid=133378&amp;fr=aladdin" target="_blank" rel="noopener">SNMP</a>, Agent, <a href="https://baike.baidu.com/item/ICMP" target="_blank" rel="noopener">ICMP</a>, <a href="https://baike.baidu.com/item/ssh/10407" target="_blank" rel="noopener">SSH</a>, <a href="https://baike.baidu.com/item/IPMI" target="_blank" rel="noopener">IPMI</a>等采集方式</li>
 <li>数据存储: 存储在各种数据库服务</li>
@@ -267,9 +270,68 @@ ga('send', 'pageview');
 </ul>
 <h3 id="部署-Quickstart"><a href="#部署-Quickstart" class="headerlink" title="部署/Quickstart"></a>部署/Quickstart</h3><ul>
 <li><a href="https://www.zabbix.com/download" target="_blank" rel="noopener">https://www.zabbix.com/download</a></li>
-<li>安装Zabbix yum文件 <code>rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm</code> 查看下载的yum文件<code>ls /etc/yum.repos.d/</code></li>
+<li><p>安装Zabbix yum源 <code>rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm</code> 查看下载的yum文件<code>ls /etc/yum.repos.d/</code></p>
+<blockquote>
+<p>Zabbix官网的不行话更换yum源, 使用清华园或者阿里云的yum,  <code>vi  /etc/yum.repos.d/zabbix.repo</code>, 修改相关配置源<img src="/2020/07/16/监控平台Zabbix应用/更换yum源.png" alt></p>
+</blockquote>
+</li>
+<li><p><code>yum clean all</code></p>
+</li>
 <li>安装server和agent  <code>yum install zabbix-server-mysql zabbix-agent</code></li>
+<li>安装设置数据库<ul>
+<li>创建mariadb.repo <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/MariaDB.repo</span><br><span class="line">写入以下配置:</span><br><span class="line">    #阿里源</span><br><span class="line">    [mariadb]</span><br><span class="line">    name = MariaDB</span><br><span class="line">    baseurl = https://mirrors.aliyun.com/mariadb/yum/10.4/centos7-amd64/</span><br><span class="line">    gpgkey=https://mirrors.aliyun.com/mariadb/yum/RPM-GPG-KEY-MariaDB</span><br><span class="line">    gpgcheck=1</span><br><span class="line"></span><br><span class="line"><span class="meta">	#</span>中科大源</span><br><span class="line">[mariadb]</span><br><span class="line">    name = MariaDB</span><br><span class="line">    baseurl = https://mirrors.ustc.edu.cn/mariadb/yum/5.5/centos7-amd64/</span><br><span class="line">    gpgkey=https://mirrors.ustc.edu.cn/mariadb/yum/RPM-GPG-KEY-MariaDB</span><br><span class="line">    gpgcheck=1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>安装最新版本maridb</p>
+<ul>
+<li>更新缓存 <code>yum makecache fast</code></li>
+<li>安装<code>yum install -y mariadb-server mariadb-client</code></li>
+</ul>
+</li>
+<li><p>修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf.d/server.cnf</span><br><span class="line">    [mysqld]</span><br><span class="line">    skip_name_resolve = ON			#跳过主机名解析</span><br><span class="line">    innodb_file_per_table = ON		#开启独立表空间</span><br><span class="line">    innodb_buffer_pool_size = 256M	#缓存池大小</span><br><span class="line">    max_connections = 2000			#最大连接数</span><br><span class="line">    log_bin = master-log			#开启二进制日志</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>重启数据库服务<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mariadb</span><br><span class="line">mysql_secure_installation		#初始化mariadb		初始化配置图</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>![](监控平台Zabbix应用/mariadb配置.png)
+</code></pre><ul>
+<li>建数据库并授权账号<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">create database zabbix character set 'utf8';	#创建zabbix数据库</span><br><span class="line">grant all on zabbix.* to 'zbxuser'@'192.168.1.%' identified by 'zabbix';	#注意授权网段  用户zbxuser  zabbix</span><br><span class="line">grant all on zabbix.* to 'zbxuser'@'localhost' identified by 'zabbix';		#由于server端和mysql一台机器   需要授权localhost</span><br><span class="line">flush privileges;		#刷新授权</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>导入zabbix服务表</p>
+<p>查看zabbix-server-mysql 这个包提供了什么</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@qyz-pc /] rpm -ql zabbix-server-mysql</span><br><span class="line">/etc/logrotate.d/zabbix-server</span><br><span class="line">/etc/zabbix/zabbix_server.conf</span><br><span class="line">/usr/lib/systemd/system/zabbix-server.service</span><br><span class="line">/usr/lib/tmpfiles.d/zabbix-server.conf</span><br><span class="line">/usr/lib/zabbix/alertscripts</span><br><span class="line">/usr/lib/zabbix/externalscripts</span><br><span class="line">/usr/sbin/zabbix_server_mysql</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22/AUTHORS</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22/COPYING</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22/ChangeLog</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22/NEWS</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22/README</span><br><span class="line">/usr/share/doc/zabbix-server-mysql-4.0.22/create.sql.gz						#生成表的各种脚本</span><br><span class="line">/usr/share/man/man8/zabbix_server.8.gz</span><br><span class="line">/var/log/zabbix</span><br><span class="line">/var/run/zabbix</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>使用    create.sql.gz  生成所需要的表
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gzip -d /usr/share/doc/zabbix-server-mysql-4.0.22/create.sql.gz		#gzip解压</span><br><span class="line">cd /usr/share/doc/zabbix-server-mysql-4.0.22/</span><br><span class="line">ls</span><br><span class="line">AUTHORS  ChangeLog  COPYING  create.sql  NEWS  README</span><br><span class="line">head create.sql				#查看下表头</span><br><span class="line">CREATE TABLE `users` (</span><br><span class="line">	`userid`                 bigint unsigned                           NOT NULL,</span><br><span class="line">	`alias`                  varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">	`name`                   varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">	`surname`                varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">	`passwd`                 varchar(32)     DEFAULT ''                NOT NULL,</span><br><span class="line">	`url`                    varchar(255)    DEFAULT ''                NOT NULL,</span><br><span class="line">	`autologin`              integer         DEFAULT '0'               NOT NULL,</span><br><span class="line">	`autologout`             varchar(32)     DEFAULT '15m'             NOT NULL,</span><br><span class="line">	`lang`                   varchar(5)      DEFAULT 'en_GB'           NOT NULL,</span><br></pre></td></tr></table></figure>
+
+
+查看表头发现没有创建数据库的命令, 是由于手动创建数据库的原因, 把所需要的表导入即可:
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  vim create.sql			#添加首行USE zabbix;</span><br><span class="line">  mysql -uzbxuser  -p zabbix &lt; create.sql</span><br><span class="line">Enterpassword:zabbix</span><br></pre></td></tr></table></figure>
+
+
+导入之后看一下
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql -uzbxuser -p</span><br><span class="line">Enterpassword:zabbix</span><br><span class="line">show databases;</span><br><span class="line">use zabbix;</span><br><span class="line">show tables;</span><br><span class="line"><span class="meta">#</span>导入成功</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>配置server端</p>
+<ul>
+<li><p>数据库配置好后修改server端的配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/zabbix/</span><br><span class="line">ls</span><br><span class="line">web  zabbix_agentd.conf  zabbix_agentd.d  zabbix_server.conf</span><br><span class="line">cp zabbix_server.conf&#123;,.bak&#125;		#配置文件备份下</span><br><span class="line">vim zabbix_server.conf</span><br><span class="line">	ListenPort=10051				#默认监听端口</span><br><span class="line">	SourceIP=192.168.242.129		#发采样数据请求的IP  这里是本机IP ifconfig查看</span><br></pre></td></tr></table></figure>
+</li>
 <li></li>
+</ul>
+</li>
 </ul>
 <h3 id="item-key-Parameter-Trapper-mode-Graph-Screen"><a href="#item-key-Parameter-Trapper-mode-Graph-Screen" class="headerlink" title="item/key/Parameter/Trapper mode /Graph/Screen"></a>item/key/Parameter/Trapper mode /Graph/Screen</h3><h3 id="Trigger-Action-Notification"><a href="#Trigger-Action-Notification" class="headerlink" title="Trigger /Action /Notification"></a>Trigger /Action /Notification</h3><h3 id="Discovery-rules"><a href="#Discovery-rules" class="headerlink" title="Discovery rules"></a>Discovery rules</h3><h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><h3 id="Dashboard"><a href="#Dashboard" class="headerlink" title="Dashboard"></a>Dashboard</h3>
       
@@ -533,19 +595,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,7 +619,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +627,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
               </li>
              
               <li class="article-tag-list-item">
