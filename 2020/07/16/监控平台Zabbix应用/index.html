@@ -17,7 +17,7 @@
 <meta property="og:description" content="监控系统监控目标 对系统不间断实时监控 实时反馈系统当前状态 保证服务可靠性安全性 保证业务持续稳定运行  监控对象 了解监控对象: 监控的对象是什么? 性能基准指标: 需要监控的对象的属性? 报警阀值定义:怎样算故障,是否报警 故障处理流程:收到故障报警,如何处理  监控核心 发现问题: 系统发生故障报警, op收到故障报警的信息 定位问题: 故障内容简单,需要对报警内容进行分析 解决问题: 了">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.ytalyq.top/2020/07/16/监控平台Zabbix应用/更换yum源.png">
-<meta property="og:updated_time" content="2020-07-29T06:50:32.247Z">
+<meta property="og:updated_time" content="2020-07-29T06:56:46.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="监控平台Zabbix应用">
 <meta name="twitter:description" content="监控系统监控目标 对系统不间断实时监控 实时反馈系统当前状态 保证服务可靠性安全性 保证业务持续稳定运行  监控对象 了解监控对象: 监控的对象是什么? 性能基准指标: 需要监控的对象的属性? 报警阀值定义:怎样算故障,是否报警 故障处理流程:收到故障报警,如何处理  监控核心 发现问题: 系统发生故障报警, op收到故障报警的信息 定位问题: 故障内容简单,需要对报警内容进行分析 解决问题: 了">
@@ -305,7 +305,7 @@ ga('send', 'pageview');
 </li>
 </ul>
 <ul>
-<li>导入zabbix服务表<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>1.查看zabbix-server-mysql 这个包提供了什么</span><br><span class="line">[root@qyz-pc /] rpm -ql zabbix-server-mysql</span><br><span class="line">  /etc/logrotate.d/zabbix-server</span><br><span class="line">  /etc/zabbix/zabbix_server.conf</span><br><span class="line">  /usr/lib/systemd/system/zabbix-server.service</span><br><span class="line">  /usr/lib/tmpfiles.d/zabbix-server.conf</span><br><span class="line">  /usr/lib/zabbix/alertscripts</span><br><span class="line">  /usr/lib/zabbix/externalscripts</span><br><span class="line">  /usr/sbin/zabbix_server_mysql</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/AUTHORS</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/COPYING</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/ChangeLog</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/NEWS</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/README</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/create.sql.gz			#生成表的各种脚本</span><br><span class="line">  /usr/share/man/man8/zabbix_server.8.gz</span><br><span class="line">  /var/log/zabbix</span><br><span class="line">  /var/run/zabbix</span><br><span class="line">  </span><br><span class="line"><span class="meta">  #</span>2.使用	create.sql.gz  生成所需要的表</span><br><span class="line">gzip -d /usr/share/doc/zabbix-server-mysql-4.0.22/create.sql.gz		#gzip解压</span><br><span class="line">  cd /usr/share/doc/zabbix-server-mysql-4.0.22/</span><br><span class="line">  ls</span><br><span class="line">  AUTHORS  ChangeLog  COPYING  create.sql  NEWS  README</span><br><span class="line">  head create.sql				#查看下表头</span><br><span class="line">  CREATE TABLE `users` (</span><br><span class="line">  `userid`                 bigint unsigned                           NOT NULL,</span><br><span class="line">  `alias`                  varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `name`                   varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `surname`                varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `passwd`                 varchar(32)     DEFAULT ''                NOT NULL,</span><br><span class="line">  `url`                    varchar(255)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `autologin`              integer         DEFAULT '0'               NOT NULL,</span><br><span class="line">  `autologout`             varchar(32)     DEFAULT '15m'             NOT NULL,</span><br><span class="line">  `lang`                   varchar(5)      DEFAULT 'en_GB'           NOT NULL,</span><br><span class="line">  </span><br><span class="line"><span class="meta">  #</span>3.查看表头发现没有创建数据库的命令, 是由于手动创建数据库的原因, 把所需要的表导入即可:</span><br><span class="line">  vim create.sql			#添加首行USE zabbix;</span><br><span class="line">  mysql -uzbxuser  -p zabbix &lt; create.sql</span><br><span class="line">  Enterpassword:zabbix</span><br><span class="line">  </span><br><span class="line"><span class="meta">   #</span>4.导入之后看一下</span><br><span class="line">mysql -uzbxuser -p</span><br><span class="line">    Enterpassword:zabbix</span><br><span class="line">  show databases;</span><br><span class="line">    use zabbix;</span><br><span class="line">    show tables;</span><br><span class="line">    #导入成功</span><br></pre></td></tr></table></figure>
+<li>导入zabbix服务表<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>1.查看zabbix-server-mysql 这个包提供了什么</span><br><span class="line">  [root@qyz-pc /] rpm -ql zabbix-server-mysql</span><br><span class="line">  /etc/logrotate.d/zabbix-server</span><br><span class="line">  /etc/zabbix/zabbix_server.conf</span><br><span class="line">  /usr/lib/systemd/system/zabbix-server.service</span><br><span class="line">  /usr/lib/tmpfiles.d/zabbix-server.conf</span><br><span class="line">  /usr/lib/zabbix/alertscripts</span><br><span class="line">  /usr/lib/zabbix/externalscripts</span><br><span class="line">  /usr/sbin/zabbix_server_mysql</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/AUTHORS</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/COPYING</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/ChangeLog</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/NEWS</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/README</span><br><span class="line">  /usr/share/doc/zabbix-server-mysql-4.0.22/create.sql.gz			#生成表的各种脚本</span><br><span class="line">  /usr/share/man/man8/zabbix_server.8.gz</span><br><span class="line">  /var/log/zabbix</span><br><span class="line">  /var/run/zabbix</span><br><span class="line">    </span><br><span class="line"><span class="meta">  #</span>2.使用	create.sql.gz  生成所需要的表</span><br><span class="line">  gzip -d /usr/share/doc/zabbix-server-mysql-4.0.22/create.sql.gz		#gzip解压</span><br><span class="line">  cd /usr/share/doc/zabbix-server-mysql-4.0.22/</span><br><span class="line">  ls</span><br><span class="line">  AUTHORS  ChangeLog  COPYING  create.sql  NEWS  README</span><br><span class="line">  head create.sql				#查看下表头</span><br><span class="line">  CREATE TABLE `users` (</span><br><span class="line">  `userid`                 bigint unsigned                           NOT NULL,</span><br><span class="line">  `alias`                  varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `name`                   varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `surname`                varchar(100)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `passwd`                 varchar(32)     DEFAULT ''                NOT NULL,</span><br><span class="line">  `url`                    varchar(255)    DEFAULT ''                NOT NULL,</span><br><span class="line">  `autologin`              integer         DEFAULT '0'               NOT NULL,</span><br><span class="line">  `autologout`             varchar(32)     DEFAULT '15m'             NOT NULL,</span><br><span class="line">  `lang`                   varchar(5)      DEFAULT 'en_GB'           NOT NULL,</span><br><span class="line">  </span><br><span class="line"><span class="meta">  #</span>3.查看表头发现没有创建数据库的命令, 是由于手动创建数据库的原因, 把所需要的表导入即可:</span><br><span class="line">  vim create.sql			#添加首行USE zabbix;</span><br><span class="line">  mysql -uzbxuser  -p zabbix &lt; create.sql</span><br><span class="line">  Enterpassword:zabbix</span><br><span class="line">    </span><br><span class="line"><span class="meta">  #</span>4.导入之后看一下</span><br><span class="line">  mysql -uzbxuser -p</span><br><span class="line">  Enterpassword:zabbix</span><br><span class="line">  show databases;</span><br><span class="line">  use zabbix;</span><br><span class="line">  show tables;</span><br><span class="line"><span class="meta">  #</span>导入成功</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -596,10 +596,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
@@ -608,11 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">素描</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color3">旧事</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,7 +648,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,11 +660,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>
