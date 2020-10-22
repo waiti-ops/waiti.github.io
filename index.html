@@ -188,6 +188,192 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-软件强装C盘解决-Xmind为例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/22/软件强装C盘解决-Xmind为例/">软件强装C盘解决-Xmind为例</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/22/软件强装C盘解决-Xmind为例/" class="archive-article-date">
+  	<time datetime="2020-10-22T06:20:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="软件强装C盘解决-Xmind为例"><a href="#软件强装C盘解决-Xmind为例" class="headerlink" title="软件强装C盘解决(Xmind为例)"></a>软件强装C盘解决(Xmind为例)</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述:"></a>问题描述:</h3><p> 安装XMind时软件不会按正常流程走（什么允许安装同意用户协议设置安装位置之类的），而是只要一点直接安装完毕，而且是C盘 </p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>【win+r 】输入【regedit】打开注册表编辑器</li>
+<li>找到 计算机【\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion】，右键点击名称为【ProgramFilesDir】的文件、修改(一定要记住原来的路径以便结束之后改回去）—— 将路径改为想要安装的文件路径。</li>
+<li>安装xmind</li>
+<li>最后，一定要将修改的注册表路径改回去，否则程序调用注册表时会发生错误</li>
+</ol>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>不同的软件可能调用注册表不止这一个，比如我安装office2016时，注册表调用了三个，分别修改了【ProgramFileDir,ProgramFileDir(x86)】和【ProgramW6432Dir】，具体调用注册表情况具体分析。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/杂记//" class="article-tag-list-link color3">杂记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/22/软件强装C盘解决-Xmind为例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-VSCode设置成中文语言环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/22/VSCode设置成中文语言环境/">VSCode设置成中文语言环境</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/22/VSCode设置成中文语言环境/" class="archive-article-date">
+  	<time datetime="2020-10-22T05:57:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="VSCode设置成中文语言环境"><a href="#VSCode设置成中文语言环境" class="headerlink" title="VSCode设置成中文语言环境"></a><strong>VSCode设置成中文语言环境</strong></h2><ol>
+<li>先安装好VSCode软件，官网安装地址：<a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></li>
+<li>首先打开VSCode软件，可以看到刚刚安装的VSCode软件默认使用的是英文语言环境</li>
+<li>接下来设置为中文语言环境，这里需要使用快捷键【Ctrl+Shift+P】来实现</li>
+<li>在弹出的搜索框中输入【configure language】，然后选择搜索出来的【Configure Display Language】,选择zh-CN  ,重启VSCode</li>
+<li>以上是将 软件启动加载语言配置包设置为中文  还需要下载对应的中文语言包</li>
+<li>使用快捷键【Ctrl+Shift+X】调出应用商店入口  在输入框输入Chinese ,然后选择【Chinese （Simplified）Language Pack for Visual Studio Code】，然后点击右侧的【Install】</li>
+<li>安装成功提示重启, 选择【yes】就可以.</li>
+<li>VSCODE官方的插件在线安装地址：<a href="https://marketplace.visualstudio.com/vscode" target="_blank" rel="noopener">https://marketplace.visualstudio.com/vscode</a></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/22/VSCode设置成中文语言环境/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-监控平台Zabbix应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -975,227 +1161,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-网络通信协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/网络通信协议/">网络通信协议_TCP、IP协议</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/网络通信协议/" class="archive-article-date">
-  	<time datetime="2020-04-18T09:20:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="目录"><a href="#目录" class="headerlink" title=" 目录"></a><a id="top"> 目录</a></h2><h2 id="了解网络协议的概念"><a href="#了解网络协议的概念" class="headerlink" title="了解网络协议的概念"></a>了解网络协议的概念</h2><ul>
-<li>网络协议:计算机网络和分布式系统中互相通信的对等实体(军长对军长统一)之间交换信息时必须遵循的规则的集合</li>
-<li>SAP (server access point)服务访问点 同一个层次系统上下层进行通信的接口</li>
-</ul>
-<h2 id="了解网络体系结构："><a href="#了解网络体系结构：" class="headerlink" title="了解网络体系结构："></a>了解网络体系结构：</h2><ul>
-<li>指通信系统整体设计方法，是计算机之间相互通信的层次、以及各层中的协议和层次之间接口的集合，它为网络硬件、软件、协议、存取控制和网络拓扑提供标准</li>
-<li>SNA：IBM公司开发适合自己公司的网络体系结构(System Network Architecture)</li>
-<li>DNA: DEC公司开  发适合自己公司的网络体系结构(Date Network Architecture)</li>
-<li>OSI/RM:由ISO(国际标准化组织)统一规定的互联网参考模型(Open Standard Interconnection/Reference Model)开放系统互连参考模型</li>
-<li>计算机网络协议<ul>
-<li>负责在网络上建立通信通道和控制通过通道的信息流的规则。</li>
-<li>协议依赖于网络体系结构，由硬件软件协同实现。</li>
-</ul>
-</li>
-<li><p>计算机网络协议的组成</p>
-<ul>
-<li>语法：(侧重怎么描述信息 类似语文英语的语法) 用于确认协议元素的格式，即数据与控制信息的结构和格式。</li>
-<li>语义：(突出传输的信息是什么) 用于确认协议元素的类型，即规定了通信双方需要发出何种控制信息，完成何种动作，以及做出何种应答。</li>
-<li><p>定时：(遵循一定的时间规则要求)用于确定通信速度的匹配和时序，即对事件实现顺序的详细说明。</p></li></ul></li></ul>
-        
-          <a class="article-more-a" href="/2020/04/18/网络通信协议/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tcp/ip</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络通信</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/网络通信协议/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-VScode快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/VScode快捷键/">VScode快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/VScode快捷键/" class="archive-article-date">
-  	<time datetime="2020-04-18T06:43:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>注释：　　<ul>
-<li>单行注释：[ctrl+k,ctrl+c] 或 ctrl+/　</li>
-<li>取消单行注释：[ctrl+k,ctrl+u] (按下ctrl不放，再按k + u)　　</li>
-<li>多行注释：[alt+shift+A]　</li>
-<li>多行注释：<code>/**</code></li>
-</ul>
-</li>
-<li>移动行：alt+up/down</li>
-<li>显示/隐藏左侧目录栏 ctrl + b</li>
-<li>复制当前行：shift + alt +up/down</li>
-<li>删除当前行：shift + ctrl + k</li>
-<li>控制台终端显示与隐藏：ctrl + ~</li>
-<li>查找文件/安装vs code 插件地址：ctrl + p</li>
-<li>代码格式化：shift + alt +f</li>
-<li>新建一个窗口: ctrl + shift + n1</li>
-<li>行增加缩进: ctrl + [</li>
-<li>行减少缩进: ctrl + ]</li>
-<li>裁剪尾随空格(去掉一行的末尾那些没用的空格) : ctrl + shift + x</li>
-<li>字体放大/缩小: ctrl + ( + 或 - )</li>
-<li>拆分编辑器 :ctrl + 1/2/3</li>
-<li>切换窗口: ctrl + shift + left/right</li></ol>
-        
-          <a class="article-more-a" href="/2020/04/18/VScode快捷键/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快捷键</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具使用//" class="article-tag-list-link color5">工具使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/VScode快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1291,19 +1256,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java web - 框架 - Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1315,6 +1272,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-Java web - 框架 - Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
@@ -1323,11 +1288,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1339,11 +1300,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">自动化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1504,5 +1473,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":"ture"},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":"ture"},"log":false});</script></body>
 </html>
