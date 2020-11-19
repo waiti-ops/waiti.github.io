@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-22T05:52:42.298Z">
+<meta property="og:updated_time" content="2020-11-18T09:55:02.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库">
 <meta name="twitter:description" content="数据库概述 数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。 我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。 现在我们使用关系型数据库管理系统（RDBMS">
@@ -218,7 +218,7 @@ ga('send', 'pageview');
 <li>每列为记录名称所对应的数据域—相当于Java中的属性名—书名,作者,出版社…</li>
 <li>每行为各种记录名称—相当于Java中一个对象,包含各种属性的值—AAA,YT,家里蹲</li>
 <li>许多的行和列组成一张表</li>
-<li>若干的表组成database</li>
+<li>若干的表组成Database</li>
 </ol>
 </li>
 </ul>
@@ -242,7 +242,7 @@ ga('send', 'pageview');
 <li>值(value): 行的具体信息, 每个值必须与该列的数据类型相同;</li>
 <li>键(key): 键的值在当前列中具有唯一性。</li>
 </ul>
-<h2 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a><a href="https://www.cnblogs.com/xiaxiaoxu/p/8977418.html" target="_blank" rel="noopener">MySQL安装</a></h2><h2 id="MySQL-常用命令"><a href="#MySQL-常用命令" class="headerlink" title="MySQL 常用命令"></a>MySQL 常用命令</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">user</span> </span><br><span class="line">          (host, <span class="keyword">user</span>, <span class="keyword">password</span>, </span><br><span class="line">           select_priv, insert_priv, update_priv) </span><br><span class="line">           <span class="keyword">VALUES</span> (<span class="string">'localhost'</span>, <span class="string">'guest'</span>, </span><br><span class="line">           <span class="keyword">PASSWORD</span>(<span class="string">'guest123'</span>), <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>);</span><br><span class="line">Query OK, 1 row affected (0.20 sec)</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a><a href="https://www.cnblogs.com/xiaxiaoxu/p/8977418.html" target="_blank" rel="noopener">MySQL安装</a></h2><h2 id="MySQL-常用命令-连接数据库MySQL-u-root-p"><a href="#MySQL-常用命令-连接数据库MySQL-u-root-p" class="headerlink" title="MySQL 常用命令(连接数据库MySQL -u root -p)"></a>MySQL 常用命令(连接数据库MySQL -u root -p)</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">user</span> </span><br><span class="line">          (host, <span class="keyword">user</span>, <span class="keyword">password</span>, </span><br><span class="line">           select_priv, insert_priv, update_priv) </span><br><span class="line">           <span class="keyword">VALUES</span> (<span class="string">'localhost'</span>, <span class="string">'guest'</span>, </span><br><span class="line">           <span class="keyword">PASSWORD</span>(<span class="string">'guest123'</span>), <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>);</span><br><span class="line">Query OK, 1 row affected (0.20 sec)</span><br></pre></td></tr></table></figure>
 <h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><ul>
 <li>USE 数据库名 :</li>
 <li>SHOW DATABASES:</li>
@@ -716,6 +716,19 @@ ga('send', 'pageview');
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库概述"><span class="toc-number">1.</span> <span class="toc-text">数据库概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关系型数据库术语"><span class="toc-number">2.</span> <span class="toc-text">关系型数据库术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据表组成"><span class="toc-number">3.</span> <span class="toc-text">数据表组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL安装"><span class="toc-number">4.</span> <span class="toc-text">MySQL安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-常用命令-连接数据库MySQL-u-root-p"><span class="toc-number">5.</span> <span class="toc-text">MySQL 常用命令(连接数据库MySQL -u root -p)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户管理"><span class="toc-number">5.1.</span> <span class="toc-text">用户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库操作"><span class="toc-number">5.2.</span> <span class="toc-text">数据库操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建-amp-删除-amp-选择数据库"><span class="toc-number">6.</span> <span class="toc-text">创建&amp;删除&amp;选择数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据库-两种方法"><span class="toc-number">6.1.</span> <span class="toc-text">创建数据库(两种方法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除数据库-两种方法"><span class="toc-number">6.2.</span> <span class="toc-text">删除数据库(两种方法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择数据库"><span class="toc-number">6.3.</span> <span class="toc-text">选择数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-数据类型"><span class="toc-number">7.</span> <span class="toc-text">MySQL 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数值类型"><span class="toc-number">7.1.</span> <span class="toc-text">数值类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整型"><span class="toc-number">7.1.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点型"><span class="toc-number">7.1.2.</span> <span class="toc-text">浮点型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日期和时间类型"><span class="toc-number">7.2.</span> <span class="toc-text">日期和时间类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串类型"><span class="toc-number">7.3.</span> <span class="toc-text">字符串类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意"><span class="toc-number">7.4.</span> <span class="toc-text">注意:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-创建-amp-删除表"><span class="toc-number">8.</span> <span class="toc-text">MySQL 创建&amp;删除表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表"><span class="toc-number">8.1.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除表"><span class="toc-number">8.2.</span> <span class="toc-text">删除表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-插入-amp-删除-amp-修改-amp-查询"><span class="toc-number">9.</span> <span class="toc-text">MySQL 插入&amp;删除&amp;修改&amp;查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插入-insert-into"><span class="toc-number">9.1.</span> <span class="toc-text">插入:insert into</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除-delete，drop，truncate"><span class="toc-number">9.2.</span> <span class="toc-text">删除:delete，drop，truncate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-update-set"><span class="toc-number">9.3.</span> <span class="toc-text">修改:update set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询-select-from"><span class="toc-number">9.4.</span> <span class="toc-text">查询:select from</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-条件控制"><span class="toc-number">10.</span> <span class="toc-text">MySQL 条件控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WHERE-子句"><span class="toc-number">10.1.</span> <span class="toc-text">WHERE 子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAVING-子句"><span class="toc-number">10.2.</span> <span class="toc-text">HAVING 子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件控制符号"><span class="toc-number">10.3.</span> <span class="toc-text">条件控制符号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-分组排序"><span class="toc-number">11.</span> <span class="toc-text">MySQL 分组排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GROUP-BY：按列分组"><span class="toc-number">11.1.</span> <span class="toc-text">GROUP BY：按列分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORDER-BY：按列排序"><span class="toc-number">11.2.</span> <span class="toc-text">ORDER BY：按列排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意-1"><span class="toc-number">11.3.</span> <span class="toc-text">注意:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-UNION-操作符"><span class="toc-number">12.</span> <span class="toc-text">MySQL UNION 操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql-连接查询"><span class="toc-number">13.</span> <span class="toc-text">MySql 连接查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#INNER-JOIN-内连接-等值连接-：返回两个表连接字段相同的行-交集"><span class="toc-number">13.1.</span> <span class="toc-text">INNER JOIN    内连接(等值连接)：返回两个表连接字段相同的行(交集)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LEFT-JOIN-左连接：获取左表所有记录，即使右表没有对应匹配的记录"><span class="toc-number">13.2.</span> <span class="toc-text">LEFT JOIN    左连接：获取左表所有记录，即使右表没有对应匹配的记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIGHT-JOIN-右连接：获取右表所有记录，即使左表没有对应匹配的记录"><span class="toc-number">13.3.</span> <span class="toc-text">RIGHT JOIN    右连接：获取右表所有记录，即使左表没有对应匹配的记录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-NULL-值处理"><span class="toc-number">14.</span> <span class="toc-text">MySQL NULL 值处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-正则表达式"><span class="toc-number">15.</span> <span class="toc-text">MySQL 正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用实例"><span class="toc-number">15.1.</span> <span class="toc-text">常用实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-事务"><span class="toc-number">16.</span> <span class="toc-text">MySQL 事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事务的四个特性：原子性-一致性-隔离性-持久性"><span class="toc-number">16.1.</span> <span class="toc-text">事务的四个特性：原子性  一致性  隔离性  持久性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务控制语句"><span class="toc-number">16.2.</span> <span class="toc-text">事务控制语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MYSQL-事务处理主要有两种方法"><span class="toc-number">16.3.</span> <span class="toc-text">MYSQL 事务处理主要有两种方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-ALTER命令"><span class="toc-number">17.</span> <span class="toc-text">MySQL ALTER命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建显示表结构"><span class="toc-number">17.1.</span> <span class="toc-text">创建显示表结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除，添加或修改表字段"><span class="toc-number">17.2.</span> <span class="toc-text">删除，添加或修改表字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改字段类型及名称"><span class="toc-number">17.3.</span> <span class="toc-text">修改字段类型及名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改表名"><span class="toc-number">17.4.</span> <span class="toc-text">修改表名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALTER-TABLE-对-Null-值和默认值的影响"><span class="toc-number">17.5.</span> <span class="toc-text">ALTER TABLE 对 Null 值和默认值的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALTER其他用途"><span class="toc-number">17.6.</span> <span class="toc-text">ALTER其他用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-索引"><span class="toc-number">18.</span> <span class="toc-text">MySQL 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通索引"><span class="toc-number">18.1.</span> <span class="toc-text">普通索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建索引-直接创建"><span class="toc-number">18.1.1.</span> <span class="toc-text">创建索引(直接创建)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改表结构-添加索引"><span class="toc-number">18.1.2.</span> <span class="toc-text">修改表结构(添加索引)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建表的时候直接指定"><span class="toc-number">18.1.3.</span> <span class="toc-text">创建表的时候直接指定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#唯一索引-索引列的值必须唯一，但允许有空值"><span class="toc-number">18.2.</span> <span class="toc-text">唯一索引: 索引列的值必须唯一，但允许有空值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建索引"><span class="toc-number">18.2.1.</span> <span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改表结构"><span class="toc-number">18.2.2.</span> <span class="toc-text">修改表结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建表的时候直接指定-1"><span class="toc-number">18.2.3.</span> <span class="toc-text">创建表的时候直接指定</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-临时表"><span class="toc-number">19.</span> <span class="toc-text">MySQL 临时表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-number">19.1.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-复制表"><span class="toc-number">20.</span> <span class="toc-text">MySQL 复制表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实例-1"><span class="toc-number">20.1.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-元数据"><span class="toc-number">21.</span> <span class="toc-text">MySQL 元数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一般需要获取MySQL以下三种信息"><span class="toc-number">21.1.</span> <span class="toc-text">一般需要获取MySQL以下三种信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取服务器元数据"><span class="toc-number">21.2.</span> <span class="toc-text">获取服务器元数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-序列使用"><span class="toc-number">22.</span> <span class="toc-text">MySQL 序列使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-常用函数"><span class="toc-number">23.</span> <span class="toc-text">MySQL 常用函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-运算符"><span class="toc-number">24.</span> <span class="toc-text">MySQL 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符"><span class="toc-number">24.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较运算符"><span class="toc-number">24.2.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑运算符"><span class="toc-number">24.3.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#位运算符"><span class="toc-number">24.4.</span> <span class="toc-text">位运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-存储过程"><span class="toc-number">25.</span> <span class="toc-text">MySQL 存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储过程实例-Oracle"><span class="toc-number">25.1.</span> <span class="toc-text">存储过程实例(Oracle)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java实体类的属性类型与数据库表字段类型对应表"><span class="toc-number">26.</span> <span class="toc-text">Java实体类的属性类型与数据库表字段类型对应表</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -820,6 +833,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -836,19 +869,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java web - 框架 - Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -856,11 +881,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,7 +889,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,7 +921,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -888,19 +933,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svg</a>
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图形</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVG</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">影评</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,11 +949,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
             
             <div class="clearfix"></div>

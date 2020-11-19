@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/数据类型.png">
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/key%20命令.png">
 <meta property="og:image" content="http://www.ytalyq.top/2020/06/28/Redis数据库/redis.png">
-<meta property="og:updated_time" content="2020-07-16T18:07:16.572Z">
+<meta property="og:updated_time" content="2020-11-18T09:49:26.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis数据库">
 <meta name="twitter:description" content="Redis简介[参考] Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) MULTI , EXEC , DISCARD 和 WATCH 是 Redis 事务的基础。   Redis安装(W">
@@ -484,6 +484,19 @@ ga('send', 'pageview');
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis简介-参考"><span class="toc-number">1.</span> <span class="toc-text">Redis简介[参考]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis安装-Windows-amp-Linux"><span class="toc-number">2.</span> <span class="toc-text">Redis安装(Windows&amp;Linux)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-数据类型"><span class="toc-number">3.</span> <span class="toc-text">Redis 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String（字符串）"><span class="toc-number">3.1.</span> <span class="toc-text">String（字符串）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-哈希"><span class="toc-number">3.2.</span> <span class="toc-text">Hash(哈希)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List-列表"><span class="toc-number">3.3.</span> <span class="toc-text">List(列表)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set-集合"><span class="toc-number">3.4.</span> <span class="toc-text">Set(集合)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zset-sorted-set：有序集合"><span class="toc-number">3.5.</span> <span class="toc-text">zset(sorted set：有序集合)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis常用-命令"><span class="toc-number">4.</span> <span class="toc-text">Redis常用 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-S-端命令"><span class="toc-number">4.1.</span> <span class="toc-text">C S 端命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-keys-命令"><span class="toc-number">4.2.</span> <span class="toc-text">Redis keys 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String"><span class="toc-number">4.3.</span> <span class="toc-text">String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash"><span class="toc-number">4.4.</span> <span class="toc-text">Hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List"><span class="toc-number">4.5.</span> <span class="toc-text">List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set"><span class="toc-number">4.6.</span> <span class="toc-text">Set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汇总"><span class="toc-number">4.7.</span> <span class="toc-text">汇总</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis发布订阅"><span class="toc-number">5.</span> <span class="toc-text">Redis发布订阅</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-事务"><span class="toc-number">6.</span> <span class="toc-text">Redis 事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-数据备份与恢复"><span class="toc-number">7.</span> <span class="toc-text">Redis 数据备份与恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-安全"><span class="toc-number">8.</span> <span class="toc-text">Redis 安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-客户端连接"><span class="toc-number">9.</span> <span class="toc-text">Redis 客户端连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端命令"><span class="toc-number">9.1.</span> <span class="toc-text">客户端命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis之I-O多路复用模型实现原理"><span class="toc-number">10.</span> <span class="toc-text">Redis之I/O多路复用模型实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-使用-Redis"><span class="toc-number">11.</span> <span class="toc-text">Java 使用 Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#连接到-redis-服务"><span class="toc-number">11.1.</span> <span class="toc-text">连接到 redis 服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-Java-String-字符串-实例"><span class="toc-number">11.2.</span> <span class="toc-text">Redis Java String(字符串) 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-Java-List-列表-实例"><span class="toc-number">11.3.</span> <span class="toc-text">Redis Java List(列表) 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-Java-Keys-实例"><span class="toc-number">11.4.</span> <span class="toc-text">Redis Java Keys 实例</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -588,6 +601,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -604,19 +637,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">-Java web - 框架 - Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,11 +649,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,7 +657,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,7 +689,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">自动化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,19 +701,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svg</a>
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">图形</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVG</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">影评</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,11 +717,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tcp/ip</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
             
             <div class="clearfix"></div>
