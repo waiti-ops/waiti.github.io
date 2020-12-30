@@ -188,6 +188,98 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-软件强装C盘解决-Xmind为例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/22/软件强装C盘解决-Xmind为例/">软件强装C盘解决-Xmind为例</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/22/软件强装C盘解决-Xmind为例/" class="archive-article-date">
+  	<time datetime="2020-10-22T06:20:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述:"></a>问题描述:</h3><p> 安装XMind时软件不会按正常流程走（什么允许安装同意用户协议设置安装位置之类的），而是只要一点直接安装完毕，而且是C盘 </p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>【win+r 】输入【regedit】打开注册表编辑器</li>
+<li>找到 计算机【\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion】，右键点击名称为【ProgramFilesDir】的文件、修改(一定要记住原来的路径以便结束之后改回去）—— 将路径改为想要安装的文件路径。</li>
+<li>安装xmind</li>
+<li>最后，一定要将修改的注册表路径改回去，否则程序调用注册表时会发生错误</li>
+</ol>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>不同的软件可能调用注册表不止这一个，比如我安装office2016时，注册表调用了三个，分别修改了【ProgramFileDir,ProgramFileDir(x86)】和【ProgramW6432Dir】，具体调用注册表情况具体分析。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/杂记//" class="article-tag-list-link color3">杂记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/22/软件强装C盘解决-Xmind为例/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-VSCode配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1022,111 +1114,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Redis数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/28/Redis数据库/">Redis数据库</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/28/Redis数据库/" class="archive-article-date">
-  	<time datetime="2020-06-28T01:41:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Redis简介-参考"><a href="#Redis简介-参考" class="headerlink" title="Redis简介[参考]"></a>Redis简介<a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">[参考]</a></h2><blockquote>
-<p>Redis是一个key-value 键值对存储的高性能数据库,开源免费,读写速度快;支持丰富的数据类型(String , Lists, Hashes, Sets 及 Ordered Sets  );所有操作都具有原子性,要不全部执行成功,要不都不执行.(事务) <a href="http://redisdoc.com/transaction/multi.html#multi" target="_blank" rel="noopener">MULTI</a> , <a href="http://redisdoc.com/transaction/exec.html#exec" target="_blank" rel="noopener">EXEC</a> , <a href="http://redisdoc.com/transaction/discard.html#discard" target="_blank" rel="noopener">DISCARD</a> 和 <a href="http://redisdoc.com/transaction/watch.html#watch" target="_blank" rel="noopener">WATCH</a> 是 Redis 事务的基础。 </p>
-</blockquote>
-<h2 id="Redis安装-Windows-amp-Linux"><a href="#Redis安装-Windows-amp-Linux" class="headerlink" title="Redis安装(Windows&amp;Linux)"></a><a href="https://blog.csdn.net/weixin_44911419/article/details/98881575" target="_blank" rel="noopener">Redis安装</a>(Windows&amp;Linux)</h2><ul>
-<li>将Redis配置成windows服务快速启动<ol>
-<li>进入Redis所在文件夹，获取当前路径，再配置成环境变量，具体操作：右键点击计算机–属性–高级系统配置–环境变量，在下半区找到path编辑，加入之前复制的路径</li>
-<li>用命令行进入下载的redis所在路径，输入<code>redis-server.exe --service-install redis.windows.conf --loglevel verbose</code>。如果显示<code>Redis successfully installed as a service</code> 表示成功。</li>
-<li>此时在命令行的任意路径下，使用<code>redis-server --service-start</code>可以开启服务，即使窗口关闭服务也不会终止，非常方便。把start参数换成stop即为关闭服务，换成uninstall就是卸载。</li>
-<li>启动服务使用<code>redis-cli.exe</code> 在任意路径有效，并且可以添加参数比如-h 127.0.0.1 -p6379 -a requirepass(默认是没有密码的)。</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>Redis启动失败,先查看端口号是否被占用,cmd进入,命令<code>netstat -ano | findstr 6379</code> listen 监听的就是进程号,任务管理器可以看到.</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2020/06/28/Redis数据库/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/28/Redis数据库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1234,15 +1221,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IEDA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,11 +1253,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1275,6 +1266,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,11 +1297,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1314,7 +1313,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1323,14 +1326,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
               </li>
              
               <li class="article-tag-list-item">
