@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="一、确认问题现象1、确认故障应用是否是我方系统，可以通过系统URL或者主机IP等信息协助确认。非我方的应用的话知会甲方项目经理协调对应厂家进行处理。 2、确认故障是功能问题还是性能问题。  功能问题：程序逻辑执行错误，相关功能无法正常使用，前台/后台会抛出异常信息。 性能问题：系统访问出现白页、相关页面打开缓慢。  二、确认有问题的应用近期是否进行过变更大多数故障发生在应用变更后，应用的变更包括但">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-29T02:41:53.531Z">
+<meta property="og:updated_time" content="2021-01-05T02:19:06.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="故障处理和分析步骤">
 <meta name="twitter:description" content="一、确认问题现象1、确认故障应用是否是我方系统，可以通过系统URL或者主机IP等信息协助确认。非我方的应用的话知会甲方项目经理协调对应厂家进行处理。 2、确认故障是功能问题还是性能问题。  功能问题：程序逻辑执行错误，相关功能无法正常使用，前台/后台会抛出异常信息。 性能问题：系统访问出现白页、相关页面打开缓慢。  二、确认有问题的应用近期是否进行过变更大多数故障发生在应用变更后，应用的变更包括但">
@@ -246,11 +246,8 @@ ga('send', 'pageview');
 </ul>
 <h4 id="2-2、CPU"><a href="#2-2、CPU" class="headerlink" title="2.2、CPU"></a>2.2、CPU</h4><ul>
 <li>有无其他非应用账号或非tomcat进程占用CPU过高。（处置办法：确认异常进程功能，并将进程杀掉）</li>
-<li>应用本身（Tomcat进程）CPU过高。（处置办法：分析CPU使用情况，大致步骤如下)</li>
+<li>应用本身（Tomcat进程）CPU过高。（处置办法：分析CPU使用情况，大致步骤如下)<br>检查占用CPU的线程： top -Hp pid(tomcat进程号）<br>获取线程堆栈信息：jstack pid | grep 线程号(十六进制）<br>分析堆栈信息，确认占用CPU的程序代码并分析代码逻辑。</li>
 </ul>
-<p>检查占用CPU的线程： top -Hp pid(tomcat进程号）</p>
-<p>获取线程堆栈信息：jstack pid | grep 线程号(十六进制）</p>
-<p>分析堆栈信息，确认占用CPU的程序代码并分析代码逻辑。</p>
 <h4 id="2-3、内存"><a href="#2-3、内存" class="headerlink" title="2.3、内存"></a>2.3、内存</h4><ul>
 <li>有无其他非应用账号或非tomcat进程占用内存过高（处置方法：确认异常进程功能，并将进程杀掉）</li>
 <li>应用内存泄露：Tomcat本身设置了JVM上限，一般不会出现超过上限的情况，超过的话有可能出现内存泄露报错，确认内存泄露种类（永久区还是其他的）。（处置办法：尝试重启Tomcat）</li>
@@ -559,14 +556,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
               </li>
              
@@ -575,7 +564,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,27 +588,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IEDA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IEDA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,6 +617,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,14 +648,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -667,7 +656,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,11 +668,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化监控</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,6 +684,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化监控</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -707,14 +704,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
@@ -723,7 +712,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,6 +725,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>
@@ -856,5 +853,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":500},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":200,"height":600},"mobile":{"show":false},"log":false});</script></body>
 </html>
