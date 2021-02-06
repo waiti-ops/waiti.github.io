@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="MySQL没有自带stuff这样的函数。所以手写一个函数123456789101112131415161718192021-- 实现函数-- 自定义更改时间DELIMITER $$CREATE FUNCTION stuff( f_old VARCHAR(1000),f_start INT,f_length INT,f_replace VARCHAR(1000) -- 传入的参数f_old 要修改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-09T07:33:27.648Z">
+<meta property="og:updated_time" content="2021-01-28T12:27:19.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql实现修改时间字段的年份">
 <meta name="twitter:description" content="MySQL没有自带stuff这样的函数。所以手写一个函数123456789101112131415161718192021-- 实现函数-- 自定义更改时间DELIMITER $$CREATE FUNCTION stuff( f_old VARCHAR(1000),f_start INT,f_length INT,f_replace VARCHAR(1000) -- 传入的参数f_old 要修改">
@@ -209,7 +209,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>MySQL没有自带stuff这样的函数。所以手写一个函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- 实现函数</span><br><span class="line">-- 自定义更改时间</span><br><span class="line"></span><br><span class="line">DELIMITER $$</span><br><span class="line">CREATE FUNCTION stuff(</span><br><span class="line"> f_old VARCHAR(1000),f_start INT,f_length INT,f_replace VARCHAR(1000) -- 传入的参数f_old 要修改的字段  f_start开始位置  f_length修改几个长度  f_replace修改后的值</span><br><span class="line">)</span><br><span class="line">RETURNS VARCHAR(2000)	-- 返回值类型</span><br><span class="line">BEGIN</span><br><span class="line">  RETURN REPLACE(f_old,SUBSTRING(f_old,f_start,f_length),f_replace);	-- replace函数将旧值替换  SUBSTRING截取字符串</span><br><span class="line">END$$</span><br><span class="line"> </span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">--- 进行数据更新，item_release_date为字段名</span><br><span class="line">UPDATE item_info SET item_release_date=STUFF(CONVERT(item_release_date,DATETIME),1,4,&apos;2020&apos;)</span><br><span class="line"></span><br><span class="line">-- 这样就实现了更改了数据库表item_info中得datetime类型字段item_release_date中得1-4个值改为2020</span><br><span class="line">-- datetime存储入的格式是xxxx-yy-dd等</span><br><span class="line"></span><br><span class="line">SELECT * FROM item_info</span><br></pre></td></tr></table></figure></p>
+<p>MySQL没有自带stuff这样的函数。所以手写一个函数<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 实现函数</span></span><br><span class="line"><span class="comment">-- 自定义更改时间</span></span><br><span class="line"></span><br><span class="line">DELIMITER $$</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> <span class="keyword">stuff</span>(</span><br><span class="line"> f_old <span class="built_in">VARCHAR</span>(<span class="number">1000</span>),f_start <span class="built_in">INT</span>,f_length <span class="built_in">INT</span>,f_replace <span class="built_in">VARCHAR</span>(<span class="number">1000</span>) <span class="comment">-- 传入的参数f_old 要修改的字段  f_start开始位置  f_length修改几个长度  f_replace修改后的值</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">RETURNS</span> <span class="built_in">VARCHAR</span>(<span class="number">2000</span>)	<span class="comment">-- 返回值类型</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">  <span class="keyword">RETURN</span> <span class="keyword">REPLACE</span>(f_old,<span class="keyword">SUBSTRING</span>(f_old,f_start,f_length),f_replace);	<span class="comment">-- replace函数将旧值替换  SUBSTRING截取字符串</span></span><br><span class="line"><span class="keyword">END</span>$$</span><br><span class="line"> </span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line"><span class="comment">--- 进行数据更新，item_release_date为字段名</span></span><br><span class="line"><span class="keyword">UPDATE</span> item_info <span class="keyword">SET</span> item_release_date=<span class="keyword">STUFF</span>(<span class="keyword">CONVERT</span>(item_release_date,DATETIME),<span class="number">1</span>,<span class="number">4</span>,<span class="string">'2020'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 这样就实现了更改了数据库表item_info中得datetime类型字段item_release_date中得1-4个值改为2020</span></span><br><span class="line"><span class="comment">-- datetime存储入的格式是xxxx-yy-dd等</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> item_info</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 
       
@@ -474,19 +474,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,6 +503,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,11 +542,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,14 +555,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,19 +574,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,15 +622,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVG</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">

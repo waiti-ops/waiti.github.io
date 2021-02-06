@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.ytalyq.top">
   <title>Nginx | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Wuthering Heights Dumb house">
+  <meta name="description" content="Nginx是一个高性能的Web服务器,通常用来和Tomcat做负载均衡  Nginx启动下载并启动 第一种双击exe启动 命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】  关闭命令【nginx -s stop】  重启命令【nginx -s reload 】 访问http://127.0.0.1  修改端口号 打开nginx目录下的conf/nginx.conf文件">
 <meta name="keywords" content="web代理服务器,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx">
 <meta property="og:url" content="http://www.ytalyq.top/2020/09/15/Nginx/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
-<meta property="og:description" content="Wuthering Heights Dumb house">
+<meta property="og:description" content="Nginx是一个高性能的Web服务器,通常用来和Tomcat做负载均衡  Nginx启动下载并启动 第一种双击exe启动 命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】  关闭命令【nginx -s stop】  重启命令【nginx -s reload 】 访问http://127.0.0.1  修改端口号 打开nginx目录下的conf/nginx.conf文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-29T02:39:38.597Z">
+<meta property="og:updated_time" content="2021-01-31T02:50:55.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx">
-<meta name="twitter:description" content="Wuthering Heights Dumb house">
+<meta name="twitter:description" content="Nginx是一个高性能的Web服务器,通常用来和Tomcat做负载均衡  Nginx启动下载并启动 第一种双击exe启动 命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】  关闭命令【nginx -s stop】  重启命令【nginx -s reload 】 访问http://127.0.0.1  修改端口号 打开nginx目录下的conf/nginx.conf文件">
   
     <link rel="alternative" href="/atom.xml" title="呼啸山庄的哑舍" type="application/atom+xml">
   
@@ -208,7 +208,56 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>Nginx是一个高性能的Web服务器,通常用来和Tomcat做负载均衡</p>
+</blockquote>
+<h2 id="Nginx启动"><a href="#Nginx启动" class="headerlink" title="Nginx启动"></a>Nginx启动</h2><h3 id="下载并启动"><a href="#下载并启动" class="headerlink" title="下载并启动"></a>下载并启动</h3><ul>
+<li>第一种双击exe启动</li>
+<li><p>命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】</p>
+</li>
+<li><p>关闭命令【nginx -s stop】</p>
+</li>
+<li>重启命令【nginx -s reload 】</li>
+<li>访问<a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a></li>
+</ul>
+<h3 id="修改端口号"><a href="#修改端口号" class="headerlink" title="修改端口号"></a>修改端口号</h3><ul>
+<li>打开nginx目录下的conf/nginx.conf文件，然后找到listen 80,修改为9090，关闭nginx再启动</li>
+</ul>
+<h3 id="nginx-conf配置文件主要看的"><a href="#nginx-conf配置文件主要看的" class="headerlink" title="nginx.conf配置文件主要看的"></a>nginx.conf配置文件主要看的</h3><ul>
+<li>端口号 listen       80;</li>
+<li>页面存放位置：root html;</li>
+<li>欢迎页面 index  index.html index.htm;</li>
+</ul>
+<h2 id="Nginx多个Tomcat测试"><a href="#Nginx多个Tomcat测试" class="headerlink" title="Nginx多个Tomcat测试"></a>Nginx多个Tomcat测试</h2><ul>
+<li>Nginx是一个web服务器，很快速，但是不能作为Servlet 容器独立运行，所以通常的工作方式是Nginx配合Tomcat来协同工作。</li>
+</ul>
+<h2 id="Nginx反向代理"><a href="#Nginx反向代理" class="headerlink" title="Nginx反向代理"></a>Nginx反向代理</h2><h3 id="反向代理概念"><a href="#反向代理概念" class="headerlink" title="反向代理概念"></a>反向代理概念</h3><blockquote>
+<p>先说正向代理，比如要访问youtube,但是不能直接访问，只能先找个翻墙软件，通过翻墙软件才能访问youtube. 翻墙软件就叫做正向代理。<br>所谓的反向代理，指的是用户要访问youtube,但是youtube悄悄地把这个请求交给bilibili来做，那么bilibili就是反向代理了。<br>在当前就是访问nginx,但是nginx把请求交给tomcat来做。</p>
+</blockquote>
+<ul>
+<li><p>启动端口号设置为8111的Tomcat</p>
+</li>
+<li><p>然后修改nginx.conf </p>
+<ul>
+<li>location / 表示处理所有请求</li>
+<li>proxy_pass <a href="http://127.0.0.1:8111" target="_blank" rel="noopener">http://127.0.0.1:8111</a>; 表示把请求都交给<a href="http://127.0.0.1:8111来处理" target="_blank" rel="noopener">http://127.0.0.1:8111来处理</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"> </span><br><span class="line">        #charset koi8-r;</span><br><span class="line"> </span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"> </span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://127.0.0.1:8111;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启nginx并访问<a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a> 【nginx -s reload】</p>
+</li>
+<li><p>发现已经反向代理到Tomcat</p>
+</li>
+</ul>
+<h3 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h3><ul>
+<li>为什么不直接使用Tomcat访问而要用反向代理</li>
+<li>因为nginx在处理静态文件的吞吐量上面比tomcat好很多，通常他们俩配合，不会把所有的请求都交给tomcat, 而是把静态请求交给nginx，动态请求，如jsp, servlet,ssm，等请求交给tomcat. 从而达到动静分离的效果。 </li>
+</ul>
+<h2 id="Nginx动静分离"><a href="#Nginx动静分离" class="headerlink" title="Nginx动静分离"></a>Nginx动静分离</h2><ul>
+<li>所谓的动静分离就是指图片，css, js之类的都交给nginx来处理，nginx处理不了的，比如jsp 就交给tomcat来处理~</li>
+<li>好处是nginx处理静态内容的吞吐量很高，比tomcat高多了，这样无形中提升了性能。</li>
+</ul>
+
       
 
       
@@ -332,18 +381,18 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2020/10/05/数据结构-Java版/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/27/Jenkins/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据结构-Java版
+          Jenkins
         
       </div>
     </a>
   
   
-    <a href="/2020/07/16/监控平台Zabbix应用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">监控平台Zabbix应用</div>
+    <a href="/2020/07/29/Http协议/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Http协议</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -370,7 +419,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx启动"><span class="toc-number">1.</span> <span class="toc-text">Nginx启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载并启动"><span class="toc-number">1.1.</span> <span class="toc-text">下载并启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改端口号"><span class="toc-number">1.2.</span> <span class="toc-text">修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx-conf配置文件主要看的"><span class="toc-number">1.3.</span> <span class="toc-text">nginx.conf配置文件主要看的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx多个Tomcat测试"><span class="toc-number">2.</span> <span class="toc-text">Nginx多个Tomcat测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx反向代理"><span class="toc-number">3.</span> <span class="toc-text">Nginx反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理概念"><span class="toc-number">3.1.</span> <span class="toc-text">反向代理概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#意义"><span class="toc-number">3.2.</span> <span class="toc-text">意义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx动静分离"><span class="toc-number">4.</span> <span class="toc-text">Nginx动静分离</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -480,19 +529,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,6 +558,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,11 +597,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,14 +610,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,19 +629,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,15 +677,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVG</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
