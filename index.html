@@ -188,6 +188,131 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-误删除Oracle数据库数据的恢复方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/05/误删除Oracle数据库数据的恢复方法/">误删除Oracle数据库数据的恢复方法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/02/05/误删除Oracle数据库数据的恢复方法/" class="archive-article-date">
+  	<time datetime="2021-02-05T12:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>可能是因为快过年了（要放假比较激动？），同事工作的时候一不小心把数据库的一条数据删错了（慌的一），赶紧叫来老开发帮忙抢救下。好在老开发跟DBA学过一手及时恢复了。现在想想当时自己学习数据库的时候，一般就以学习的态度，考虑怎么使用数据库的命令语句，并没有想过工作中，如果误操作一下，都可能导致无可挽回的损失。所以，上网冲浪了解一手。？</p>
+</blockquote>
+<p>删除表中数据有三种方法：</p>
+<ul>
+<li>delete（删除一条记录）</li>
+<li>drop或truncate删除表格中数据</li>
+</ul>
+<h2 id="1-delete误删除的解决方法"><a href="#1-delete误删除的解决方法" class="headerlink" title="1.delete误删除的解决方法"></a>1.delete误删除的解决方法</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>利用oracle提供的闪回方法，如果在删除数据后还没做大量的操作（只要保证被删除数据的块没被覆写），就可以利用闪回方式直接找回删除的数据。</p>
+<h3 id="具体步骤："><a href="#具体步骤：" class="headerlink" title="具体步骤："></a>具体步骤：</h3><ul>
+<li>确定删除数据的时间(在删除时间点之前就行,最好是删除时间点)</li>
+<li>用以下语句找出删除的数据：【select from 表名 as of timestamp to_timestamp(‘删除时间点’,‘yyyy-mm-dd hh24:mi:ss’) where id =’XXXXXXXXXXXX’】</li>
+<li>把删除的数据重新插入原表：【insert into 表名 (select from 表名 as of timestamp to_timestamp(‘删除时间点’,‘yyyy-mm-dd hh24:mi:ss’) where id =’XXXXXXXXXXXX’ );注意要保证主键不重复。】</li>
+</ul>
+<p><em>如果表结构没有发生改变，还可以直接使用闪回整个表的方式来恢复数据。（表闪回要求用户必须要有flash any table权限）</em></p>
+<h3 id="具体步骤：-1"><a href="#具体步骤：-1" class="headerlink" title="具体步骤："></a>具体步骤：</h3><ul>
+<li>alter table 表名 enable row movement</li>
+<li>flashback table 表名 to timestamp to_timestamp(删除时间点’,‘yyyy-mm-dd hh24:mi:ss’)</li>
+</ul>
+<h2 id="2-drop误删除的解决方法（没干过，回头自己虚拟机删了试试）"><a href="#2-drop误删除的解决方法（没干过，回头自己虚拟机删了试试）" class="headerlink" title="2.drop误删除的解决方法（没干过，回头自己虚拟机删了试试）"></a>2.drop误删除的解决方法（没干过，回头自己虚拟机删了试试）</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>由于oracle在删除表时，没有直接清空表所占的块,oracle把这些已删除的表的信息放到了一个虚拟容器“回收站”中，而只是对该表的数据块做了可以被覆写的标志，所以在块未被重新使用前还可以恢复。</p>
+<h3 id="具体步骤：-2"><a href="#具体步骤：-2" class="headerlink" title="具体步骤："></a>具体步骤：</h3><ul>
+<li><p>查询这个“回收站”或者查询user_table视图来查找已被删除的表:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--表名都是被重命名过的，字段table_name或者object_name就是删除后在回收站中的存放表名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> table_name,dropped <span class="keyword">from</span> user_tables </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> object_name,original_name,<span class="keyword">type</span>,droptime <span class="keyword">from</span> user_recyclebin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果还能记住表名，则可以用下面语句直接恢复：【flashback table 原表名 to before drop】</p>
+</li>
+<li><p>如果记不住了，也可以直接使用回收站的表名进行恢复，然后再重命名，参照以下语句：【flashback table “回收站中的表名(如：Bin$DSbdfd4rdfdfdfegdfsf==$0)” to before drop rename to 新表名】</p>
+</li>
+<li><p>oracle的闪回功能除了以上基本功能外，还可以闪回整个数据库，可以使数据库回到过去某一状态, 语法如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">flashback</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">flashback</span> <span class="keyword">database</span> <span class="keyword">to</span> <span class="keyword">scn</span> SCNNO;</span><br><span class="line">flashback database to timestamp to_timestamp('2007-2-12 12:00:00','yyyy-mm-dd hh24:mi:ss');</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>oracle提供以上机制保证了安全操作，但同时也代来了另外一个问题，就是空间占用，由于以上机制的运行，使用drop一个表或者delete数据后，空间不会自动回收，对于一些确定不使用的表，删除时要同时回收空间，可以有以下2种方式：</p>
+<ul>
+<li>采用truncate方式进行截断。（但不能进行数据回恢复了）</li>
+<li>在drop时加上purge选项：drop table 表名 purge</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/05/误删除Oracle数据库数据的恢复方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySql实现修改时间字段的年份" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -958,10 +1083,8 @@ ga('send', 'pageview');
 </blockquote>
 <h2 id="Nginx启动"><a href="#Nginx启动" class="headerlink" title="Nginx启动"></a>Nginx启动</h2><h3 id="下载并启动"><a href="#下载并启动" class="headerlink" title="下载并启动"></a>下载并启动</h3><ul>
 <li>第一种双击exe启动</li>
-<li><p>命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】</p>
-</li>
-<li><p>关闭命令【nginx -s stop】</p>
-</li>
+<li>命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】</li>
+<li>关闭命令【nginx -s stop】</li>
 <li>重启命令【nginx -s reload 】</li>
 <li>访问<a href="http://127.0.0.1" target="_blank" rel="noopener">http://127.0.0.1</a></li>
 </ul>
@@ -980,8 +1103,7 @@ ga('send', 'pageview');
 <p>先说正向代理，比如要访问youtube,但是不能直接访问，只能先找个翻墙软件，通过翻墙软件才能访问youtube. 翻墙软件就叫做正向代理。<br>所谓的反向代理，指的是用户要访问youtube,但是youtube悄悄地把这个请求交给bilibili来做，那么bilibili就是反向代理了。<br>在当前就是访问nginx,但是nginx把请求交给tomcat来做。</p>
 </blockquote>
 <ul>
-<li><p>启动端口号设置为8111的Tomcat</p>
-</li>
+<li>启动端口号设置为8111的Tomcat</li>
 <li><p>然后修改nginx.conf </p>
 <ul>
 <li>location / 表示处理所有请求</li>
@@ -991,8 +1113,7 @@ ga('send', 'pageview');
 </li>
 <li><p>重启nginx并访问<a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a> 【nginx -s reload】</p>
 </li>
-<li><p>发现已经反向代理到Tomcat</p>
-</li>
+<li>发现已经反向代理到Tomcat</li>
 </ul>
 <h3 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h3><ul>
 <li>为什么不直接使用Tomcat访问而要用反向代理</li>
@@ -1041,94 +1162,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/15/Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Http协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/29/Http协议/">Http协议</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/29/Http协议/" class="archive-article-date">
-  	<time datetime="2020-07-29T03:06:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Http协议</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/29/Http协议/">展开全文 >></a>
         </p>
       
 
@@ -1273,18 +1306,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">版本管理工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
@@ -1301,7 +1322,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">版本管理工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1310,14 +1343,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">持续集成(CI)工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1337,6 +1362,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">持续集成(CI)工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web代理服务器</a>
               </li>
              
@@ -1346,10 +1379,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1365,10 +1394,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
               </li>
              
@@ -1377,7 +1402,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1401,7 +1434,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1410,6 +1443,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVG</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
