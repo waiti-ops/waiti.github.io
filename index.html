@@ -223,29 +223,9 @@ ga('send', 'pageview');
 <li>把删除的数据重新插入原表：【insert into 表名 (select from 表名 as of timestamp to_timestamp(‘删除时间点’,‘yyyy-mm-dd hh24:mi:ss’) where id =’XXXXXXXXXXXX’ );注意要保证主键不重复。】</li>
 </ul>
 <p><em>如果表结构没有发生改变，还可以直接使用闪回整个表的方式来恢复数据。（表闪回要求用户必须要有flash any table权限）</em></p>
-<h3 id="具体步骤：-1"><a href="#具体步骤：-1" class="headerlink" title="具体步骤："></a>具体步骤：</h3><ul>
-<li>alter table 表名 enable row movement</li>
-<li>flashback table 表名 to timestamp to_timestamp(删除时间点’,‘yyyy-mm-dd hh24:mi:ss’)</li>
-</ul>
-<h2 id="2-drop误删除的解决方法（没干过，回头自己虚拟机删了试试）"><a href="#2-drop误删除的解决方法（没干过，回头自己虚拟机删了试试）" class="headerlink" title="2.drop误删除的解决方法（没干过，回头自己虚拟机删了试试）"></a>2.drop误删除的解决方法（没干过，回头自己虚拟机删了试试）</h2><h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>由于oracle在删除表时，没有直接清空表所占的块,oracle把这些已删除的表的信息放到了一个虚拟容器“回收站”中，而只是对该表的数据块做了可以被覆写的标志，所以在块未被重新使用前还可以恢复。</p>
-<h3 id="具体步骤：-2"><a href="#具体步骤：-2" class="headerlink" title="具体步骤："></a>具体步骤：</h3><ul>
-<li><p>查询这个“回收站”或者查询user_table视图来查找已被删除的表:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--表名都是被重命名过的，字段table_name或者object_name就是删除后在回收站中的存放表名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> table_name,dropped <span class="keyword">from</span> user_tables </span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> object_name,original_name,<span class="keyword">type</span>,droptime <span class="keyword">from</span> user_recyclebin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果还能记住表名，则可以用下面语句直接恢复：【flashback table 原表名 to before drop】</p>
-</li>
-<li><p>如果记不住了，也可以直接使用回收站的表名进行恢复，然后再重命名，参照以下语句：【flashback table “回收站中的表名(如：Bin$DSbdfd4rdfdfdfegdfsf==$0)” to before drop rename to 新表名】</p>
-</li>
-<li><p>oracle的闪回功能除了以上基本功能外，还可以闪回整个数据库，可以使数据库回到过去某一状态, 语法如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> <span class="keyword">flashback</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">flashback</span> <span class="keyword">database</span> <span class="keyword">to</span> <span class="keyword">scn</span> SCNNO;</span><br><span class="line">flashback database to timestamp to_timestamp('2007-2-12 12:00:00','yyyy-mm-dd hh24:mi:ss');</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>oracle提供以上机制保证了安全操作，但同时也代来了另外一个问题，就是空间占用，由于以上机制的运行，使用drop一个表或者delete数据后，空间不会自动回收，对于一些确定不使用的表，删除时要同时回收空间，可以有以下2种方式：</p>
-<ul>
-<li>采用truncate方式进行截断。（但不能进行数据回恢复了）</li>
-<li>在drop时加上purge选项：drop table 表名 purge</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2021/02/05/误删除Oracle数据库数据的恢复方法/#more">more >></a>
+        
       
 
       
@@ -1298,27 +1278,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1330,11 +1290,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1343,6 +1323,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">持续集成(CI)工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,14 +1350,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">持续集成(CI)工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web代理服务器</a>
               </li>
              
@@ -1382,6 +1362,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1390,7 +1378,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">素描</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1402,15 +1390,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">观后感</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1430,11 +1410,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Oracle</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1446,15 +1430,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
             
             <div class="clearfix"></div>
