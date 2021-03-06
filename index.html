@@ -383,6 +383,108 @@ ga('send', 'pageview');
 
 
   
+    <article id="post-MySQL事务ACID底层实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/31/MySQL事务ACID底层实现原理/">MySQL事务ACID底层实现原理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/12/31/MySQL事务ACID底层实现原理/" class="archive-article-date">
+  	<time datetime="2020-12-31T13:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>事务概念：事务是访问和更新数据库它的程序执行单元,可能包含一个或者多个SQL语句，要么都执行，要么都不执行。要么都成功，要么都不成功。</p>
+</blockquote>
+<h2 id="MySQL-的基础架构"><a href="#MySQL-的基础架构" class="headerlink" title="MySQL 的基础架构"></a>MySQL 的基础架构</h2><ul>
+<li>第一层：处理客户端连接，以及认证授权，一般使用Navicat做连接。</li>
+<li>第二层：服务器层，主要负责查询语句的解析，优化缓存，以及内置函数、存储过程的实现。</li>
+<li>第三层：存储引擎，主要负责mysql中的数据存储和提取。（事务就是由存储引擎实现）innodb支持事务</li>
+</ul>
+<h2 id="ACID特性"><a href="#ACID特性" class="headerlink" title="ACID特性"></a>ACID特性</h2><h3 id="原子性-Atomicity"><a href="#原子性-Atomicity" class="headerlink" title="原子性(Atomicity)"></a>原子性(Atomicity)</h3><ul>
+<li>原子性是指一个事务，是一个不可分割的单位，是一个最小的操作单元。这些操作要么全成功，要么全不成功。如果，事务中的一个SQL语句执行失败，那已经执行过的SQL语句要执行回滚。回滚到事务之前的一个状态。</li>
+<li>实现原理：undo log，innodb存储引擎提供了两种事务的日志：redo log、undo log。undo log就是实现原子性的原理。原子性的体现就是体现在回滚上，如果SQL报错，就会执行这个回滚，回到执行之前的状态，所以就需要把执行之前的状态记录下来。和上线差不多，如果程序的上线失败，或者上线遇到不能解决的bug，就需要回滚上线的版本，把当前错误的版本回滚到上一个正确的版本。也就是需要记住上一个正确的版本是什么。当事务对数据库进行修改的时候，innodb就会生成对应的undo log，记录SQL执行的相关信息，如果SQL执行失败发生回滚，innodb就会根据undo log的内容做相反的工作。比如，执行了一条insert语句，回滚的时候就会执行一个相反的操作就是delete。执行了delete，回滚的时候就会执行insert，对于update就是把修改的数据再改回去。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/12/31/MySQL事务ACID底层实现原理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/31/MySQL事务ACID底层实现原理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-海边的曼彻斯特" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -641,106 +743,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/10/22/软件强装C盘解决-Xmind为例/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-VSCode配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/22/VSCode配置/">VSCode配置</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/22/VSCode配置/" class="archive-article-date">
-  	<time datetime="2020-10-22T05:57:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设置中文的环境"><a href="#设置中文的环境" class="headerlink" title="设置中文的环境"></a>设置中文的环境</h2><ol>
-<li>先安装好VSCode软件，官网安装地址：<a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></li>
-<li>首先打开VSCode软件，可以看到刚刚安装的VSCode软件默认使用的是英文语言环境</li>
-<li>接下来设置为中文语言环境，这里需要使用快捷键【Ctrl+Shift+P】来实现</li>
-<li>在弹出的搜索框中输入【configure language】，然后选择搜索出来的【Configure Display Language】,选择zh-CN  ,重启VSCode</li>
-<li>以上是将 软件启动加载语言配置包设置为中文  还需要下载对应的中文语言包</li>
-<li>使用快捷键【Ctrl+Shift+X】调出应用商店入口  在输入框输入Chinese ,然后选择【Chinese （Simplified）Language Pack for Visual Studio Code】，然后点击右侧的【Install】</li>
-<li>安装成功提示重启, 选择【yes】就可以.</li>
-<li>VSCODE官方的插件在线安装地址：<a href="https://marketplace.visualstudio.com/vscode" target="_blank" rel="noopener">https://marketplace.visualstudio.com/vscode</a></li>
-</ol>
-        
-          <a class="article-more-a" href="/2020/10/22/VSCode配置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">配置问题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发工具//" class="article-tag-list-link color5">开发工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/22/VSCode配置/">展开全文 >></a>
         </p>
       
 
@@ -1075,34 +1077,9 @@ ga('send', 'pageview');
 <li>页面存放位置：root html;</li>
 <li>欢迎页面 index  index.html index.htm;</li>
 </ul>
-<h2 id="Nginx多个Tomcat测试"><a href="#Nginx多个Tomcat测试" class="headerlink" title="Nginx多个Tomcat测试"></a>Nginx多个Tomcat测试</h2><ul>
-<li>Nginx是一个web服务器，很快速，但是不能作为Servlet 容器独立运行，所以通常的工作方式是Nginx配合Tomcat来协同工作。</li>
-</ul>
-<h2 id="Nginx反向代理"><a href="#Nginx反向代理" class="headerlink" title="Nginx反向代理"></a>Nginx反向代理</h2><h3 id="反向代理概念"><a href="#反向代理概念" class="headerlink" title="反向代理概念"></a>反向代理概念</h3><blockquote>
-<p>先说正向代理，比如要访问youtube,但是不能直接访问，只能先找个翻墙软件，通过翻墙软件才能访问youtube. 翻墙软件就叫做正向代理。<br>所谓的反向代理，指的是用户要访问youtube,但是youtube悄悄地把这个请求交给bilibili来做，那么bilibili就是反向代理了。<br>在当前就是访问nginx,但是nginx把请求交给tomcat来做。</p>
-</blockquote>
-<ul>
-<li>启动端口号设置为8111的Tomcat</li>
-<li><p>然后修改nginx.conf </p>
-<ul>
-<li>location / 表示处理所有请求</li>
-<li>proxy_pass <a href="http://127.0.0.1:8111" target="_blank" rel="noopener">http://127.0.0.1:8111</a>; 表示把请求都交给<a href="http://127.0.0.1:8111来处理" target="_blank" rel="noopener">http://127.0.0.1:8111来处理</a></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"> </span><br><span class="line">        #charset koi8-r;</span><br><span class="line"> </span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"> </span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://127.0.0.1:8111;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启nginx并访问<a href="http://127.0.0.1/" target="_blank" rel="noopener">http://127.0.0.1/</a> 【nginx -s reload】</p>
-</li>
-<li>发现已经反向代理到Tomcat</li>
-</ul>
-<h3 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h3><ul>
-<li>为什么不直接使用Tomcat访问而要用反向代理</li>
-<li>因为nginx在处理静态文件的吞吐量上面比tomcat好很多，通常他们俩配合，不会把所有的请求都交给tomcat, 而是把静态请求交给nginx，动态请求，如jsp, servlet,ssm，等请求交给tomcat. 从而达到动静分离的效果。 </li>
-</ul>
-<h2 id="Nginx动静分离"><a href="#Nginx动静分离" class="headerlink" title="Nginx动静分离"></a>Nginx动静分离</h2><ul>
-<li>所谓的动静分离就是指图片，css, js之类的都交给nginx来处理，nginx处理不了的，比如jsp 就交给tomcat来处理~</li>
-<li>好处是nginx处理静态内容的吞吐量很高，比tomcat高多了，这样无形中提升了性能。</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2020/09/15/Nginx/#more">more >></a>
+        
       
 
       
@@ -1265,11 +1242,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1281,22 +1258,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -1305,15 +1266,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">版本管理工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,6 +1330,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
@@ -1377,19 +1354,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上线</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1417,6 +1390,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -1429,11 +1410,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>

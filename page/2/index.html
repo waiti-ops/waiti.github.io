@@ -780,7 +780,7 @@ ga('send', 'pageview');
 </li>
 </ul>
 <blockquote>
-<p>Redis启动失败,先查看端口号是否被占用,cmd进入,命令<code>netstat -ano | findstr 6379</code> listen 监听的就是进程号,任务管理器可以看到.</p>
+<p>Redis启动失败,先查看端口号是否被占用,Windows下cmd进入,命令<code>netstat -ano | findstr 6379</code>  linux下<code>netstat -an | grep 6379</code>listen 监听的就是进程号,任务管理器可以看到.</p>
 </blockquote>
         
           <a class="article-more-a" href="/2020/06/28/Redis数据库/#more">more >></a>
@@ -1064,43 +1064,38 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-MySql数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Tomcat命令行释放端口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/01/MySql数据库/">MySQL数据库</a>
+      <a class="article-title" href="/2020/06/08/Tomcat命令行释放端口/">Tomcat命令行释放端口</a>
     </h1>
   
 
         
-        <a href="/2020/06/01/MySql数据库/" class="archive-article-date">
-  	<time datetime="2020-06-01T03:24:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+        <a href="/2020/06/08/Tomcat命令行释放端口/" class="archive-article-date">
+  	<time datetime="2020-06-08T07:35:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h2><ul>
-<li>数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。</li>
-<li>每个数据库都有一个或多个不同的 API (application programing  interface)用于创建，访问，管理，搜索和复制所保存的数据。</li>
-<li>我们也可以将数据存储在文件中(例如excel也可以存储数据,数据量过大就会)，但是在文件中读写数据速度相对较慢。</li>
-<li>现在我们使用关系型数据库管理系统（RDBMS）来存储和管理大数据量。所谓的关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。</li>
-<li>RDBMS 即关系数据库管理系统(Relational Database Management System)的特点：<ol>
-<li>数据以表格的形式出现—一个表格相当于Java中的一个类—书</li>
-<li>每列为记录名称所对应的数据域—相当于Java中的属性名—书名,作者,出版社…</li>
-<li>每行为各种记录名称—相当于Java中一个对象,包含各种属性的值—AAA,YT,家里蹲</li>
-<li>许多的行和列组成一张表</li>
-<li>若干的表组成Database</li>
-</ol>
+        <blockquote>
+<p>今天用户在使用系统的公文转换功能时又出现了问题，由于公文转换服务平时就经常宕机，所以准备照常重启下，远程进服务器之后进入Tomcat的bin目录下【shutdown，startup】一波，发现重启失败报错，估计是端口号一直没释放掉。想了想好像忘了Windows下怎么命令行释放了。只能问下度娘。</p>
+</blockquote>
+<ol>
+<li><p>首先查找占用8080端口号的进程PID多少【netstat -ano|findstr 8080】；命令结果的最后一行表示占用8080的端口号是多少8540</p>
+<p><img src="/2020/06/08/Tomcat命令行释放端口/image-20210209154335048.png" alt="image-20210209154335048"></p>
 </li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/06/01/MySql数据库/#more">more >></a>
-        
+<li><p>kill掉这个进程【taskkill /F /PID 8540】</p>
+<p><img src="/2020/06/08/Tomcat命令行释放端口/image-20210209154721979.png" alt="image-20210209154721979"></p>
+</li>
+</ol>
+
       
 
       
@@ -1113,11 +1108,11 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">故障处理</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
         		</li>
       		
 		</ul>
@@ -1138,7 +1133,7 @@ ga('send', 'pageview');
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/01/MySql数据库/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/06/08/Tomcat命令行释放端口/">展开全文 >></a>
         </p>
       
 
@@ -1263,11 +1258,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,22 +1274,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -1303,15 +1282,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">版本管理工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1359,6 +1346,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
@@ -1375,19 +1370,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上线</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1415,6 +1406,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -1427,11 +1426,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>

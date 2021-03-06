@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.ytalyq.top">
-  <title>Tag: Docker | 呼啸山庄的哑舍</title>
+  <title>MySQL事务ACID底层实现原理 | 呼啸山庄的哑舍</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Wuthering Heights Dumb house">
-<meta property="og:type" content="website">
-<meta property="og:title" content="呼啸山庄的哑舍">
-<meta property="og:url" content="http://www.ytalyq.top/tags/Docker/index.html">
+  <meta name="description" content="事务概念：事务是访问和更新数据库它的程序执行单元,可能包含一个或者多个SQL语句，要么都执行，要么都不执行。要么都成功，要么都不成功。  MySQL 的基础架构 第一层：处理客户端连接，以及认证授权，一般使用Navicat做连接。 第二层：服务器层，主要负责查询语句的解析，优化缓存，以及内置函数、存储过程的实现。 第三层：存储引擎，主要负责mysql中的数据存储和提取。（事务就是由存储引擎实现）">
+<meta name="keywords" content="数据库,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL事务ACID底层实现原理">
+<meta property="og:url" content="http://www.ytalyq.top/2020/12/31/MySQL事务ACID底层实现原理/index.html">
 <meta property="og:site_name" content="呼啸山庄的哑舍">
-<meta property="og:description" content="Wuthering Heights Dumb house">
+<meta property="og:description" content="事务概念：事务是访问和更新数据库它的程序执行单元,可能包含一个或者多个SQL语句，要么都执行，要么都不执行。要么都成功，要么都不成功。  MySQL 的基础架构 第一层：处理客户端连接，以及认证授权，一般使用Navicat做连接。 第二层：服务器层，主要负责查询语句的解析，优化缓存，以及内置函数、存储过程的实现。 第三层：存储引擎，主要负责mysql中的数据存储和提取。（事务就是由存储引擎实现）">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-03-06T14:22:54.207Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="呼啸山庄的哑舍">
-<meta name="twitter:description" content="Wuthering Heights Dumb house">
+<meta name="twitter:title" content="MySQL事务ACID底层实现原理">
+<meta name="twitter:description" content="事务概念：事务是访问和更新数据库它的程序执行单元,可能包含一个或者多个SQL语句，要么都执行，要么都不执行。要么都成功，要么都不成功。  MySQL 的基础架构 第一层：处理客户端连接，以及认证授权，一般使用Navicat做连接。 第二层：服务器层，主要负责查询语句的解析，优化缓存，以及内置函数、存储过程的实现。 第三层：存储引擎，主要负责mysql中的数据存储和提取。（事务就是由存储引擎实现）">
   
     <link rel="alternative" href="/atom.xml" title="呼啸山庄的哑舍" type="application/atom+xml">
   
@@ -186,52 +188,113 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL事务ACID底层实现原理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/Docker/" class="archive-article-date">
-  	<time datetime="2019-10-28T02:24:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/Docker/">Docker</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL事务ACID底层实现原理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/12/31/MySQL事务ACID底层实现原理/" class="archive-article-date">
+  	<time datetime="2020-12-31T13:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>事务概念：事务是访问和更新数据库它的程序执行单元,可能包含一个或者多个SQL语句，要么都执行，要么都不执行。要么都成功，要么都不成功。</p>
+</blockquote>
+<h2 id="MySQL-的基础架构"><a href="#MySQL-的基础架构" class="headerlink" title="MySQL 的基础架构"></a>MySQL 的基础架构</h2><ul>
+<li>第一层：处理客户端连接，以及认证授权，一般使用Navicat做连接。</li>
+<li>第二层：服务器层，主要负责查询语句的解析，优化缓存，以及内置函数、存储过程的实现。</li>
+<li>第三层：存储引擎，主要负责mysql中的数据存储和提取。（事务就是由存储引擎实现）innodb支持事务</li>
+</ul>
+<h2 id="ACID特性"><a href="#ACID特性" class="headerlink" title="ACID特性"></a>ACID特性</h2><h3 id="原子性-Atomicity"><a href="#原子性-Atomicity" class="headerlink" title="原子性(Atomicity)"></a>原子性(Atomicity)</h3><ul>
+<li>原子性是指一个事务，是一个不可分割的单位，是一个最小的操作单元。这些操作要么全成功，要么全不成功。如果，事务中的一个SQL语句执行失败，那已经执行过的SQL语句要执行回滚。回滚到事务之前的一个状态。</li>
+<li>实现原理：undo log，innodb存储引擎提供了两种事务的日志：redo log、undo log。undo log就是实现原子性的原理。原子性的体现就是体现在回滚上，如果SQL报错，就会执行这个回滚，回到执行之前的状态，所以就需要把执行之前的状态记录下来。和上线差不多，如果程序的上线失败，或者上线遇到不能解决的bug，就需要回滚上线的版本，把当前错误的版本回滚到上一个正确的版本。也就是需要记住上一个正确的版本是什么。当事务对数据库进行修改的时候，innodb就会生成对应的undo log，记录SQL执行的相关信息，如果SQL执行失败发生回滚，innodb就会根据undo log的内容做相反的工作。比如，执行了一条insert语句，回滚的时候就会执行一个相反的操作就是delete。执行了delete，回滚的时候就会执行insert，对于update就是把修改的数据再改回去。</li>
+</ul>
+<a id="more"></a>
+<h3 id="一致性-Consistency"><a href="#一致性-Consistency" class="headerlink" title="一致性(Consistency)"></a>一致性(Consistency)</h3><ul>
+<li>一致性是指事务执行之后，数据库的完整性约束没有被破坏，事务执行前后都是合法的一个数据状态。</li>
+<li>完整性体现在数据库的主键要唯一，字段类型大小长度要符合要求。还有外键的约束也要符合。</li>
+<li>原子性、持久性、隔离性都是为了保证数据库最终状态的一致性。</li>
+</ul>
+<h3 id="隔离性-Isolation"><a href="#隔离性-Isolation" class="headerlink" title="隔离性(Isolation)"></a>隔离性(Isolation)</h3><ul>
+<li><p>隔离性指的是不同的事务之间，要相互不能影响，就像线程一样，线程与线程之间是不能互相影响对方的。</p>
+</li>
+<li><p>写-写操作：锁 innodb有行锁、表锁、间隙锁，如果有两个事务需要同时对一行数据进行这个写操作，这个时候只有一个事务能对数据进行操作。锁能保证同一时刻只有一个人在操作。</p>
+</li>
+<li>写-读操作：MVCC</li>
+<li>（脏读、不可重复读、幻读）</li>
+</ul>
+<h3 id="持久性-Durability"><a href="#持久性-Durability" class="headerlink" title="持久性(Durability)"></a>持久性(Durability)</h3><ul>
+<li>持久性是指事物一旦提交，它对数据库的改变就是永久性的。</li>
+<li>实现原理：redo log，mysql的数据是存放在磁盘中的，但是如果每次读取数据都需要经过磁盘io，效率就会很低。innodb提供了一个缓存buffer，这个buffer包含了磁盘中的部分数据页的映射。作为访问数据库的一个缓冲。当从数据库中读取数据就会先从buffer中读取。buffer中没有再去磁盘中读取，读取完再 放到buffer缓存中。当向数据库写入数据的时候，也会先向buffer中写入数据，再定期的将buffer中的数据刷新到磁盘中，进行持久化的一个操作。这样虽然效率提升了，但是同时也增加了数据丢失的风险。比如：buffer中的数据还没来得及同步到磁盘上，mysql宕机了，buffer中的数据就会丢失掉。那么久无法保证事务的持久性特性。因此引入了redo log来解决这个问题。引入之后的流程是这样的：当数据库的数据要进行新增和修改的时候，除了修改buffer中的数据，还要把这次的操作记录到redo log中。如果出现mysql宕机的情况，还可以有redo log 可以恢复数据。redo log 是预写式日志–将所有的修改先写入到日志里面，然后再更新到buffer里面。既然，redo log也需要把事务提交的日志写入到磁盘，那为什么比直接将buffer中的数据写入到磁盘中要快。有两个原因：1.buffer中的数据持久化是随机写的io，每次修改的数据位置都是随机的。但是redo log是追加模式，是在文件的尾部去追加，属于顺序io的操作。Kafka也是采用这种机制去操作的。2.buffer持久化数据是以这个数据页page为单位的。MySQL上默认的这个配置页是16K。一个数据页上的小小修改，都要把整个页的数据写入。而redo log只需要写入真正需要的部分。大大减少了无效的io。</li>
+<li>redo log什么时候会同步到磁盘里面？redo log没有同步到磁盘之前，是在缓冲区中，缓冲区叫redo log缓冲区。</li>
+<li>redo log的几种持久化机制，是通过【innodb_flush_log_at_trx_commit】来控制。有三个选项。<ul>
+<li>0：表示当提交事务时，并不将缓冲区的redo日志写入磁盘的日志文件，而是等待主线程每秒刷新</li>
+<li>1：在事务提交时将缓冲区的redo日志同步写入到磁盘，保证一定会写入成功。（一般采用这个）。</li>
+<li>2：在事务提交时将缓冲区的redo日志异步写入到磁盘，即不能完全保证commit时肯定会写入redo日志文件，只是有这个动作。</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              啧
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>随波逐流,随遇而安.<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apply.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">应用容器引擎</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -244,17 +307,126 @@ ga('send', 'pageview');
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.ytalyq.top/2020/12/31/MySQL事务ACID底层实现原理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/01/09/MySql实现修改时间字段的年份/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySql实现修改时间字段的年份
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/12/26/海边的曼彻斯特/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">海边的曼彻斯特</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-的基础架构"><span class="toc-number">1.</span> <span class="toc-text">MySQL 的基础架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID特性"><span class="toc-number">2.</span> <span class="toc-text">ACID特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原子性-Atomicity"><span class="toc-number">2.1.</span> <span class="toc-text">原子性(Atomicity)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性-Consistency"><span class="toc-number">2.2.</span> <span class="toc-text">一致性(Consistency)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离性-Isolation"><span class="toc-number">2.3.</span> <span class="toc-text">隔离性(Isolation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久性-Durability"><span class="toc-number">2.4.</span> <span class="toc-text">持久性(Durability)</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -279,9 +451,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -345,11 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -361,22 +533,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -385,15 +541,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">版本管理工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,6 +605,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
@@ -457,19 +629,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上线</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,6 +665,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -509,11 +685,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>

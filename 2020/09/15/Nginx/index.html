@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="Nginx是一个高性能的Web服务器,通常用来和Tomcat做负载均衡  Nginx启动下载并启动 第一种双击exe启动 命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】 关闭命令【nginx -s stop】 重启命令【nginx -s reload 】 访问http://127.0.0.1  修改端口号 打开nginx目录下的conf/nginx.conf文件，然">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T02:16:25.304Z">
+<meta property="og:updated_time" content="2021-03-06T16:34:10.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx">
 <meta name="twitter:description" content="Nginx是一个高性能的Web服务器,通常用来和Tomcat做负载均衡  Nginx启动下载并启动 第一种双击exe启动 命令行方式启动，cmd进入Nginx的目录位置执行【start nginx】 关闭命令【nginx -s stop】 重启命令【nginx -s reload 】 访问http://127.0.0.1  修改端口号 打开nginx目录下的conf/nginx.conf文件，然">
@@ -226,6 +226,7 @@ ga('send', 'pageview');
 <li>页面存放位置：root html;</li>
 <li>欢迎页面 index  index.html index.htm;</li>
 </ul>
+<a id="more"></a>
 <h2 id="Nginx多个Tomcat测试"><a href="#Nginx多个Tomcat测试" class="headerlink" title="Nginx多个Tomcat测试"></a>Nginx多个Tomcat测试</h2><ul>
 <li>Nginx是一个web服务器，很快速，但是不能作为Servlet 容器独立运行，所以通常的工作方式是Nginx配合Tomcat来协同工作。</li>
 </ul>
@@ -250,8 +251,34 @@ ga('send', 'pageview');
 <li>因为nginx在处理静态文件的吞吐量上面比tomcat好很多，通常他们俩配合，不会把所有的请求都交给tomcat, 而是把静态请求交给nginx，动态请求，如jsp, servlet,ssm，等请求交给tomcat. 从而达到动静分离的效果。 </li>
 </ul>
 <h2 id="Nginx动静分离"><a href="#Nginx动静分离" class="headerlink" title="Nginx动静分离"></a>Nginx动静分离</h2><ul>
-<li>所谓的动静分离就是指图片，css, js之类的都交给nginx来处理，nginx处理不了的，比如jsp 就交给tomcat来处理~</li>
-<li>好处是nginx处理静态内容的吞吐量很高，比tomcat高多了，这样无形中提升了性能。</li>
+<li><p>所谓的动静分离就是指图片，css, js之类的都交给nginx来处理，nginx处理不了的，比如jsp 就交给tomcat来处理~</p>
+</li>
+<li><p>好处是nginx处理静态内容的吞吐量很高，比tomcat高多了，这样无形中提升了性能。</p>
+</li>
+<li><p>修改nginx.conf </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"> </span><br><span class="line">        #charset koi8-r;</span><br><span class="line"> </span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"> </span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://127.0.0.1:8111;</span><br><span class="line">    &#125;</span><br><span class="line">		location ~/.(css|js|png)$&#123;</span><br><span class="line">			root E:/Notes/Nginx/tomcat_8111/webapps/ROOT;</span><br><span class="line">&#125;</span><br><span class="line">    #填写地址用正斜杠/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问<a href="http://127.0.0.1/login.jsp" target="_blank" rel="noopener">http://127.0.0.1/login.jsp</a></p>
+</li>
+</ul>
+<h2 id="Nginx负载均衡"><a href="#Nginx负载均衡" class="headerlink" title="Nginx负载均衡"></a>Nginx负载均衡</h2><h3 id="负载均衡概念"><a href="#负载均衡概念" class="headerlink" title="负载均衡概念"></a>负载均衡概念</h3><blockquote>
+<p>负载均衡的概念就是当访问量很大的时候，一个 Tomcat 吃不消了，这时候就准备多个 Tomcat，由Nginx按照权重来对请求进行分配，从而缓解单独一个Tomcat受到的压力</p>
+</blockquote>
+<ul>
+<li><p>启动两个Tomcat</p>
+</li>
+<li><p>修改nginx.conf</p>
+<ul>
+<li><p>首先增加一个upstream,用来指向两个Tomcat</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcat_8111_8222&#123;</span><br><span class="line"> 	server	127.0.0.1:8111 weight=1;</span><br><span class="line"> 	server	127.0.0.1:8222 weight=2;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后修改location，反向代理到上述配置</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   location / &#123;</span><br><span class="line">       	proxy_pass http://tomcat_8111_8222;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
 </ul>
 
       
@@ -415,7 +442,7 @@ ga('send', 'pageview');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx启动"><span class="toc-number">1.</span> <span class="toc-text">Nginx启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载并启动"><span class="toc-number">1.1.</span> <span class="toc-text">下载并启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改端口号"><span class="toc-number">1.2.</span> <span class="toc-text">修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx-conf配置文件主要看的"><span class="toc-number">1.3.</span> <span class="toc-text">nginx.conf配置文件主要看的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx多个Tomcat测试"><span class="toc-number">2.</span> <span class="toc-text">Nginx多个Tomcat测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx反向代理"><span class="toc-number">3.</span> <span class="toc-text">Nginx反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理概念"><span class="toc-number">3.1.</span> <span class="toc-text">反向代理概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#意义"><span class="toc-number">3.2.</span> <span class="toc-text">意义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx动静分离"><span class="toc-number">4.</span> <span class="toc-text">Nginx动静分离</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx启动"><span class="toc-number">1.</span> <span class="toc-text">Nginx启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载并启动"><span class="toc-number">1.1.</span> <span class="toc-text">下载并启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改端口号"><span class="toc-number">1.2.</span> <span class="toc-text">修改端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx-conf配置文件主要看的"><span class="toc-number">1.3.</span> <span class="toc-text">nginx.conf配置文件主要看的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx多个Tomcat测试"><span class="toc-number">2.</span> <span class="toc-text">Nginx多个Tomcat测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx反向代理"><span class="toc-number">3.</span> <span class="toc-text">Nginx反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理概念"><span class="toc-number">3.1.</span> <span class="toc-text">反向代理概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#意义"><span class="toc-number">3.2.</span> <span class="toc-text">意义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx动静分离"><span class="toc-number">4.</span> <span class="toc-text">Nginx动静分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx负载均衡"><span class="toc-number">5.</span> <span class="toc-text">Nginx负载均衡</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#负载均衡概念"><span class="toc-number">5.1.</span> <span class="toc-text">负载均衡概念</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -525,11 +552,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,22 +568,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -565,15 +576,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">版本管理工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,6 +640,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
               </li>
              
@@ -637,19 +664,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上线</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,6 +700,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -689,11 +720,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>
