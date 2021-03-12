@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="呼啸山庄的哑舍">
 <meta property="og:description" content="【:%s@查找的内容/@替换的内容/@】vim编辑页面下进行内容的替换 【cd /etc/yum.repos.d/】查看本地仓库 【yum repolist】列出已经配置的所有可用仓库 【wget  地址】下载文件 【gzip -d  /路径/文件名】解压文件 【mkdir -p xx/yy】就是一次可以创建多级文件夹，若xx文件夹不存在，则先创建xx文件夹，然后在xx文件夹下创建yy文件夹 【">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-06T15:41:51.133Z">
+<meta property="og:updated_time" content="2021-03-11T16:25:36.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令小记">
 <meta name="twitter:description" content="【:%s@查找的内容/@替换的内容/@】vim编辑页面下进行内容的替换 【cd /etc/yum.repos.d/】查看本地仓库 【yum repolist】列出已经配置的所有可用仓库 【wget  地址】下载文件 【gzip -d  /路径/文件名】解压文件 【mkdir -p xx/yy】就是一次可以创建多级文件夹，若xx文件夹不存在，则先创建xx文件夹，然后在xx文件夹下创建yy文件夹 【">
@@ -215,17 +215,20 @@ ga('send', 'pageview');
 <li>【<em>wget  地址</em>】下载文件</li>
 <li>【gzip -d  /路径/文件名】解压文件</li>
 <li>【mkdir -p xx/yy】就是一次可以创建多级文件夹，若xx文件夹不存在，则先创建xx文件夹，然后在xx文件夹下创建yy文件夹</li>
-<li>【cat】查看文件全部内容</li>
+<li>【rm -rf  filename】删除文件</li>
+<li>【cat filename 】查看文件全部内容</li>
+<li>【 cat &gt; filename】从键盘创建一个文件</li>
 <li>【scp 文件名 目标主机:/root/】拷贝文件至目标主机</li>
-<li>【echo “内容” &gt;&gt;  文件名】写入到某文件中</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li></li>
+<li>【echo “内容” &gt;&gt;  文件名】写入到某文件中，追加。</li>
+<li>【&amp;&amp; \ 】表示前一个执行后正常了后一个才会执行。用于多个命令。</li>
+<li>【&gt;】输出重定向，是输出到文件中, 如果文件存在, 则原来的内容被清空, 不存在则创建文件</li>
+<li>【&gt;&gt;】是把输出追加到文件中, 如果文件存在, 追加到末尾, 不存在则创建文件</li>
+<li>【scp】是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。</li>
+<li>【&lt;&lt;EOF】告诉主shell进程，后续的输入，是其他命令或者子shell的输入，直到遇到EOF为止，再回到主shell。</li>
+<li>【:-】设置一个属性的默认值，例如【IP:-0.0.0.0】【port:-80】</li>
+<li>【$@】传入脚本的所有参数；</li>
+<li>【rpm  -q [软件名]】查询已安装的.rpm软件包</li>
+<li>【rpm  -e  软件名】卸载指定的.rpm软件包</li>
 </ul>
 
       
@@ -499,14 +502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
               </li>
              
@@ -515,23 +510,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,6 +519,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -583,10 +586,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
               </li>
              
@@ -595,7 +594,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,15 +622,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">上线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+                <a href="javascript:void(0)" class="js-tag color3">上线</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,6 +635,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,14 +658,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -667,11 +670,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
             
             <div class="clearfix"></div>

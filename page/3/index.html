@@ -188,6 +188,216 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Example类用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/19/Example类用法/">Example类用法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/19/Example类用法/" class="archive-article-date">
+  	<time datetime="2020-06-19T12:49:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>MybatisGenerator 逆向工程生成的Example类用法<br>Mybatis逆向工程会生成实例及实例对应的example（用于添加条件，相当于where后的部分）</p>
+</blockquote>
+<ul>
+<li>【xxxExample example = new xxxExample();】</li>
+<li>【criteria = example.createCriteria();】</li>
+</ul>
+<h3 id="方法说明："><a href="#方法说明：" class="headerlink" title="方法说明："></a>方法说明：</h3><ol>
+<li>【example.setOrderByClause(“字段名 ASC”)】添加升序排列条件，DESC为降序</li>
+<li>【example.setDistinct(false)】去除重复，boolean类型，true为选择不重复的记录</li>
+<li>【criteria.andXxxIsNull】添加字段xxx为null的条件</li>
+<li>【criteria.andXxxIsNotNull】添加字段xxx不为null的条件</li>
+<li>【criteria.andXxxEqualTo(value)】添加xxx字段等于value条件</li>
+<li>【criteria.andXxxNotEqualTo(value)】添加xxx字段不等于value条件</li>
+<li>【criteria.andXxxGreaterThan(value)】添加xxx字段大于value条件</li>
+<li>【criteria.andXxxGreaterThanOrEqualTo(value)】添加xxx字段大于等于value条件</li>
+<li>【criteria.andXxxLessThan(value)】添加xxx字段小于value条件</li>
+<li>【criteria.andXxxLessThanOrEqualTo(value)】添加xxx字段小于等于value条件</li>
+<li>【criteria.andXxxIn(List)】添加xxx字段值在List</li>
+<li>【criteria.andXxxNotIn(List)】不添加xxx字段值在List</li>
+<li>【criteria.andXxxBetween(value1,value2)】添加xxx字段值在之间</li>
+<li>【criteria.andXxxNotBetween(value1,value2)】添加xxx字段值不在之间</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/19/Example类用法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Tomcat命令行释放端口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/08/Tomcat命令行释放端口/">Tomcat命令行释放端口</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/08/Tomcat命令行释放端口/" class="archive-article-date">
+  	<time datetime="2020-06-08T07:35:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>今天用户在使用系统的公文转换功能时又出现了问题，由于公文转换服务平时就经常宕机，所以准备照常重启下，远程进服务器之后进入Tomcat的bin目录下【shutdown，startup】一波，发现重启失败报错，估计是端口号一直没释放掉。想了想好像忘了Windows下怎么命令行释放了。只能问下度娘。</p>
+</blockquote>
+<ol>
+<li><p>首先查找占用8080端口号的进程PID多少【netstat -ano|findstr 8080】；命令结果的最后一行表示占用8080的端口号是多少8540</p>
+<p><img src="/2020/06/08/Tomcat命令行释放端口/image-20210209154335048.png" alt="image-20210209154335048"></p>
+</li>
+<li><p>kill掉这个进程【taskkill /F /PID 8540】</p>
+<p><img src="/2020/06/08/Tomcat命令行释放端口/image-20210209154721979.png" alt="image-20210209154721979"></p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">故障处理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/08/Tomcat命令行释放端口/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySql数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -508,6 +718,99 @@ ga('send', 'pageview');
 
 
   
+    <article id="post-IDEA配置问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/30/IDEA配置问题/">IDEA配置问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/30/IDEA配置问题/" class="archive-article-date">
+  	<time datetime="2019-11-30T00:54:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-IDEA中自动导包设置及自动导包快捷键"><a href="#1-IDEA中自动导包设置及自动导包快捷键" class="headerlink" title="1.IDEA中自动导包设置及自动导包快捷键"></a>1.IDEA中自动导包设置及自动导包快捷键</h2><ul>
+<li>【File】–【Settings】–【Editor】–【General】–【AutoImport】</li>
+<li>IDEA默认的手动导包快捷键是：Alt + Enter</li>
+</ul>
+<p><img src="/2019/11/30/IDEA配置问题/image-20201227102538999.png" alt="image-20201227102538999"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">配置问题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/开发工具//" class="article-tag-list-link color5">开发工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/30/IDEA配置问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Eclipse配置问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -602,32 +905,40 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-IDEA配置问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-IDEA快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/30/IDEA配置问题/">IDEA配置问题</a>
+      <a class="article-title" href="/2019/11/18/IDEA快捷键/">IDEA快捷键</a>
     </h1>
   
 
         
-        <a href="/2019/11/30/IDEA配置问题/" class="archive-article-date">
-  	<time datetime="2019-11-30T00:54:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
+        <a href="/2019/11/18/IDEA快捷键/" class="archive-article-date">
+  	<time datetime="2019-11-18T08:53:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-IDEA中自动导包设置及自动导包快捷键"><a href="#1-IDEA中自动导包设置及自动导包快捷键" class="headerlink" title="1.IDEA中自动导包设置及自动导包快捷键"></a>1.IDEA中自动导包设置及自动导包快捷键</h2><ul>
-<li>【File】–【Settings】–【Editor】–【General】–【AutoImport】</li>
-<li>IDEA默认的手动导包快捷键是：Alt + Enter</li>
-</ul>
-<p><img src="/2019/11/30/IDEA配置问题/image-20201227102538999.png" alt="image-20201227102538999"></p>
-
+        <ol>
+<li>【Ctrl+D】复制当前行到下一行</li>
+<li>【Ctrl+Alt+L】格式化整理代码</li>
+<li>【Ctrl+X】不选中默认删除当前行  选中就是剪切（Eclipse是【Ctrl+D】）</li>
+<li>【】</li>
+<li>【】</li>
+<li>【】</li>
+<li>【】</li>
+<li>【】</li>
+<li>【】</li>
+<li>【】</li></ol>
+        
+          <a class="article-more-a" href="/2019/11/18/IDEA快捷键/#more">more >></a>
+        
       
 
       
@@ -640,7 +951,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">配置问题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快捷键</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -665,7 +976,7 @@ ga('send', 'pageview');
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/30/IDEA配置问题/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/18/IDEA快捷键/">展开全文 >></a>
         </p>
       
 
@@ -768,107 +1079,6 @@ ga('send', 'pageview');
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/18/Eclipse快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IDEA快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/18/IDEA快捷键/">IDEA快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/18/IDEA快捷键/" class="archive-article-date">
-  	<time datetime="2019-11-18T08:53:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>【Ctrl+D】复制当前行到下一行</li>
-<li>【Ctrl+Alt+L】格式化整理代码</li>
-<li>【Ctrl+X】不选中默认删除当前行  选中就是剪切（Eclipse是【Ctrl+D】）</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li></ol>
-        
-          <a class="article-more-a" href="/2019/11/18/IDEA快捷键/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">快捷键</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">IDEA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发工具//" class="article-tag-list-link color5">开发工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/18/IDEA快捷键/">展开全文 >></a>
         </p>
       
 
@@ -1010,213 +1220,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-VSCode配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/22/VSCode配置/">VSCode配置</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/22/VSCode配置/" class="archive-article-date">
-  	<time datetime="2019-10-22T05:57:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="设置中文的环境"><a href="#设置中文的环境" class="headerlink" title="设置中文的环境"></a>设置中文的环境</h2><ol>
-<li>先安装好VSCode软件，官网安装地址：<a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></li>
-<li>首先打开VSCode软件，可以看到刚刚安装的VSCode软件默认使用的是英文语言环境</li>
-<li>接下来设置为中文语言环境，这里需要使用快捷键【Ctrl+Shift+P】来实现</li>
-<li>在弹出的搜索框中输入【configure language】，然后选择搜索出来的【Configure Display Language】,选择zh-CN  ,重启VSCode</li>
-<li>以上是将 软件启动加载语言配置包设置为中文  还需要下载对应的中文语言包</li>
-<li>使用快捷键【Ctrl+Shift+X】调出应用商店入口  在输入框输入Chinese ,然后选择【Chinese （Simplified）Language Pack for Visual Studio Code】，然后点击右侧的【Install】</li>
-<li>安装成功提示重启, 选择【yes】就可以.</li>
-<li>VSCODE官方的插件在线安装地址：<a href="https://marketplace.visualstudio.com/vscode" target="_blank" rel="noopener">https://marketplace.visualstudio.com/vscode</a></li>
-</ol>
-        
-          <a class="article-more-a" href="/2019/10/22/VSCode配置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">配置问题</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开发工具//" class="article-tag-list-link color5">开发工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/22/VSCode配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux命令小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/03/Linux命令小记/">Linux命令小记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/Linux命令小记/" class="archive-article-date">
-  	<time datetime="2019-09-03T03:24:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>【<em>:%s@查找的内容/@替换的内容/@</em>】vim编辑页面下进行内容的替换</li>
-<li>【<em>cd /etc/yum.repos.d/</em>】查看本地仓库</li>
-<li>【<em>yum repolist</em>】列出已经配置的所有可用仓库</li>
-<li>【<em>wget  地址</em>】下载文件</li>
-<li>【gzip -d  /路径/文件名】解压文件</li>
-<li>【mkdir -p xx/yy】就是一次可以创建多级文件夹，若xx文件夹不存在，则先创建xx文件夹，然后在xx文件夹下创建yy文件夹</li>
-<li>【cat】查看文件全部内容</li>
-<li>【scp 文件名 目标主机:/root/】拷贝文件至目标主机</li>
-<li>【echo “内容” &gt;&gt;  文件名】写入到某文件中</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li>【】</li>
-<li></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/运维//" class="article-tag-list-link color3">运维</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/03/Linux命令小记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1312,14 +1315,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Eclipse</a>
               </li>
              
@@ -1328,23 +1323,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1353,6 +1332,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Excel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Http协议</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1396,10 +1399,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">故障处理</a>
               </li>
              
@@ -1408,7 +1407,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">VSCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1424,15 +1435,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">上线</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
+                <a href="javascript:void(0)" class="js-tag color3">上线</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1441,6 +1448,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Zabbix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1460,14 +1471,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">应用容器引擎</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
@@ -1480,11 +1483,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络通信协议(TCP/IP)</a>
               </li>
             
             <div class="clearfix"></div>
